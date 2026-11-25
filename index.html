@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b6e4f">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Exam Dealer JAMB CBT 2027</title>
+<style>
+:root{--bg:#f2f5f9;--fg:#1b2430;--card:#fff;--alt:#e4e9ef;--line:#bbb;--sol:#eef7f1;--tag:#ffe9a8;--tagfg:#1b2430;--warn:#b45309;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121821;--fg:#e8edf3;--card:#1c2530;--alt:#2a3644;--line:#445366;--sol:#173326;--tag:#5a4a12;--tagfg:#ffeeb0;--warn:#f0b35a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121821;--fg:#e8edf3;--card:#1c2530;--alt:#2a3644;--line:#445366;--sol:#173326;--tag:#5a4a12;--tagfg:#ffeeb0;--warn:#f0b35a;color-scheme:dark}
+:root{--g1:#0b6e4f;--g2:#0f4c81;--g3:#5b2a86}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--g1:#06281e;--g2:#0a2a47;--g3:#2b1545}}
+:root[data-theme="dark"]{--g1:#06281e;--g2:#0a2a47;--g3:#2b1545}
+*{box-sizing:border-box;font-family:Arial,sans-serif}
+body{margin:0;color:var(--fg);background-color:var(--g1);background-attachment:fixed;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cg fill='none' stroke='white' stroke-opacity='.14' stroke-width='2'%3E%3Cpath d='M20 30Q33 24 45 30Q57 24 70 30V62Q57 56 45 62Q33 56 20 62Z'/%3E%3Cpath d='M45 30V62'/%3E%3C/g%3E%3C/svg%3E"),radial-gradient(circle at 15% 10%,rgba(255,255,255,.22),transparent 42%),radial-gradient(circle at 85% 90%,rgba(255,215,120,.25),transparent 46%),linear-gradient(135deg,var(--g1) 0%,var(--g2) 55%,var(--g3) 100%)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.16) 50%,transparent 70%);background-size:250% 100%;animation:shine 7s linear infinite}
+@keyframes shine{0%{background-position:150% 0}100%{background-position:-100% 0}}
+@media (prefers-reduced-motion: reduce){body::before{animation:none}}
+header{position:relative;z-index:1;color:#fff;padding:20px 56px 6px;text-align:center;font-size:21px;font-weight:bold;text-shadow:0 2px 8px #0007}
+header small{display:block;font-size:13px;font-weight:normal;opacity:.92;margin-top:2px}
+main{position:relative;z-index:1;max-width:640px;margin:auto;padding:16px}
+.card{background:var(--card);border-radius:14px;padding:16px;margin-bottom:14px;box-shadow:0 8px 22px #0005}
+button{width:100%;padding:13px;margin-top:8px;border:0;border-radius:10px;font-size:16px;background:#0b6e4f;color:#fff;cursor:pointer}
+button.alt{background:var(--alt);color:var(--fg);text-align:left}
+button.ok{background:#1f9d55;color:#fff}
+button.bad{background:#d64545;color:#fff}
+select,input{width:100%;padding:12px;margin-top:6px;border-radius:8px;border:1px solid var(--line);font-size:16px;background:var(--card);color:var(--fg)}
+.tag{display:inline-block;background:var(--tag);color:var(--tagfg);padding:3px 8px;border-radius:6px;font-size:13px}
+.sol{background:var(--sol);border-left:4px solid #0b6e4f;padding:10px;margin-top:10px;border-radius:6px}
+.row{display:flex;gap:8px}
+.item{padding:10px;border-radius:10px;background:var(--alt);margin-top:8px;cursor:pointer}
+.good{color:#1f9d55}
+.badc{color:#d64545}
+.opt{padding:9px;border-radius:8px;margin-top:6px;background:var(--alt)}
+.opt.right{background:#1f9d55;color:#fff}
+.opt.wrong{background:#d64545;color:#fff}
+label{display:block;margin-top:12px;font-weight:bold;font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chip{padding:8px 12px;border-radius:20px;background:var(--alt);cursor:pointer;font-size:14px}
+.chip.on{background:#0b6e4f;color:#fff}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:0 0 10px;margin-bottom:4px}
+.tab{flex:0 0 auto;padding:9px 14px;border-radius:20px;background:rgba(255,255,255,.22);color:#fff;font-size:14px;cursor:pointer;white-space:nowrap}
+.tab.on{background:#fff;color:#0b6e4f;font-weight:bold}
+.btnrow{display:flex;gap:10px}
+.btnrow .pill{flex:1;margin:0;padding:14px;border-radius:30px;font-weight:bold;font-size:17px;text-align:center;color:#fff;text-decoration:none;border:0;display:block}
+.orange{background:#ff6a00}.green{background:#4caf50}
+.banner{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 0 14px}
+.slide{flex:0 0 88%;scroll-snap-align:start;border-radius:18px;padding:20px;min-height:130px;color:#fff;display:flex;flex-direction:column;justify-content:center;gap:6px;box-shadow:0 8px 22px #0005}
+.slide b{font-size:20px}
+.s1{background:linear-gradient(135deg,#0b6e4f,#16a085)}.s2{background:linear-gradient(135deg,#5b2a86,#8e44ad)}.s3{background:linear-gradient(135deg,#0f4c81,#2980b9)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.tile{border-radius:16px;padding:16px;min-height:150px;cursor:pointer;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:6px;color:#1b2430;box-shadow:0 8px 22px #0005}
+.tile .ti{font-size:34px}.tile b{font-size:18px}.tile small{font-size:13px}
+.t1{background:#b9c0ef}.t2{background:#f2b4c9}.t3{background:#a9d6cf}.t4{background:#d9dde4}.t9{background:#cfc2e8}.t10{background:#c9d6b0}.t11{background:#e8b9b9}.t12{background:#b6e0e0}
+.splash{text-align:center;color:#fff;padding-top:14vh;cursor:pointer}
+.splash h1{font-size:30px;padding:0 12px;margin:14px 0 0;text-shadow:0 2px 10px #0008;opacity:0;animation:lnshow .8s 1.6s forwards}
+.splash p,.splash small{opacity:0;animation:lnshow .8s 2s forwards}
+.pg{transform-box:view-box;transform-origin:100px 70px;transform:scaleX(0);animation:pgopen 1.1s .3s ease-out forwards}
+.ln{opacity:0;animation:lnshow .6s 1.2s forwards}
+@keyframes pgopen{to{transform:scaleX(1)}}
+@keyframes lnshow{to{opacity:1}}
+@media (prefers-reduced-motion: reduce){.pg{animation:none;transform:scaleX(1)}.ln,.splash h1,.splash p,.splash small{animation:none;opacity:1}}
+.bar{height:12px;border-radius:8px;background:var(--alt);overflow:hidden}.fill{height:100%}.fill.g{background:#1f9d55}.fill.r{background:#d64545}
+.qbar{display:flex;flex-wrap:wrap;align-items:center;gap:6px;position:sticky;top:0;z-index:5;padding:6px 0}
+.ib{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.65);background:rgba(0,0,0,.4);color:#fff;font-size:19px;padding:0;margin:0;display:flex;align-items:center;justify-content:center}
+.ib.on{background:#0b6e4f}
+.timer{margin-left:auto;padding:10px 14px;border-radius:24px;background:#b04a00;border:3px solid #4caf50;color:#fff;font-weight:bold}
+.qrow{display:flex;gap:10px;align-items:center;margin:6px 0 12px}
+.qpill{flex:1;display:flex;justify-content:center;align-items:center;gap:10px;padding:10px;border-radius:30px;border:2px solid rgba(255,255,255,.7);background:rgba(0,0,0,.4);color:#fff;font-weight:bold}
+.spk{width:34px;height:34px;border-radius:8px;padding:0;margin:0;background:#555;color:#fff;font-size:16px}
+.nx{width:44px;height:44px;border-radius:50%;background:#4caf50;color:#fff;border:0;padding:0;margin:0;font-size:24px}
+.passage{background:var(--alt);border-radius:10px;padding:10px;margin-bottom:10px;max-height:240px;overflow-y:auto}
+.qfoot{position:sticky;bottom:8px;display:flex;gap:10px;margin-top:10px;z-index:5}
+.qcount{flex:1;margin:0;border-radius:30px;background:rgba(0,0,0,.65);color:#fff;border:2px solid rgba(255,255,255,.6);font-weight:bold}
+.submit{flex:1.2;margin:0;border-radius:30px;background:#ff6a00;color:#fff;font-weight:bold}
+button.sel{background:#0b6e4f;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.qn{padding:10px 0;margin:0;text-align:center;border-radius:8px;background:var(--alt);color:var(--fg);font-size:14px}
+.qn.a{background:#1f9d55;color:#fff}.qn.c{outline:3px solid #ff6a00}
+.calcout{background:var(--alt);border-radius:8px;padding:12px;text-align:right;font-size:22px;min-height:48px;word-break:break-all}
+.calcgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+.ck{margin:0;padding:12px 0;text-align:center}.ck.eq{grid-column:span 4;background:#ff6a00}
+.badge{display:inline-block;background:#ff6a00;color:#fff;border-radius:12px;padding:2px 8px;font-size:11px;margin-left:6px}
+.t5{background:#e6c9a8}.t6{background:#cfe3a8}.t7{background:#f6d58e}.t8{background:#b8d8f0}
+.backbtn{position:absolute;left:10px;top:16px;width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,.4);border:2px solid rgba(255,255,255,.65);color:#fff;font-size:20px;padding:0;margin:0;display:flex;align-items:center;justify-content:center}
+header{position:relative}
+.qnav3{display:flex;gap:8px;margin-top:10px}
+.qnav3 button{flex:1;margin:0;padding:12px 4px;text-align:center;font-size:13px;line-height:1.2}
+.s4{background:linear-gradient(135deg,#b8860b,#f1c40f);color:#1b2430}
+.scorer{display:flex;gap:12px;align-items:center}
+.scorer img{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid #fff}
+.scorer span{display:block}
+.menubtn{position:absolute;right:10px;top:16px;width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,.4);border:2px solid rgba(255,255,255,.65);color:#fff;font-size:22px;padding:0;margin:0;display:flex;align-items:center;justify-content:center}
+.drawerbg{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:50}
+.drawer{position:fixed;top:0;bottom:0;left:0;width:82%;max-width:340px;background:var(--card);color:var(--fg);z-index:51;overflow-y:auto;padding-bottom:30px;box-shadow:6px 0 24px #0008}
+.dhead{background:linear-gradient(135deg,#8e2de2,#4a00e0,#00b4db);color:#fff;padding:calc(env(safe-area-inset-top,0px) + 26px) 16px 14px}
+.dsec{padding:12px 16px 4px;font-size:13px;opacity:.7;font-weight:bold}
+.ditem{display:flex;gap:16px;align-items:center;padding:14px 16px;cursor:pointer;font-size:16px}
+.dline{height:1px;background:var(--alt);margin:6px 0}
+.toast{position:fixed;left:16px;right:16px;bottom:24px;background:#222;color:#fff;padding:12px 16px;border-radius:12px;z-index:60;text-align:center}
+.bankcard{position:relative;overflow:hidden;border-radius:16px;padding:18px;color:#fff;background:linear-gradient(160deg,#0a3d62,#1e6091);margin-bottom:14px;box-shadow:0 8px 22px #0005}
+.bankcard svg.bg{position:absolute;left:0;right:0;bottom:0;width:100%;height:100%;opacity:.28}
+.bankcard .in{position:relative}
+.bankcard .brow{position:relative;margin:16px 0;padding:14px 16px;border-radius:12px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4)}
+.bankcard .brow small{display:block;opacity:.85;font-size:13px;margin-bottom:4px}
+.bankcard .brow b{font-size:22px;letter-spacing:1px}
+.bankcard button{background:rgba(255,255,255,.22);color:#fff;margin-top:10px}
+.pt{border-collapse:collapse;width:100%}.pt td,.pt th{border:1px solid #888;padding:8px 10px;text-align:center}
+details summary{cursor:pointer;padding:8px;border-radius:8px;background:var(--alt)}details p{margin:6px 8px}
+.tiles .tile:last-child:nth-child(odd){grid-column:span 2}
+.chip.sub{margin-right:6px}
+</style>
+</head>
+<body>
+<header><button class="backbtn" id="backbtn" onclick="goBack()" aria-label="Back">←</button><button class="menubtn" id="menubtn" onclick="menuToggle()" aria-label="Menu">⋮</button>📖 Exam Dealer JAMB CBT 2027<small>JAMB practice, score history and novel library</small></header>
+<main id="app"></main>
+
+<script src="questions.js"></script>
+<script src="extra-questions.js"></script>
+<script>
+/* ===== SETTINGS ===== */
+const CONFIG = {
+  price: 5000,
+  bank: "Opay",
+  acctNo: "8168862853",
+  acctName: "Abdul Somad Qosim",
+  email: "qosimsamad8@gmail.com",
+  // Secret used to make unlock codes. Keep it private. The code generator page uses the same secret.
+  secret: "3B3B22643087D928",
+  batches: "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""),   // 26 batches, A to Z
+  batchSize: 500                                      // 500 codes in every batch
+};
+function h53(str){let h1=0xdeadbeef,h2=0x41c6ce57;for(let i=0;i<str.length;i++){const ch=str.charCodeAt(i);h1=Math.imul(h1^ch,2654435761);h2=Math.imul(h2^ch,1597334677);}h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507)^Math.imul(h1^(h1>>>13),3266489909);return 4294967296*(2097151&h2)+(h1>>>0);}
+function batchCode(b,i){const n=h53(b+"|"+i+"|"+CONFIG.secret);const t=n.toString(36).toUpperCase().padStart(10,"0").slice(0,10);return t.slice(0,5)+"-"+t.slice(5);}
+function codeFor(id){const n=h53(String(id).toUpperCase().replace(/[^A-Z0-9]/g,"")+"|"+CONFIG.secret);const t=n.toString(36).toUpperCase().padStart(10,"0").slice(0,10);return t.slice(0,5)+"-"+t.slice(5);}
+const FREE_LIMIT = 5;
+/* Add REAL top scorers here, only with the student's permission.
+   Example: {name:"Student Name", score:"300", year:"2026", prize:"", photo:"scorer1.jpg"}
+   photo: a file you upload next to index.html, or a data: image. Leave the list empty to show no scorer banners. */
+const TOP_SCORERS = [];
+/* Optional links. Paste your own links here. */
+const CHANNEL_URL = "https://whatsapp.com/channel/0029Vb9TRB31nozBpJnUdI1E";   // your WhatsApp channel link
+const RATE_URL = "";      // your Google Play listing link, after the app is published
+const APP_URL = "";       // the link you want people to share (leave empty to use this page's link)
+/* Online features (optional). Paste your Firebase web app config to switch on registration saving, the online leaderboard and single-use codes. */
+const FIREBASE_CONFIG = null;
+/* Optional AI tutor server address (see the firebase folder). Leave empty if you do not use it. */
+const TUTOR_URL = "";
+const NOVELS = [
+{t:"The Lekki Headmaster",a:"Kabir Alabi Garba",y:"",tag:"JAMB recommended Use of English novel",sum:"Bepo Adewale is the dedicated and charismatic principal of Stardom Schools in Lekki, Lagos. The story follows his work as a school leader, the pressure he faces from the school’s management, and the emotional struggles that come with the job, while wider issues such as migration (japa) and the brain drain affect the people around him. The novel also highlights the value of teachers to the nation.",th:["dedication and leadership","education and the role of teachers","migration (japa) and the brain drain","institutional pressure","emotional struggles"],ch:["Bepo Adewale (the principal)","Mrs Ibidun Gloss (the MD)"]},
+{t:"Things Fall Apart",a:"Chinua Achebe",y:"1958",sum:"Okonkwo, a proud and respected wrestler in the Igbo village of Umuofia, works hard to avoid being seen as weak like his father. After he accidentally kills a clansman he is exiled for seven years. When he returns, missionaries and colonial officials have changed the village, and he cannot accept it.",th:["tradition and change","pride and masculinity","colonialism","fate (chi)"],ch:["Okonkwo","Nwoye","Unoka","Ezinma","Obierika","Mr Brown"]},
+{t:"Arrow of God",a:"Chinua Achebe",y:"1964",sum:"Ezeulu, chief priest of Ulu in Umuaro in the 1920s, is caught between his people, the British colonial administration and his own pride. When he refuses to name the day of the harvest festival, the yams rot and many turn to the Christian church.",th:["power and leadership","religion","colonialism","pride"],ch:["Ezeulu","Nwaka","Obika","Oduche","Captain Winterbottom"]},
+{t:"No Longer at Ease",a:"Chinua Achebe",y:"1960",sum:"Obi Okonkwo, grandson of Okonkwo, returns from studying in England to a civil-service job in Lagos. Pulled between his ideals and the pressures of family, debt and clan expectations, he accepts bribes and is arrested.",th:["corruption","education","tradition and modernity","identity"],ch:["Obi Okonkwo","Clara","Mr Green","Isaac Okonkwo"]},
+{t:"A Man of the People",a:"Chinua Achebe",y:"1966",sum:"Odili Samalu, a teacher, becomes disillusioned with Chief Nanga, a charming but corrupt minister, and challenges him in an election. The story ends with a military coup.",th:["political corruption","power","betrayal","greed"],ch:["Odili","Chief Nanga","Max","Edna"]},
+{t:"Purple Hibiscus",a:"Chimamanda Ngozi Adichie",y:"2003",sum:"Fifteen-year-old Kambili lives in Enugu with her wealthy, devout father Eugene, who is generous in public but violent at home. A stay with her aunt Ifeoma’s lively family in Nsukka opens Kambili and her brother Jaja to freedom and, finally, to defiance.",th:["religious extremism","domestic violence","freedom","family"],ch:["Kambili","Jaja","Eugene","Beatrice","Aunty Ifeoma","Father Amadi"]},
+{t:"Half of a Yellow Sun",a:"Chimamanda Ngozi Adichie",y:"2006",sum:"Set before and during the Nigerian civil war, the novel follows Olanna, Kainene, Ugwu and Richard as war and the short-lived Republic of Biafra reshape their lives.",th:["war","class","identity","love and betrayal"],ch:["Olanna","Odenigbo","Ugwu","Kainene","Richard"]},
+{t:"Americanah",a:"Chimamanda Ngozi Adichie",y:"2013",sum:"Ifemelu and Obinze fall in love as teenagers in Lagos. She moves to the United States and he is turned away in Britain. Years later both return to Nigeria and meet again.",th:["race","identity","immigration","love and belonging"],ch:["Ifemelu","Obinze","Aunty Uju","Dike"]},
+{t:"The Joys of Motherhood",a:"Buchi Emecheta",y:"1979",sum:"Nnu Ego, an Igbo woman in colonial Lagos, believes motherhood will bring her honour. She sacrifices everything for her many children and finds little support or reward in old age.",th:["motherhood","women’s roles","colonialism","poverty"],ch:["Nnu Ego","Nnaife","Oshia","Adaku","Agbadi"]},
+{t:"Second-Class Citizen",a:"Buchi Emecheta",y:"1974",sum:"Adah, a determined Igbo girl, wins a place in school and later joins her husband Francis in London. There she faces racism, poverty and his irresponsibility while she works and writes.",th:["gender inequality","race","ambition","marriage"],ch:["Adah","Francis","Adah’s children"]},
+{t:"Efuru",a:"Flora Nwapa",y:"1966",sum:"Efuru, a beautiful and independent woman of Ugwuta, marries twice and loses her only child. She turns to trade and to the worship of the lake goddess Uhamiri.",th:["women’s independence","marriage","childlessness","tradition"],ch:["Efuru","Adizua","Gilbert","Ajanupu","Uhamiri"]},
+{t:"The Palm-Wine Drinkard",a:"Amos Tutuola",y:"1952",sum:"A man who loves palm wine travels through a world of spirits and monsters to bring back his dead palm-wine tapster. The book is written in a distinctive English shaped by Yoruba storytelling.",th:["folklore","journey","the supernatural","hardship"],ch:["the Drinkard","his wife","the palm-wine tapster","Death"]},
+{t:"Weep Not, Child",a:"Ngũgĩ wa Thiong’o",y:"1964",sum:"Njoroge, a young Kikuyu boy, dreams of education during Kenya’s Mau Mau uprising, while land loss and the emergency tear his family apart.",th:["education","land","colonialism","hope"],ch:["Njoroge","Ngotho","Nyokabi","Jacobo","Mwihaki","Boro"]},
+{t:"The River Between",a:"Ngũgĩ wa Thiong’o",y:"1965",sum:"Waiyaki, a young Kikuyu leader, tries to unite two ridges divided over the Christian mission and traditional ways. His love for Nyambura, the daughter of a convert, deepens the conflict.",th:["tradition and Christianity","education","unity","love"],ch:["Waiyaki","Nyambura","Joshua","Kabonyi","Chege"]},
+{t:"Petals of Blood",a:"Ngũgĩ wa Thiong’o",y:"1977",sum:"Four people in the village of Ilmorog are questioned after a murder. Their stories show how independence brought new greed and exploitation.",th:["corruption","neo-colonialism","land","class"],ch:["Munira","Wanja","Karega","Abdulla"]},
+{t:"So Long a Letter",a:"Mariama Bâ",y:"1979",sum:"Ramatoulaye writes to her friend Aissatou after her husband’s death, reflecting on polygamy, grief and the position of women in Senegalese society.",th:["polygamy","widowhood","friendship","women’s rights"],ch:["Ramatoulaye","Aissatou","Modou","Binetou","Daba"]},
+{t:"Nervous Conditions",a:"Tsitsi Dangarembga",y:"1988",sum:"Tambu, a Shona girl in colonial Rhodesia, wins a place at her uncle’s mission school and watches her cousin Nyasha struggle with identity and expectations.",th:["gender","education","colonialism","identity"],ch:["Tambu","Nyasha","Babamukuru","Maiguru","Lucia"]},
+{t:"Cry, the Beloved Country",a:"Alan Paton",y:"1948",sum:"Stephen Kumalo, a rural Zulu priest, travels to Johannesburg to find his son Absalom and learns that he has killed a white man. The novel looks at racial injustice and the hope for understanding between fathers.",th:["racial injustice","family","forgiveness","urbanisation"],ch:["Stephen Kumalo","Absalom","James Jarvis","Gertrude","Msimangu"]},
+{t:"The Beautyful Ones Are Not Yet Born",a:"Ayi Kwei Armah",y:"1968",sum:"An honest, unnamed railway clerk in Ghana refuses bribes while his family and friends push him towards corruption.",th:["corruption","honesty","post-independence disillusion"],ch:["the Man","Oyo","Koomson","the Teacher"]},
+{t:"Season of Anomy",a:"Wole Soyinka",y:"1973",sum:"Set in a fictional West African country, Ofeyi, a poet and advertising executive, searches for his kidnapped lover Iriyise amid political violence and the clash between the ideal community of Aiyéró and corrupt powers.",th:["political violence","corruption","myth","resistance"],ch:["Ofeyi","Iriyise"]},
+{t:"The Famished Road",a:"Ben Okri",y:"1991",sum:"Azaro, a spirit-child (abiku), chooses to stay in the world of the living in a Nigerian city. He tells of his family’s poverty and the political troubles around them, mixing the real and spirit worlds.",th:["the spirit world","poverty","politics","hope"],ch:["Azaro","Dad","Mum","Madame Koto"]}
+];
+
+const CHAPTERS = {
+"The Lekki Headmaster":{label:"Chapter",note:"Chapter notes follow a published study guide. Check them against the book.",items:[
+"1. Dusk — At assembly, principal Bepo Adewale breaks down in tears and cannot speak. Vice Principal Mrs Apeh and the MD, Mrs Gloss, send him home with the counsellor.",
+"2. The Enticement — Bepo explains that his wife Seri and their two children are in the UK and he must join them. He loves Stardom, but the pay abroad is far higher.",
+"3. Migration Tales — Bepo thinks about the realities of life abroad. He hears success stories and hardship stories, and recalls Mr Nku, who vanished with a cooperative loan.",
+"4. A Case of Visa Denied — Mrs Ignatius calls late at night about her family’s refused visas, which are tied to a DNA test. Bepo hears her, and a subplot about Bibi’s fear of a teacher’s tribal marks follows.",
+"5. Snake in the Roof — The MD finds staff cars parked on school land and learns that cooperative loans paid for them. The board caps loans and tightens control.",
+"6. Ade as Well as Jide — On Open Day a parent complains about a teacher’s grammar. The MD wrongly blames Mr Fafore, but Bepo shows he was right.",
+"7. ‘Ritualists’ — Bepo remembers his time at Beesway Group of Schools and a frightening night when he saw the director and others bury a cow. He also recalls his failed school, Fruitful Future.",
+"8. Missions Unaccomplished — Prefect elections begin. A speech by Banky insults Tosh’s father, Chief Ogba, and starts a family feud. Bepo worries about the Invention Club’s Breath Project.",
+"9. Laughing Waterfalls — The school’s excursions are described, including waterfalls and Badagry. Bepo links the slave trade to today’s ‘japa’.",
+"10. Passport Pains — Bepo struggles to renew his passport. He deals with corruption, agents like Tai, and NIN problems, even travelling to Ibadan.",
+"11. Point of No Return — Stardom holds a farewell: a football match, an arts versus sciences debate and a cultural display. The MD gives Bepo a $10,000 cheque and he weeps.",
+"12. Dawn — Bepo leaves for the airport with the support of his neighbours. After he leaves, the school feels his absence, then he returns, saying his heart is at Stardom."]},
+"Things Fall Apart":{label:"Chapter",note:"Short chapter notes. Match them with your edition.",items:[
+"1. Okonkwo is a famous wrestler in Umuofia who fears being weak like his father Unoka.",
+"2. Mbaino must pay for a killed Umuofian woman. Okonkwo takes charge of the boy Ikemefuna.",
+"3. The story goes back to Unoka’s debts and to Okonkwo’s hard start as a farmer.",
+"4. Okonkwo breaks the Week of Peace by beating his wife and is punished.",
+"5. The New Yam feast is held. Okonkwo’s temper again shows, and Ikemefuna settles into the household.",
+"6. A wrestling contest is held. Ekwefi and her daughter Ezinma are shown, and the priestess Chielo praises Ezinma.",
+"7. Ikemefuna is killed on the elders’ order, and Okonkwo strikes the fatal blow.",
+"8. Okonkwo is sad. Obierika questions the killing, and Obierika’s daughter’s suitors visit.",
+"9. Ezinma falls ill and Okonkwo helps. Ekwefi’s ogbanje fear is explained.",
+"10. The egwugwu judge a case between Uzowulu and his wife’s family.",
+"11. Chielo takes Ezinma to the cave at night, and Ekwefi follows.",
+"12. The bride-price ceremony for Akueke is held.",
+"13. At Ezeudu’s funeral, Okonkwo’s gun explodes and kills a boy. He is exiled for seven years.",
+"14. The family arrives in Mbanta. Uchendu welcomes them and teaches Okonkwo about motherhood.",
+"15. Obierika visits and tells of the destruction of Abame by white men.",
+"16. Missionaries arrive at Mbanta and the first converts join them.",
+"17. Nwoye is drawn to the new faith. The church is given land in the Evil Forest.",
+"18. The church grows, as outcasts join it. Nothing happens to the missionaries in the Evil Forest.",
+"19. Okonkwo’s exile ends, and he holds a feast for his mother’s kinsmen.",
+"20. Okonkwo returns to Umuofia and finds it changed by the church, school and trade.",
+"21. Mr Brown builds trust with the people. Reverend Smith takes over and is strict.",
+"22. Enoch unmasks an egwugwu. The clan burns the church in revenge.",
+"23. The District Commissioner tricks Okonkwo and other leaders, arrests them, and humiliates them.",
+"24. The leaders are released after a fine. At a meeting, Okonkwo kills a court messenger.",
+"25. The Commissioner finds Okonkwo’s body. He plans to give the story only a paragraph in his book."]},
+"Arrow of God":{label:"Stage",items:[
+"1. Ezeulu, chief priest of Ulu, announces the feast days and faces rivals such as Nwaka and Ezidemili.",
+"2. In a land quarrel with Okperi, Ezeulu tells the truth and goes against his own people. Winterbottom steps in.",
+"3. Captain Winterbottom offers Ezeulu a post as warrant chief. Ezeulu refuses and is detained.",
+"4. Ezeulu’s absence upsets the feast calendar. His son Oduche locks a sacred python in a box.",
+"5. Back home, Ezeulu refuses to name the day for the New Yam feast.",
+"6. The harvest rots, and the hungry people take offerings to the Christian church.",
+"7. Obika dies after a funeral ritual. Ezeulu loses his mind and ends alone."]},
+"No Longer at Ease":{label:"Stage",items:[
+"1. Obi Okonkwo stands trial for taking a bribe and everyone asks why.",
+"2. Flashback: the Umuofia Progressive Union pays for Obi to study English in England.",
+"3. Obi returns to Lagos and takes a job at the Scholarship Board with high ideals.",
+"4. He loves Clara, an osu, but his parents oppose the marriage.",
+"5. Debts and family demands grow, and his mother dies while he is away.",
+"6. He starts accepting small gifts that become bribes, and Clara leaves him.",
+"7. He is caught in a bribery trap and is judged by society."]},
+"A Man of the People":{label:"Stage",items:[
+"1. Odili Samalu meets his old teacher, Chief Nanga, who is now Minister of Culture.",
+"2. Odili visits Nanga in the capital and sees his luxury and corruption.",
+"3. Nanga takes Odili’s girlfriend, Elsie, so Odili wants revenge.",
+"4. Odili joins Max and the Common People’s Convention to challenge Nanga.",
+"5. He courts Edna, Nanga’s intended bride, while the campaign turns violent.",
+"6. Max is killed and Nanga’s party wins the election by force.",
+"7. A military coup ends the government."]},
+"Purple Hibiscus":{label:"Stage",items:[
+"1. On Palm Sunday, Jaja refuses communion and Papa’s anger breaks the family’s peace.",
+"2. Flashback to Kambili’s strict life in Enugu under the pious but violent Eugene.",
+"3. In Nsukka, Aunty Ifeoma’s home brings laughter, Papa-Nnukwu and Father Amadi.",
+"4. Papa punishes Kambili harshly when he learns she stayed with Papa-Nnukwu.",
+"5. Ifeoma faces trouble at the university, and Jaja grows bolder.",
+"6. Mama poisons Eugene, and Jaja takes the blame and goes to prison.",
+"7. Later, Kambili hopes for Jaja’s release and new beginnings."]},
+"Half of a Yellow Sun":{label:"Stage",items:[
+"1. In the early 1960s, Ugwu becomes houseboy to Odenigbo at Nsukka and Olanna moves in.",
+"2. Kainene meets Richard, and violence against Igbo people in the north changes everything.",
+"3. Biafra is declared and the family flees Nsukka.",
+"4. Hunger and bombing worsen, and Ugwu is forced into the army.",
+"5. Odenigbo’s affair with Amala and other betrayals strain the couples.",
+"6. Kainene disappears while trading across enemy lines, and Olanna and Richard search for her.",
+"7. Biafra loses, and Ugwu writes The World Was Silent When We Died."]},
+"Americanah":{label:"Stage",items:[
+"1. In a hair salon in the US, Ifemelu decides to return to Nigeria.",
+"2. In Lagos, Ifemelu and Obinze fall in love as teenagers.",
+"3. Ifemelu leaves for the US and faces hardship and racism.",
+"4. She starts a blog about race, and her relationships with Curt and Blaine shape her.",
+"5. Obinze fails to settle in Britain, is deported, and later becomes rich in Lagos.",
+"6. Ifemelu returns to Nigeria and works at a magazine.",
+"7. Ifemelu and Obinze meet again and rebuild their love."]},
+"The Joys of Motherhood":{label:"Stage",items:[
+"1. Nnu Ego is the daughter of Agbadi. Her first marriage to Amatokwu fails because she has no child.",
+"2. She marries Nnaife and moves to Lagos, where she faces poverty and loses a baby.",
+"3. She has more children while Nnaife works for the Meers and is later sent to war.",
+"4. Co-wife Adaku joins the household, and rivalry over children and money grows.",
+"5. Her sons study, but Nnu Ego is left with little help.",
+"6. Nnu Ego dies alone by the roadside, then her children hold a grand funeral."]},
+"Second-Class Citizen":{label:"Stage",items:[
+"1. Adah is a girl in Lagos who longs for school and wins a place.",
+"2. She marries Francis, and they go to London.",
+"3. They face racism and poor housing, and Francis will not support the family.",
+"4. Adah works at a library and raises the children.",
+"5. Francis burns her manuscript, and Adah finally leaves him."]},
+"Efuru":{label:"Stage",items:[
+"1. Efuru marries Adizua against her father’s wishes, and their baby daughter dies.",
+"2. Adizua leaves her, and she marries Gilbert and becomes a trader.",
+"3. Gilbert is unfaithful and later accuses her, so she leaves him.",
+"4. Efuru is linked to the lake goddess Uhamiri and stays childless but independent."]},
+"The Palm-Wine Drinkard":{label:"Stage",items:[
+"1. The Drinkard loses his tapster when he falls from a palm tree.",
+"2. He leaves home to find him in Deads’ Town.",
+"3. He meets the Complete Gentleman, who is really a skull, and other strange spirits.",
+"4. After many adventures he returns home with a gift that ends the famine."]},
+"Weep Not, Child":{label:"Stage",items:[
+"1. Njoroge dreams of education while his father Ngotho works on Howlands’ land.",
+"2. He goes to school, and his friendship with Mwihaki grows.",
+"3. The Mau Mau struggle begins, and his brother Boro joins.",
+"4. The Emergency brings violence and breaks the family.",
+"5. Njoroge’s hopes fade as he sees what the struggle has cost."]},
+"The River Between":{label:"Stage",items:[
+"1. Two ridges, Kameno and Makuyu, face each other across the river Honia, and Chege prepares Waiyaki.",
+"2. Joshua leads the mission, and Muthoni dies after her circumcision.",
+"3. Waiyaki builds schools, and Kabonyi turns against him.",
+"4. His love for Nyambura puts him in conflict with the Kiama council.",
+"5. Waiyaki is tried and the ridges stay divided."]},
+"Petals of Blood":{label:"Stage",items:[
+"1. Four people in Ilmorog are questioned after a murder.",
+"2. Munira, Wanja, Karega and Abdulla each arrive and settle in the village.",
+"3. Drought drives a journey to Nairobi to seek help.",
+"4. Ilmorog changes as wealthy men take control of its land and trade.",
+"5. A fire kills three brewery directors, and the story ends with the suspects’ confessions."]},
+"So Long a Letter":{label:"Stage",items:[
+"1. Ramatoulaye starts a long letter to Aissatou after Modou’s death.",
+"2. She remembers her love and marriage and Aissatou’s refusal of polygamy.",
+"3. Modou takes Binetou as a second wife, and Ramatoulaye endures.",
+"4. After mourning customs, she rejects the proposals of Tamsir and Daouda.",
+"5. She reflects on her children and modern life, and ends with hope."]},
+"Nervous Conditions":{label:"Stage",items:[
+"1. Tambu’s brother Nhamo dies, so she goes to the mission school.",
+"2. At Babamukuru’s house she sees Nyasha struggle with her identity.",
+"3. Maiguru and Lucia show different ways of living with male power.",
+"4. Tambu grows more aware of what education and colonialism cost."]},
+"Cry, the Beloved Country":{label:"Stage",items:[
+"1. Stephen Kumalo travels from Ndotsheni to Johannesburg to find his son and sister.",
+"2. He finds Gertrude and learns that Absalom is in trouble.",
+"3. Arthur Jarvis is killed and Absalom is arrested.",
+"4. At the trial, Absalom is sentenced and Kumalo returns home.",
+"5. James Jarvis learns of his son’s ideals and helps the village."]},
+"The Beautyful Ones Are Not Yet Born":{label:"Stage",items:[
+"1. The Man, an honest railway clerk, refuses bribes while his wife Oyo wants more.",
+"2. The corrupt party man Koomson grows rich and tempts the Man.",
+"3. A coup topples the government, and Koomson must flee with the Man’s help."]},
+"Season of Anomy":{label:"Stage",items:[
+"1. Ofeyi, a poet and advertising executive, deals with the Cartel and the community of Aiyéró.",
+"2. His lover Iriyise is kidnapped, and he searches amid violence.",
+"3. The story ends in confrontation between the community and corrupt powers."]},
+"The Famished Road":{label:"Stage",items:[
+"1. Azaro, a spirit-child, chooses to stay with the living.",
+"2. His parents struggle with poverty, and Madame Koto’s bar rises.",
+"3. Political parties bring violence, and spirits follow Azaro.",
+"4. Despite hardship, Azaro holds on to hope."]}
+};
+
+const PRACTICE = {"The Lekki Headmaster":[{"q":"In The Lekki Headmaster, the principal of Stardom Schools is","o":["Ope Wande","Jeremi Amos","Egi Meko","Bepo (Adebepo Adewale)"],"a":3,"s":"Bepo is the dedicated principal and the main character."},{"q":"Stardom Schools is located in","o":["Ibadan","Ikeja, Lagos","Lekki, Lagos","Abuja"],"a":2,"s":"The story is set in Lekki, Lagos."},{"q":"The Managing Director of Stardom Schools is","o":["Mrs Grace Apeh","Mrs Ibidun Gloss","Mrs Mary Ladele","Mrs Beke Egbin"],"a":1,"s":"Mrs Gloss is the MD and a major figure in the story."},{"q":"The founder of Stardom Schools, and father of the MD, is","o":["Mr Ibe Ignatius","Chief David Aje","Mr Egi Meko","Mr Guta"],"a":1,"s":"Chief Aje founded the school."},{"q":"The Vice Principal of Stardom Schools is","o":["Mrs Beke Egbin","Nurse Titi","Mrs Ibidun Gloss","Mrs Grace Apeh"],"a":3,"s":"Mrs Apeh works closely with the principal."},{"q":"The guidance counsellor at Stardom Schools is","o":["Mrs Beke Egbin","Mrs Grace Apeh","Mrs Mary Ladele","Nurse Titi"],"a":0,"s":"She looks after the emotional needs of students."},{"q":"Bepo is distressed at the start of the story because he","o":["must decide whether to move to the United Kingdom to join his family","has been dismissed from the school","has lost his passport in a robbery","wants to open a rival school"],"a":0,"s":"His wife and two daughters are in the UK."},{"q":"The nickname ‘Lekki Headmaster’ is linked to a character in the TV series","o":["Tales by Moonlight","Super Story","Village Headmaster","Checkmate"],"a":2,"s":"A teacher compared Bepo to King Oloja of Village Headmaster."},{"q":"After retiring from teaching, Bepo hopes to become","o":["a politician","an entrepreneur","a university lecturer","a pastor"],"a":1,"s":"He has ambitions of running his own business."},{"q":"The theme of people leaving Nigeria for a better life abroad is often called","o":["the school fees problem","the village exodus","the japa syndrome","the brain gain"],"a":2,"s":"Japa means to flee or migrate."},{"q":"Mr Ope Wande at Stardom Schools is","o":["the games master","a Physics teacher and pastor","the school accountant","the school nurse"],"a":1,"s":"He teaches Physics and is also a pastor."},{"q":"Which of these themes is explored in the novel?","o":["war","integrity versus compromise","romantic rivalry between kings","witchcraft"],"a":1,"s":"Bepo faces choices between honesty and shortcuts."}],"Things Fall Apart":[{"q":"In Things Fall Apart, Okonkwo’s village is","o":["Mbanta","Abame","Umuofia","Mbaino"],"a":2,"s":"Umuofia is the clan where Okonkwo lives."},{"q":"Okonkwo’s father, whom he despised as weak, was","o":["Ezeudu","Nwakibie","Unoka","Obierika"],"a":2,"s":"Unoka was lazy, in debt and loved music."},{"q":"Okonkwo killed his foster son, whose name was","o":["Nwoye","Ikemefuna","Maduka","Obierika"],"a":1,"s":"Ikemefuna was given to Umuofia as a peace offering."},{"q":"Okonkwo was exiled to Mbanta because he","o":["killed a missionary","insulted the oracle","stole yams","accidentally killed a clansman at a funeral"],"a":3,"s":"His gun exploded at Ezeudu’s funeral."},{"q":"Okonkwo’s exile lasted","o":["ten years","three years","five years","seven years"],"a":3,"s":"He spent seven years in his motherland."},{"q":"Okonkwo’s favourite daughter was","o":["Akueke","Ezinma","Obiageli","Ojiugo"],"a":1,"s":"Ezinma was Ekwefi’s only surviving child."},{"q":"Okonkwo’s son who joined the Christians was","o":["Maduka","Obiageli","Ikemefuna","Nwoye"],"a":3,"s":"Nwoye was later renamed Isaac."},{"q":"The white missionary who was tolerant towards the clan was","o":["Mr Kiaga","Mr Brown","Mr Green","Reverend James Smith"],"a":1,"s":"His successor, Reverend Smith, was harsh."},{"q":"Okonkwo’s final act of defiance was to","o":["burn the church","hit the District Commissioner","kill a court messenger","flee to Mbanta"],"a":2,"s":"He killed the messenger who tried to stop the meeting."},{"q":"The title Things Fall Apart is taken from a poem by","o":["Wole Soyinka","T. S. Eliot","W. B. Yeats","John Milton"],"a":2,"s":"It comes from ‘The Second Coming’."}],"Arrow of God":[{"q":"Ezeulu is the chief priest of","o":["Idemili","Ani","Ulu","Agwu"],"a":2,"s":"Ulu is the god of the six villages of Umuaro."},{"q":"The group of villages in Arrow of God is","o":["Umuaro","Umuofia","Okperi","Mbanta"],"a":0,"s":"Umuaro united to worship Ulu."},{"q":"The British District Officer in the novel is","o":["Mr Brown","Captain Winterbottom","Mr Green","Reverend Smith"],"a":1,"s":"He admires Ezeulu but tries to make him a chief."},{"q":"Ezeulu’s main rival among the elders is","o":["Akuebue","Oduche","Nwaka","Obika"],"a":2,"s":"Nwaka opposes Ezeulu’s influence."},{"q":"Ezeulu’s son who locked a sacred python in a box is","o":["Obika","Edogo","Nwafo","Oduche"],"a":3,"s":"Oduche was sent to the mission school."},{"q":"Ezeulu was detained by the British because he","o":["stole yams","burned the church","refused to be made a warrant chief","killed the sacred python"],"a":2,"s":"He would not serve the colonial government."},{"q":"Because Ezeulu refused to announce the New Yam feast, the people","o":["made Nwaka priest","turned to the Christian church to offer their harvest","forgave him at once","killed him"],"a":1,"s":"Their crops were rotting in the fields."},{"q":"Ezeulu’s close friend is","o":["Ezidemili","Edogo","Akuebue","Nwaka"],"a":2,"s":"Akuebue gives him wise advice."},{"q":"The son of Ezeulu whose death at a funeral ritual is followed by Ezeulu’s breakdown is","o":["Edogo","Oduche","Nwafo","Obika"],"a":3,"s":"Ezeulu loses his mind after Obika’s death."},{"q":"Arrow of God is set in","o":["Umuofia in the 1890s","Lagos in 1960","Umuaro in the 1920s","Biafra in 1967"],"a":2,"s":"It shows early colonial rule in Igboland."}],"No Longer at Ease":[{"q":"Obi Okonkwo went to England to study","o":["Medicine","Engineering","English","Architecture"],"a":2,"s":"The Umuofia Progressive Union wanted law, but he chose English."},{"q":"Obi’s overseas scholarship was paid for by the","o":["Scholarship Board","Lagos Improvement Union","Umuofia Progressive Union","Church Missionary Society"],"a":2,"s":"His people expected him to repay them."},{"q":"On his return, Obi worked as a civil servant in the","o":["Customs Service","Scholarship Board","Railway Corporation","Police Force"],"a":1,"s":"He was Secretary to the Scholarship Board in Lagos."},{"q":"Clara cannot marry Obi because she is an","o":["orphan","widow","outsider by tribe","osu"],"a":3,"s":"An osu is an outcast dedicated to a deity."},{"q":"Obi’s father, Isaac Okonkwo, is a","o":["trader","warrant chief","traditional priest","Christian catechist"],"a":3,"s":"He is a strict Christian."},{"q":"Obi’s British boss at the Scholarship Board is","o":["Mr Wright","Mr Green","Mr Brown","Mr Smith"],"a":1,"s":"Mr Green has a low opinion of Africans."},{"q":"Obi is arrested for","o":["fraud in exams","assault","stealing","accepting a bribe"],"a":3,"s":"He was caught taking a bribe."},{"q":"The novel opens with","o":["his arrival in Lagos","Obi’s trial","his mother’s funeral","his wedding"],"a":1,"s":"The story is told largely in flashback."},{"q":"The title No Longer at Ease comes from a poem by","o":["W. B. Yeats","Wole Soyinka","T. S. Eliot","Rudyard Kipling"],"a":2,"s":"It is from ‘Journey of the Magi’."},{"q":"Obi takes bribes mainly because he","o":["wants to buy a church","hates his job","is in debt and burdened by family needs","is forced by Clara"],"a":2,"s":"Loans and family pressure weigh on him."}],"A Man of the People":[{"q":"The narrator of A Man of the People is","o":["Josiah","Chief Nanga","Odili Samalu","Max"],"a":2,"s":"Odili is a young teacher."},{"q":"Chief Nanga is the Minister of","o":["Finance","Education","Health","Culture"],"a":3,"s":"He is a popular minister who lives lavishly."},{"q":"Odili joins the opposition party called the","o":["People’s Organisation Party","Common People’s Convention","Progressive Front","Unity Alliance"],"a":1,"s":"Max is its leader."},{"q":"Max, the leader of the CPC, is","o":["imprisoned","murdered during the campaign","elected","exiled"],"a":1,"s":"He is killed by thugs."},{"q":"Odili’s quarrel with Chief Nanga begins when Nanga","o":["fails him in an exam","insults his father","takes his girlfriend Elsie","refuses to give him a job"],"a":2,"s":"This turns Odili against Nanga."},{"q":"To take revenge, Odili sets out to take Edna from","o":["Mr Eze","Josiah","Chief Nanga","Max"],"a":2,"s":"Edna is Nanga’s intended bride."},{"q":"Chief Nanga was once Odili’s","o":["employer","classmate","tailor","teacher"],"a":3,"s":"He taught Odili in his early years."},{"q":"The novel ends with","o":["a military coup","a peaceful CPC victory","Nanga’s trial in court","a people’s revolution"],"a":0,"s":"The army takes over the government."},{"q":"A Man of the People mainly criticises","o":["political corruption after independence","education abroad","ancestral religion","colonial rule"],"a":0,"s":"Achebe attacks greed in post-independence politics."}],"Purple Hibiscus":[{"q":"The narrator of Purple Hibiscus is","o":["Beatrice","Amaka","Kambili","Ifeoma"],"a":2,"s":"Kambili tells the story in the first person."},{"q":"Kambili’s father, a rich and strict Catholic, is","o":["Eugene","Amadi","Jaja","Ifeoma"],"a":0,"s":"Eugene is also known as Papa."},{"q":"Eugene is the publisher of a newspaper called the","o":["Daily Times","Champion","Guardian","Standard"],"a":3,"s":"He uses it to support press freedom."},{"q":"Kambili and Jaja find freedom at the home of their aunt","o":["Ifeoma","Amadi","Amaka","Beatrice"],"a":0,"s":"Aunty Ifeoma lives in Nsukka."},{"q":"Aunty Ifeoma is a","o":["university lecturer","trader","nurse","church minister"],"a":0,"s":"She teaches at the University of Nigeria, Nsukka."},{"q":"The young priest who befriends Kambili is","o":["Father Benedict","Father Amadi","Father Ifeoma","Papa-Nnukwu"],"a":1,"s":"He teaches her to laugh and sing."},{"q":"Jaja first defies his father by refusing to","o":["visit Nsukka","go to school","speak at dinner","receive communion"],"a":3,"s":"He refuses on Palm Sunday."},{"q":"Papa-Nnukwu, the children’s grandfather, follows","o":["Catholicism","Pentecostalism","Islam","traditional religion"],"a":3,"s":"Eugene rejects him as a ‘heathen’."},{"q":"The purple hibiscus in Aunty Ifeoma’s garden symbolises","o":["punishment","freedom and new possibilities","death","wealth"],"a":1,"s":"It is rare and colourful."},{"q":"Eugene is poisoned by","o":["Kambili","Beatrice (Mama)","Ifeoma","Jaja"],"a":1,"s":"She puts poison in his tea."}],"Half of a Yellow Sun":[{"q":"Half of a Yellow Sun is set before and during the","o":["Maji Maji rebellion","Mau Mau uprising","Second World War","Nigeria–Biafra civil war"],"a":3,"s":"The war lasted from 1967 to 1970."},{"q":"Olanna’s partner, a university lecturer, is","o":["Richard","Okeoma","Odenigbo","Ugwu"],"a":2,"s":"Odenigbo teaches Mathematics at Nsukka."},{"q":"The houseboy who becomes a key narrator is","o":["Harrison","Ugwu","Special Ops","Okeke"],"a":1,"s":"Ugwu comes from a village near Nsukka."},{"q":"Olanna’s twin sister is","o":["Alice","Kainene","Arize","Ifeka"],"a":1,"s":"Kainene is a businesswoman."},{"q":"Kainene’s partner, an English writer, is","o":["Michael Bolton","Paul Roberts","Ben Amadi","Richard Churchill"],"a":3,"s":"Richard loves Nigerian culture."},{"q":"The title Half of a Yellow Sun refers to","o":["the Biafran flag","a Nigerian coin","a children’s toy","a university emblem"],"a":0,"s":"The flag has a half-risen yellow sun."},{"q":"Kainene disappears after","o":["crossing enemy lines to trade","travelling to London","joining a university","moving to Lagos"],"a":0,"s":"She never returns."},{"q":"The baby that Olanna raises is the child of Odenigbo and","o":["Arize","Kainene","Amala","Alice"],"a":2,"s":"Olanna raises the girl as their own."},{"q":"The book that Ugwu writes at the end is called","o":["Half of a Yellow Sun","The World Was Silent When We Died","Letters from Nsukka","The Biafran Dream"],"a":1,"s":"It mirrors Richard’s unfinished work."},{"q":"The early scenes of the novel are set at","o":["Kano","Ibadan","the university town of Nsukka","Port Harcourt"],"a":2,"s":"Odenigbo’s house hosts intellectual debates."}],"Americanah":[{"q":"Ifemelu and Obinze first meet in","o":["New York","Enugu","London","Lagos, as teenagers"],"a":3,"s":"They attend secondary school together."},{"q":"Ifemelu moves to the United States to","o":["join the army","study at university","marry Obinze","find her mother"],"a":1,"s":"Her studies begin in Philadelphia."},{"q":"Ifemelu’s blog is mainly about","o":["race in America","football","fashion","Nigerian food"],"a":0,"s":"She writes as a Non-American Black."},{"q":"Obinze goes to Britain and is later","o":["promoted","elected","knighted","deported"],"a":3,"s":"He lives illegally and is sent back to Nigeria."},{"q":"Ifemelu’s aunt in America is","o":["Aunty Uju","Aunty Kosi","Aunty Ifeoma","Aunty Nnu"],"a":0,"s":"Aunty Uju is a doctor with a son named Dike."},{"q":"Obinze’s wife is","o":["Kosi","Blaine","Ranyinudo","Curt"],"a":0,"s":"They have a daughter named Buchi."},{"q":"Ifemelu’s first American boyfriend is the white man","o":["Blaine","Curt","Kimberly","Don"],"a":1,"s":"He is rich and helps her get a job."},{"q":"Ifemelu’s later boyfriend, a Black university lecturer, is","o":["Obinze","Dike","Blaine","Curt"],"a":2,"s":"He is a Yale academic."},{"q":"Obinze becomes","o":["a wealthy property developer","a footballer","a priest","a teacher in Enugu"],"a":0,"s":"He is called ‘Chief’ by many."},{"q":"‘Americanah’ is a Nigerian word for","o":["a political party","someone who has been to America","an American citizen","a type of food"],"a":1,"s":"It can describe someone who comes back with American habits."}],"The Joys of Motherhood":[{"q":"The main character of The Joys of Motherhood is","o":["Agbadi","Adaku","Ona","Nnu Ego"],"a":3,"s":"Nnu Ego is an Igbo woman in Lagos."},{"q":"Nnu Ego’s father, a chief, is","o":["Oshia","Nnaife","Agbadi","Amatokwu"],"a":2,"s":"Her mother was his beloved Ona."},{"q":"Nnu Ego’s first husband, who sends her away, is","o":["Oshia","Amatokwu","Nnaife","Agbadi"],"a":1,"s":"She had no child with him."},{"q":"Nnu Ego’s second husband in Lagos is","o":["Agbadi","Oshia","Amatokwu","Nnaife"],"a":3,"s":"Nnaife is a washerman for a white family."},{"q":"Nnaife works washing clothes for","o":["Dr and Mrs Meers","Captain Winterbottom","Chief Nanga","Mr Green"],"a":0,"s":"He is a domestic servant."},{"q":"Nnaife’s other wife, who becomes Nnu Ego’s rival, is","o":["Ona","Ngozi","Ogbanje","Adaku"],"a":3,"s":"Adaku is the junior wife."},{"q":"Nnu Ego’s eldest son who goes to study in America is","o":["Oshia","Adim","Nnaife","Kehinde"],"a":0,"s":"She hopes he will support her."},{"q":"Nnu Ego dies","o":["at her son’s wedding","in a village feast","alone by the roadside","in hospital"],"a":2,"s":"Her children are not with her."},{"q":"The title of the novel is ironic because","o":["her husband is rich","motherhood brings Nnu Ego hardship","her children respect her","she has no children"],"a":1,"s":"The ‘joys’ are bought with sacrifice."}],"Second-Class Citizen":[{"q":"The heroine of Second-Class Citizen is","o":["Nnu Ego","Efuru","Ramatoulaye","Adah"],"a":3,"s":"Adah is determined to get an education."},{"q":"Adah’s husband, a student in London, is","o":["Nnaife","Obi","Francis","Odili"],"a":2,"s":"Francis is irresponsible and lives off her."},{"q":"Adah and her husband live in","o":["Paris","London","Accra","New York"],"a":1,"s":"They live in a poor area of London."},{"q":"Adah works as a","o":["teacher","library assistant","nurse","bus driver"],"a":1,"s":"She earns money to feed the family."},{"q":"Francis burns Adah’s","o":["passport","certificate","wedding gown","manuscript"],"a":3,"s":"It is the book she wrote."},{"q":"The title Second-Class Citizen shows how Adah is treated as","o":["inferior because she is Black and a woman","a rich visitor","a famous author","a diplomat"],"a":0,"s":"She faces racism and sexism."},{"q":"Adah’s early ambition is to","o":["go to school and then to the United Kingdom","become a queen","marry a chief","open a shop"],"a":0,"s":"She wins a place in school despite her family."}],"Efuru":[{"q":"Efuru is set in the Igbo town of","o":["Enugu","Ugwuta (Oguta)","Onitsha","Aba"],"a":1,"s":"Ugwuta is by Oguta Lake."},{"q":"Efuru’s first husband, who abandons her, is","o":["Adizua","Gilbert","Nwashike","Ajanupu"],"a":0,"s":"He leaves for another woman."},{"q":"Efuru’s second husband is","o":["Adizua","Gilbert","Nnaife","Ogene"],"a":1,"s":"He deserts her after accusing her of adultery."},{"q":"Efuru’s only child, who dies, was named","o":["Ajanupu","Efuru","Ogonim","Uhamiri"],"a":2,"s":"She dies in childhood."},{"q":"The lake goddess in the story is","o":["Ani","Idemili","Ulu","Uhamiri"],"a":3,"s":"Efuru is chosen as her worshipper."},{"q":"Efuru earns her living as a","o":["nurse","civil servant","trader","teacher"],"a":2,"s":"She becomes a successful trader."},{"q":"Efuru’s aunt who advises her is","o":["Uhamiri","Ajanupu","Ogonim","Nwapa"],"a":1,"s":"Ajanupu supports Efuru."}],"The Palm-Wine Drinkard":[{"q":"The narrator is called the Drinkard because he","o":["brews beer","sells palm wine","hates palm wine","drinks palm wine all day"],"a":3,"s":"His father hired a tapster to supply him."},{"q":"The Drinkard’s palm-wine tapster dies when he","o":["is killed in a war","drowns","falls from a palm tree","is bitten by a snake"],"a":2,"s":"The Drinkard sets out to find him."},{"q":"The Drinkard travels to","o":["Oguta","Deads’ Town","Lagos","Ibadan"],"a":1,"s":"He hopes to bring the tapster back."},{"q":"The Complete Gentleman in the story turns out to be","o":["a white man","a trader","a king","a skull"],"a":3,"s":"He had borrowed his body parts."},{"q":"Amos Tutuola’s writing style is shaped by","o":["Yoruba folklore","French novels","Greek epics","Hausa poetry"],"a":0,"s":"Tutuola borrowed from oral tales."},{"q":"The Palm-Wine Drinkard was first published in","o":["1932","1972","1962","1952"],"a":3,"s":"It was one of the first African novels in English."},{"q":"The story is mostly a","o":["fantastic quest through a spirit world","love story in Lagos","war story","detective story"],"a":0,"s":"The Drinkard meets many strange creatures."}],"Weep Not, Child":[{"q":"The central character of Weep Not, Child is","o":["Kamau","Boro","Njoroge","Ngotho"],"a":2,"s":"Njoroge dreams of education."},{"q":"Njoroge’s father is","o":["Ngotho","Boro","Howlands","Jacobo"],"a":0,"s":"He works on Mr Howlands’ farm."},{"q":"The white settler who owns the land is","o":["Mr Green","Mr Carey","Mr Brown","Mr Howlands"],"a":3,"s":"Ngotho’s family once owned the land."},{"q":"Jacobo is","o":["a wealthy African who sides with the colonial government","a teacher","a Mau Mau leader","Njoroge’s uncle"],"a":0,"s":"He is a collaborator."},{"q":"Jacobo’s daughter, Njoroge’s friend, is","o":["Mwihaki","Wanjiru","Nyokabi","Njeri"],"a":0,"s":"Their friendship is troubled by politics."},{"q":"Njoroge’s elder brother who fought in the Second World War is","o":["Kamau","Boro","Kori","Jacobo"],"a":1,"s":"He later joins the Mau Mau."},{"q":"The story is set in Kenya during the","o":["Nigerian civil war","Maji Maji rebellion","Suez crisis","Mau Mau uprising"],"a":3,"s":"The state of emergency tears families apart."},{"q":"Njoroge attends the secondary school called","o":["Alliance","Mang’u","Kings College","Siriana"],"a":3,"s":"It is a mission school."}],"The River Between":[{"q":"The River Between is set in two ridges named","o":["Nyeri and Thika","Siriana and Honia","Kameno and Makuyu","Gikuyu and Embu"],"a":2,"s":"The ridges face each other across a river."},{"q":"The river between the ridges is the","o":["Nile","Athi","Honia","Tana"],"a":2,"s":"It is sacred to the people."},{"q":"The young Kikuyu leader and teacher is","o":["Kabonyi","Waiyaki","Chege","Joshua"],"a":1,"s":"He tries to unite the two ridges."},{"q":"Waiyaki’s father, who prophesied about the white man, is","o":["Joshua","Livingstone","Kabonyi","Chege"],"a":3,"s":"Chege told him to learn the white man’s ways."},{"q":"Joshua is","o":["a Mau Mau fighter","a traditional priest","a government clerk","the leader of the Christians in Makuyu"],"a":3,"s":"His daughters are Nyambura and Muthoni."},{"q":"Muthoni dies after","o":["an illness at school","a circumcision ritual","a car accident","a road fight"],"a":1,"s":"She wanted to be both Christian and Kikuyu."},{"q":"Waiyaki’s rival who opposes his school is","o":["Kinuthia","Livingstone","Joshua","Kabonyi"],"a":3,"s":"Kabonyi accuses Waiyaki of betraying the tribe."},{"q":"Waiyaki is put on trial by the council called","o":["Kinuthia","Kiama","Mission","Karing’a"],"a":1,"s":"The Kiama accuses him of breaking tribal oaths."}],"Petals of Blood":[{"q":"The village at the centre of Petals of Blood is","o":["Kinangop","Kamiti","Ilmorog","Limuru"],"a":2,"s":"Ilmorog is poor and remote."},{"q":"The four main characters questioned about the murders are Munira, Wanja, Karega and","o":["Abdulla","Mzigo","Chui","Kimeria"],"a":0,"s":"They are suspects."},{"q":"Munira is a","o":["lawyer","trader","priest","headmaster"],"a":3,"s":"He had come to Ilmorog to teach."},{"q":"Wanja is a","o":["barmaid and prostitute who later runs a business","politician","nurse","teacher"],"a":0,"s":"She struggles to rise out of poverty."},{"q":"Karega is a","o":["teacher who becomes a union leader","soldier","politician","priest"],"a":0,"s":"He believes in workers’ rights."},{"q":"Abdulla is a","o":["priest","shopkeeper and former freedom fighter","teacher","lawyer"],"a":1,"s":"He lost a leg in the struggle against colonialism."},{"q":"The novel mainly criticises","o":["ancient customs","colonial laws","modern medicine","greed and exploitation after independence"],"a":3,"s":"Ngũgĩ attacks neo-colonialism."}],"So Long a Letter":[{"q":"So Long a Letter is written as a letter from Ramatoulaye to","o":["Nabou","Binetou","Daba","Aissatou"],"a":3,"s":"Aissatou is her close friend."},{"q":"Ramatoulaye’s husband, who takes a second wife, is","o":["Modou","Tamsir","Daouda","Mawdo"],"a":0,"s":"He marries Binetou."},{"q":"Modou’s second wife is","o":["Nabou","Aissatou","Binetou","Daba"],"a":2,"s":"She is a young friend of his daughter."},{"q":"Aissatou leaves her husband after he marries","o":["Binetou","Nabou","Ramatoulaye","Daba"],"a":1,"s":"She refuses to share her husband."},{"q":"Aissatou’s husband is","o":["Tamsir","Mawdo","Daouda","Modou"],"a":1,"s":"He is a doctor."},{"q":"After Modou’s death, the brother-in-law who proposes marriage is","o":["Modou","Mawdo","Daouda","Tamsir"],"a":3,"s":"Ramatoulaye rejects him."},{"q":"Ramatoulaye’s eldest daughter is","o":["Daba","Aissatou","Nabou","Binetou"],"a":0,"s":"Daba is strong and modern."},{"q":"The novel is written in the form of a","o":["play","poem","diary only","letter"],"a":3,"s":"It is an epistolary novel."},{"q":"The author of So Long a Letter is","o":["Mariama Bâ of Senegal","Buchi Emecheta","Flora Nwapa","Tsitsi Dangarembga"],"a":0,"s":"Bâ is a Senegalese writer."}],"Nervous Conditions":[{"q":"The narrator of Nervous Conditions is","o":["Tambu","Lucia","Nyasha","Maiguru"],"a":0,"s":"Tambudzai is the narrator."},{"q":"Tambu goes to the mission school because","o":["her father insists","she wins a scholarship alone","her brother Nhamo dies","the government orders it"],"a":2,"s":"She takes the place meant for him."},{"q":"The uncle who is headmaster of the mission is","o":["Jeremiah","Nhamo","Babamukuru","Takesure"],"a":2,"s":"He pays Tambu’s school fees."},{"q":"Tambu’s cousin who struggles with her identity is","o":["Maiguru","Netsai","Lucia","Nyasha"],"a":3,"s":"She grew up in England."},{"q":"Babamukuru’s wife, an educated woman, is","o":["Lucia","Ma’Shingayi","Maiguru","Nyasha"],"a":2,"s":"She is held back by her husband."},{"q":"Tambu’s strong-willed aunt is","o":["Netsai","Maiguru","Lucia","Nyasha"],"a":2,"s":"Lucia is her mother’s sister."},{"q":"Tambu earns money for her school fees by","o":["selling fish","teaching","growing and selling maize","sewing"],"a":2,"s":"She plants maize on her father’s land."},{"q":"The novel is set in colonial","o":["South Africa","Kenya","Rhodesia (now Zimbabwe)","Ghana"],"a":2,"s":"It shows life under colonial rule."}],"Cry, the Beloved Country":[{"q":"The Zulu priest at the heart of the story is","o":["James Jarvis","Msimangu","Stephen Kumalo","John Kumalo"],"a":2,"s":"Kumalo is from Ndotsheni."},{"q":"Kumalo goes to Johannesburg to find his son","o":["Absalom","Gertrude","Arthur","John"],"a":0,"s":"He also looks for his sister."},{"q":"Absalom kills","o":["James Jarvis","Msimangu","John Kumalo","Arthur Jarvis"],"a":3,"s":"Arthur was a white man who worked for black rights."},{"q":"Arthur’s father is","o":["John Kumalo","Stephen Kumalo","James Jarvis","Msimangu"],"a":2,"s":"He later helps Ndotsheni."},{"q":"Kumalo’s sister, who becomes a prostitute in Johannesburg, is","o":["Gertrude","Mrs Lithebe","Mrs Kumalo","Dubula"],"a":0,"s":"She vanishes and is later found."},{"q":"The priest who guides Kumalo in Johannesburg is","o":["Dubula","Napoleon","Jarvis","Msimangu"],"a":3,"s":"Msimangu helps Kumalo search."},{"q":"Kumalo’s brother, a politician and carpenter, is","o":["John Kumalo","Msimangu","Gertrude","Absalom"],"a":0,"s":"John gives fiery speeches."},{"q":"Absalom is finally","o":["pardoned","freed","hanged","exiled"],"a":2,"s":"He is sentenced to death for the murder."},{"q":"The novel mainly deals with","o":["racial injustice in South Africa","a love story in Cape Town","a journey to England","colonial wars"],"a":0,"s":"Alan Paton wrote it in 1948."}],"The Beautyful Ones Are Not Yet Born":[{"q":"The main character of the novel is","o":["Oyo","Koomson","an unnamed railway clerk (the Man)","the Teacher"],"a":2,"s":"The Man refuses to take bribes."},{"q":"The Man’s wife is","o":["Efua","Oyo","Esi","Ama"],"a":1,"s":"She wants more money and comfort."},{"q":"The corrupt Party man who is a symbol of greed is","o":["Koomson","the Man","Chief Nanga","the Teacher"],"a":0,"s":"Koomson is rich through bribes."},{"q":"The Man’s friend, who warns against the corrupt system, is","o":["the Teacher","Oyo","Koomson","Kofi"],"a":0,"s":"He is bitter about the society."},{"q":"The novel is set in","o":["Kenya","Ghana","Nigeria","South Africa"],"a":1,"s":"It is set around the time of a coup."},{"q":"The main theme of the novel is","o":["romance at sea","witchcraft","war","corruption and honesty"],"a":3,"s":"The Man’s honesty isolates him."}],"Season of Anomy":[{"q":"Season of Anomy was written by","o":["Ngũgĩ wa Thiong’o","Chinua Achebe","Wole Soyinka","Ben Okri"],"a":2,"s":"It was published in 1973."},{"q":"The central character, a poet and advertising executive, is","o":["Ofeyi","Waiyaki","Odili","Demakin"],"a":0,"s":"He tries to find his lover."},{"q":"Ofeyi’s kidnapped lover is","o":["Efuru","Ramatoulaye","Ifemelu","Iriyise"],"a":3,"s":"He searches for her through a violent land."},{"q":"The ideal community in the novel is","o":["Aiyéró","Umuofia","Ilmorog","Umuaro"],"a":0,"s":"It is a community that stands against corrupt powers."},{"q":"The main theme of the novel is","o":["political violence and corruption","family inheritance","colonial schooling","ancient trade"],"a":0,"s":"It shows how greed destroys society."}],"The Famished Road":[{"q":"The narrator of The Famished Road is","o":["Dad","Madame Koto","Azaro","Ifa"],"a":2,"s":"Azaro is a spirit-child."},{"q":"Azaro is an","o":["apprentice","albino","abiku (spirit-child)","orphan"],"a":2,"s":"Abiku are children who are born, die and return."},{"q":"The owner of the bar who grows powerful is","o":["Mum","Madame Koto","Mama Egbo","Aunty Kose"],"a":1,"s":"She becomes wealthy and powerful."},{"q":"Azaro’s father works as a","o":["priest","soldier","teacher","porter and later a boxer"],"a":3,"s":"Dad struggles to feed his family."},{"q":"Azaro’s mother makes a living as a","o":["politician","doctor","lawyer","trader (hawker)"],"a":3,"s":"Mum sells goods on the streets."},{"q":"The Famished Road won the Booker Prize in","o":["2001","1991","1981","1971"],"a":1,"s":"It made Ben Okri famous."},{"q":"The novel mixes the real world with the","o":["mining camp","royal palace","colonial court","spirit world"],"a":3,"s":"The story is full of spirits and visions."}]};
+const SUBJECTS = ["English Language","Mathematics","Physics","Chemistry","Biology","Economics","Government","Literature in English","Commerce","Financial Accounting","Geography","Agricultural Science","Christian Religious Studies","Islamic Religious Studies","Civic Education","Further Mathematics","Computer Studies"];
+
+/* ===== STATE ===== */
+let S = {view:"splash",subject:null,year:null,list:[],i:0,score:0,picked:null,msg:"",time:0};
+let timer = null;
+const app = document.getElementById("app");
+const mem = {};
+const sget = k => { try { const v = localStorage.getItem(k); if(v !== null) return v; } catch(e){} return mem[k] === undefined ? null : mem[k]; };
+const sset = (k,v) => { mem[k] = v; try { localStorage.setItem(k,v); } catch(e){} };
+const isPaid = () => sget("chocos_paid") === "1";
+const hist = () => { try { return JSON.parse(sget("chocos_hist") || "[]"); } catch(e){ return []; } };
+const fmt = t => { t = Math.max(0, t); const h = Math.floor(t/3600), m = Math.floor((t%3600)/60), sec = t%60; return (h > 0 ? String(h).padStart(2,"0") + ":" : "") + String(m).padStart(2,"0") + ":" + String(sec).padStart(2,"0"); };
+const years = sub => BANK[sub] ? Object.keys(BANK[sub]).sort((a,b)=>parseInt(a.replace(/\D/g,""))-parseInt(b.replace(/\D/g,""))) : [];
+
+const attempts = () => { try { return JSON.parse(sget("chocos_attempts") || "[]"); } catch(e){ return []; } };
+function saveScore(){
+  const a = attempts();
+  const qs = S.list.map((q,i) => ({q:q.q, o:q.o, a:q.a, s:q.s, sub:q.sub, pg:q.p, p:(S.answers && S.answers[i] !== undefined) ? S.answers[i] : -1}));
+  const id = Date.now();
+  a.unshift({id:id, d:new Date().toLocaleDateString(), s:S.subject, y:S.year, sc:S.score, t:S.list.length, qs:qs});
+  S.attemptId = id;
+  const keep = a.slice(0,30);
+  while(keep.length > 1 && JSON.stringify(keep).length > 3000000) keep.pop();
+  sset("chocos_attempts", JSON.stringify(keep));
+}
+function openReview(id){ const a = attempts().find(x => x.id === id); if(!a) return; S = {view:"review", rv:a, onlyWrong:false, msg:""}; render(); }
+function toggleWrong(){ S.onlyWrong = !S.onlyWrong; render(); }
+function openNovel(i){ S = {view:"novel", ni:i, msg:""}; render(); }
+function clearHistory(){ sset("chocos_attempts","[]"); render(); }
+let calcExpr = "", calcOut = "0";
+const shuffleArr = arr => { const x = arr.slice(); for(let i = x.length-1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [x[i],x[j]] = [x[j],x[i]]; } return x; };
+const bms = () => { try { return JSON.parse(sget("chocos_bm") || "[]"); } catch(e){ return []; } };
+const bmKey = q => (q.sub || "") + "|" + q.q;
+function isBookmarked(q){ return bms().some(b => bmKey(b) === bmKey(q)); }
+function toggleBookmark(){
+  const q = S.list[S.i]; let b = bms(); const k = bmKey(q);
+  if(b.some(x => bmKey(x) === k)) b = b.filter(x => bmKey(x) !== k);
+  else b.unshift({q:q.q, o:q.o, a:q.a, s:q.s, sub:q.sub, p:q.p});
+  sset("chocos_bm", JSON.stringify(b.slice(0,200))); render();
+}
+function removeBm(i){ const b = bms(); b.splice(i,1); sset("chocos_bm", JSON.stringify(b)); render(); }
+function practiceBm(){ const b = bms(); if(!b.length) return; launch({list:b.map(x => Object.assign({}, x)), subject:"Bookmarked questions", year:"My bookmarks", mode:"practice", again:"bm"}); }
+function tick(){
+  if(S.view !== "quiz"){ clearInterval(timer); return; }
+  S.time--;
+  const el = document.getElementById("clock");
+  if(el) el.textContent = fmt(S.time);
+  if(S.time <= 0) finish();
+}
+function launch(o){
+  clearInterval(timer);
+  S = {view:"quiz", subject:o.subject, year:o.year, list:o.list, i:0, score:0, answers:[], mode:o.mode || "practice", time:(o.minutes || o.list.length)*60, again:o.again, novel:o.novel, daily:o.daily, exInfo:o.exInfo, msg:"", sheet:false, calc:false, tutor:false, confirm:null};
+  timer = setInterval(tick, 1000);
+  render();
+}
+function finish(){
+  clearInterval(timer);
+  S.score = S.list.reduce((n,q,i) => n + (S.answers[i] === q.a ? 1 : 0), 0);
+  saveScore(); fbSaveScore();
+  S.view = "result"; S.confirm = null;
+  render();
+}
+function start(){
+  if(S.view === "result" && S.again){ return repeatQuiz(); }
+  const sub = S.subject || document.getElementById("sub").value;
+  if(!BANK[sub]){ S.msg = "Questions for " + sub + " are not added yet."; S.view="practice"; return render(); }
+  let year, list;
+  if(isPaid()){
+    const yEl = document.getElementById("yr");
+    year = yEl ? yEl.value : (S.year || years(sub)[0]);
+    if(!BANK[sub][year]) year = years(sub)[0];
+    list = BANK[sub][year];
+  } else {
+    year = years(sub)[0];
+    list = BANK[sub][year].slice(0, FREE_LIMIT);
+  }
+  launch({list:list.map(x => Object.assign({}, x, {sub:sub})), subject:sub, year:year, mode:"practice"});
+}
+function repeatQuiz(){
+  const a = S.again;
+  if(a === "ex" && S.exInfo) return launchExam(S.exInfo.ex, S.exInfo.sub, S.exInfo.year, S.exInfo.mode);
+  if(a === "mock") return startMock();
+  if(a === "daily") return startDaily();
+  if(a === "bm") return practiceBm();
+  if(a.indexOf("novel:") === 0) return startNovel(+a.slice(6));
+}
+function startMock(){
+  const list = [];
+  mySubjects().forEach(sub => {
+    if(!BANK[sub]) return;
+    const ks = years(sub); let pool = [];
+    if(isPaid()) ks.forEach(k => BANK[sub][k].forEach(x => pool.push(x)));
+    else pool = BANK[sub][ks[0]].slice(0, FREE_LIMIT);
+    const want = isPaid() ? (sub === "English Language" ? 60 : 40) : FREE_LIMIT;
+    shuffleArr(pool).slice(0, want).forEach(x => list.push(Object.assign({}, x, {sub:sub})));
+  });
+  if(!list.length) return;
+  launch({list:list, subject:"UTME Mock Exam", year:"Mixed", mode:"exam", minutes:Math.max(1, new Set(list.map(x => x.sub)).size) * 30, again:"mock"});
+}
+function dayRng(){
+  const d = new Date(); let a = d.getFullYear()*10000 + (d.getMonth()+1)*100 + d.getDate();
+  return function(){ a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a>>>15, 1 | a); t = t + Math.imul(t ^ t>>>7, 61 | t) ^ t; return ((t ^ t>>>14) >>> 0) / 4294967296; };
+}
+function startDaily(){
+  const r = dayRng(); const list = [];
+  ["English Language","Mathematics","Physics","Chemistry","Biology","Government","Economics","Literature in English","Commerce","Civic Education"].forEach(sub => {
+    const all = []; years(sub).forEach(k => BANK[sub][k].forEach(x => all.push(x)));
+    list.push(Object.assign({}, all[Math.floor(r()*all.length)], {sub:sub}));
+  });
+  launch({list:list, subject:"Daily Challenge", year:new Date().toLocaleDateString(), mode:"exam", minutes:10, again:"daily", daily:true});
+}
+function pick(n){
+  if(S.mode === "practice" && S.answers[S.i] !== undefined) return;
+  S.answers[S.i] = n; S.msg = "";
+  render();
+}
+function next(){ if(S.i < S.list.length-1){ S.i++; S.msg = ""; render(); } else { S.msg = "This is the last question. Tap Submit when you are ready."; render(); } }
+function prev(){ if(S.i > 0){ S.i--; S.msg = ""; render(); } }
+function jump(i){ S.i = i; S.sheet = false; S.msg = ""; render(); }
+function goSub(k){ const subs = []; S.list.forEach(x => { if(subs.indexOf(x.sub) < 0) subs.push(x.sub); }); const idx = S.list.findIndex(x => x.sub === subs[k]); if(idx >= 0){ S.i = idx; S.msg = ""; render(); } }
+function toggleSheet(){ S.sheet = !S.sheet; render(); }
+function toggleTutor(){ S.tutor = !S.tutor; render(); }
+function toggleCalc(){ S.calc = !S.calc; render(); }
+function askSubmit(){ S.confirm = "submit"; render(); }
+function askQuit(){ S.confirm = "quit"; render(); }
+function cancelConfirm(){ S.confirm = null; render(); }
+function doQuit(){ clearInterval(timer); go("home"); }
+function speak(){
+  try { const q = S.list[S.i]; const t = (q.p ? q.p + ". " : "") + q.q + ". " + q.o.map((o,n) => "ABCDE"[n] + ". " + o).join(". ");
+    speechSynthesis.cancel(); speechSynthesis.speak(new SpeechSynthesisUtterance(t)); } catch(e){}
+}
+function reportQ(){
+  const q = S.list[S.i];
+  openMail("Exam Dealer JAMB CBT 2027 question report", "Subject: " + q.sub + "\nYear: " + S.year + "\nQuestion: " + q.q + "\n\nWhat is wrong with this question?");
+}
+function calcEval(src){
+  let i = 0; const t = String(src).replace(/\s+/g,"");
+  const peek = () => t[i];
+  const num = () => { const st = i; while(i < t.length && /[0-9.]/.test(t[i])) i++; if(st === i) throw 0; return parseFloat(t.slice(st,i)); };
+  const factor = () => { if(peek() === "-"){ i++; return -factor(); } if(peek() === "("){ i++; const v = expr(); if(peek() !== ")") throw 0; i++; return v; } let v = num(); while(peek() === "%"){ i++; v /= 100; } return v; };
+  const term = () => { let v = factor(); while(peek() === "*" || peek() === "/"){ const o = t[i++]; const r = factor(); v = o === "*" ? v*r : v/r; } return v; };
+  const expr = () => { let v = term(); while(peek() === "+" || peek() === "-"){ const o = t[i++]; const r = term(); v = o === "+" ? v+r : v-r; } return v; };
+  const v = expr(); if(i < t.length) throw 0; return v;
+}
+function calcKey(k){
+  if(k === "C"){ calcExpr = ""; calcOut = "0"; }
+  else if(k === "⌫"){ calcExpr = calcExpr.slice(0,-1); calcOut = calcExpr || "0"; }
+  else if(k === "="){ try { const v = calcEval(calcExpr); calcOut = String(+v.toFixed(10)); calcExpr = isFinite(v) ? calcOut : ""; } catch(e){ calcOut = "Error"; calcExpr = ""; } }
+  else { calcExpr += k; calcOut = calcExpr; }
+  const d = document.getElementById("calcOut"); if(d) d.textContent = calcOut;
+}
+function calcHtml(){
+  const keys = ["7","8","9","/","4","5","6","*","1","2","3","-","0",".","%","+","(",")","⌫","C"];
+  return `<div class="card"><div class="calcout" id="calcOut">${esc(calcOut)}</div><div class="calcgrid">${keys.map(k => `<button class="alt ck" onclick="calcKey('${k}')">${k === "*" ? "×" : k === "/" ? "÷" : k}</button>`).join("")}<button class="ck eq" onclick="calcKey('=')">=</button></div></div>`;
+}
+/* ---- Educational game: Speed Round ---- */
+function gamePool(){
+  const pool = [];
+  mySubjects().forEach(sub => {
+    if(!BANK[sub]) return; const ks = years(sub);
+    const src = isPaid() ? [].concat(...ks.map(k => BANK[sub][k])) : BANK[sub][ks[0]].slice(0, FREE_LIMIT);
+    src.forEach(x => { if(!x.p) pool.push(Object.assign({}, x, {sub:sub})); });
+  });
+  return pool;
+}
+function nextGameQ(){ S.q = S.pool[Math.floor(Math.random()*S.pool.length)]; S.fb = null; }
+function startGame(){
+  const pool = gamePool(); if(!pool.length) return;
+  clearInterval(timer);
+  S = {view:"game", pool:pool, time:60, score:0, done:0, fb:null, msg:""};
+  nextGameQ();
+  timer = setInterval(gameTick, 1000);
+  render();
+}
+function gameTick(){
+  if(S.view !== "game"){ clearInterval(timer); return; }
+  S.time--;
+  const el = document.getElementById("clock"); if(el) el.textContent = fmt(S.time);
+  if(S.time <= 0){ clearInterval(timer); const best = +(sget("chocos_game") || 0); if(S.score > best) sset("chocos_game", String(S.score)); S.view = "gameover"; S.best = Math.max(best, S.score); render(); }
+}
+function gameAnswer(n){
+  if(S.fb !== null || S.view !== "game") return;
+  S.fb = n; S.done++; if(n === S.q.a) S.score++;
+  render();
+  setTimeout(() => { if(S.view === "game" && S.time > 0){ nextGameQ(); render(); } }, 700);
+}
+/* ---- Virtual labs ---- */
+function labOhm(){
+  const v = +document.getElementById("lv").value, r = +document.getElementById("lr").value, i = v/r;
+  document.getElementById("vv").textContent = v; document.getElementById("rr").textContent = r;
+  document.getElementById("ii").textContent = +i.toFixed(2); document.getElementById("pp").textContent = +(v*i).toFixed(2);
+  document.getElementById("bulb").setAttribute("opacity", Math.min(1, 0.15 + i/2.5));
+}
+function labProj(){
+  const th = +document.getElementById("la").value, v = +document.getElementById("ls").value, g = 10, rad = th*Math.PI/180;
+  const T = 2*v*Math.sin(rad)/g, R = v*v*Math.sin(2*rad)/g, H = Math.pow(v*Math.sin(rad),2)/(2*g);
+  document.getElementById("aa").textContent = th; document.getElementById("ss").textContent = v;
+  document.getElementById("rg").textContent = +R.toFixed(1); document.getElementById("hh").textContent = +H.toFixed(1); document.getElementById("tt").textContent = +T.toFixed(2);
+  let d = ""; for(let k = 0; k <= 24; k++){ const t = T*k/24; const x = v*Math.cos(rad)*t, y = v*Math.sin(rad)*t - 5*t*t; d += (k ? "L" : "M") + (10 + x*1.08).toFixed(1) + " " + (100 - Math.max(0,y)*0.72).toFixed(1); }
+  document.getElementById("traj").setAttribute("d", d);
+}
+function deviceId(){
+  let d = sget("chocos_dev");
+  if(!d){
+    const a = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    d = ""; for(let i=0;i<8;i++) d += a[Math.floor(Math.random()*a.length)];
+    d = d.slice(0,4) + "-" + d.slice(4);
+    sset("chocos_dev", d);
+  }
+  return d;
+}
+async function unlock(){
+  const norm = x => String(x).toUpperCase().replace(/[^A-Z0-9]/g, "").replace(/O/g, "0").replace(/[IL]/g, "1");   // O/0 and I/L/1 look alike on phones
+  const el = document.getElementById("code"); const c = norm(el ? el.value : "");
+  let ok = false, batch = false;
+  if(c && c === norm(codeFor(deviceId()))) ok = true;
+  else if(c){ for(const b of CONFIG.batches){ for(let i = 1; i <= CONFIG.batchSize; i++){ if(norm(batchCode(b,i)) === c){ ok = true; batch = true; break; } } if(ok) break; } }
+  if(!ok){ S.msg = "Invalid code. Please check and try again."; return render(); }
+  if(batch){
+    const r = await fbClaimCode(c);
+    if(r === "used"){ S.msg = "This code has already been used on another phone."; return render(); }
+    if(r === "offline" || r === "error"){ S.msg = "Could not check this code. Connect to the internet and try again."; return render(); }
+  }
+  sset("chocos_paid","1");
+  S = {view:"home", msg:"Unlocked! You can now access all questions."};
+  render();
+}
+function go(v){
+  clearInterval(timer);
+  S.view = v; S.msg = ""; S.subject = null; S.novel = undefined;
+  render();
+}
+function startNovel(i){
+  const n = NOVELS[i]; const list = PRACTICE[n.t] || [];
+  if(!list.length) return;
+  launch({list:list.map(x => Object.assign({}, x, {sub:"Novel: " + n.t})), subject:"Novel: " + n.t, year:"JAMB Novel Practice", mode:"practice", novel:i, again:"novel:" + i});
+}
+function fillYears(){
+  const sub = document.getElementById("sub").value;
+  const yr = document.getElementById("yr");
+  if(yr){
+    const ys = years(sub);
+    yr.innerHTML = ys.map(y => `<option value="${y}">${y} (${BANK[sub][y].length} questions)</option>`).join("");
+    if(ys.length) yr.value = ys[ys.length-1];
+    const tot = ys.reduce((n,y) => n + BANK[sub][y].length, 0);
+    const note = document.getElementById("setnote");
+    if(note) note.textContent = ys.length + " year" + (ys.length>1 ? "s" : "") + ", " + tot.toLocaleString("en-US") + " questions in " + sub;
+  }
+}
+function goBack(){
+  const v = S.view;
+  if(v === "quiz") return askQuit();
+  if(v === "review") return go("history");
+  if(v === "novel") return go("novels");
+  if(v === "lab") return go("labs");
+  if(v === "register" && S.editing) return go("home");
+  if(v === "game"){ clearInterval(timer); return go("games"); }
+  if(v === "gameover") return go("games");
+  go("home");
+}
+function openMail(subject, body){
+  const url = "mailto:" + CONFIG.email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  try { const a = document.createElement("a"); a.href = url; a.target = "_blank"; document.body.appendChild(a); a.click(); a.remove(); } catch(e){}
+  S.msg = "If your email app did not open, send a message to " + CONFIG.email + ".";
+  render();
+}
+function supportMail(){ const p = profile(); openMail("Exam Dealer JAMB CBT 2027 support", "Hello, I need help with Exam Dealer JAMB CBT 2027.\n\nMy name: " + (p ? p.name : "") + "\nMy Device ID: " + deviceId() + "\n"); }
+function copyEmail(){
+  const done = ok => { S.msg = ok ? "Email address copied." : "Could not copy. Email: " + CONFIG.email; render(); };
+  try { navigator.clipboard.writeText(CONFIG.email).then(() => done(true), () => done(false)); } catch(e){ done(false); }
+}
+function mergeExtra(){
+  if(typeof EXTRA === "undefined" || !Array.isArray(EXTRA)) return;
+  EXTRA.forEach(x => {
+    if(!x || !x.sub || !x.year || !x.q || !Array.isArray(x.o) || x.o.length < 4 || x.o.length > 5 || !(x.a >= 0 && x.a < x.o.length)) return;
+    const y = String(x.year); BANK[x.sub] = BANK[x.sub] || {};
+    (BANK[x.sub][y] = BANK[x.sub][y] || []).push({q:x.q, o:x.o, a:+x.a, s:x.s || ""});
+  });
+}
+mergeExtra();
+const MAX_SUBJECTS = 5;
+const COUNTRIES = ["Nigeria","Ghana","Cameroon","Benin","Togo","Niger","Chad","Sierra Leone","Liberia","Gambia","Kenya","South Africa","United Kingdom","United States","Canada","Other"];
+const STATES = ["Abia","Adamawa","Akwa Ibom","Anambra","Bauchi","Bayelsa","Benue","Borno","Cross River","Delta","Ebonyi","Edo","Ekiti","Enugu","Gombe","Imo","Jigawa","Kaduna","Kano","Katsina","Kebbi","Kogi","Kwara","Lagos","Nasarawa","Niger","Ogun","Ondo","Osun","Oyo","Plateau","Rivers","Sokoto","Taraba","Yobe","Zamfara","FCT Abuja"];
+const esc = s => String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const profile = () => { try { return JSON.parse(sget("chocos_profile") || "null"); } catch(e){ return null; } };
+const mySubjects = () => { const p = profile(); return (p && p.subjects && p.subjects.length) ? p.subjects : SUBJECTS; };
+function totalQuestions(){ let n = 0; for(const s in BANK) for(const k in BANK[s]) n += BANK[s][k].length; for(const t in PRACTICE) n += PRACTICE[t].length; return n; }
+function enterApp(){
+  if(S.view !== "splash") return;
+  fbInit(); detectAI();
+  const p = profile();
+  S = {view: p ? "home" : "register", msg:"", reg: p ? JSON.parse(JSON.stringify(p)) : {name:"",country:"Nigeria",state:"",email:"",subjects:[]}};
+  render();
+}
+function syncReg(){
+  const r = S.reg || {name:"",country:"Nigeria",state:"",email:"",subjects:[]};
+  const g = id => { const e = document.getElementById(id); return e ? e.value : undefined; };
+  const n = g("r-name"), c = g("r-country"), st = g("r-state"), em = g("r-email");
+  if(n !== undefined) r.name = n;
+  if(c !== undefined) r.country = c;
+  if(st !== undefined) r.state = st;
+  if(em !== undefined) r.email = em;
+  S.reg = r; return r;
+}
+function regCountry(){ const r = syncReg(); r.state = ""; render(); }
+function toggleSub(i){
+  const r = syncReg(); const name = SUBJECTS[i]; const k = r.subjects.indexOf(name);
+  if(k >= 0){ r.subjects.splice(k,1); S.msg = ""; }
+  else if(r.subjects.length >= MAX_SUBJECTS){ S.msg = "You can pick up to " + MAX_SUBJECTS + " subjects."; }
+  else { r.subjects.push(name); S.msg = ""; }
+  render();
+}
+function saveProfile(){
+  const r = syncReg();
+  r.name = String(r.name || "").trim(); r.email = String(r.email || "").trim(); r.state = String(r.state || "").trim();
+  if(r.name.length < 2){ S.msg = "Please enter your full name."; return render(); }
+  if(!r.country){ S.msg = "Please choose your country."; return render(); }
+  if(!r.state){ S.msg = "Please enter your state."; return render(); }
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(r.email)){ S.msg = "Please enter a valid email address."; return render(); }
+  if(r.subjects.length < 1){ S.msg = "Pick at least one subject."; return render(); }
+  sset("chocos_profile", JSON.stringify({name:r.name,country:r.country,state:r.state,email:r.email,subjects:r.subjects,photo:r.photo || ""}));
+  fbSaveProfile(profile());
+  S = {view:"home", msg:""};
+  render();
+}
+function editProfile(){ const p = profile() || {name:"",country:"Nigeria",state:"",email:"",subjects:[]}; S = {view:"register", msg:"", editing:true, reg: JSON.parse(JSON.stringify(p))}; render(); }
+function openSubject(i){ const subs = mySubjects(); S = {view:"practice", cur:subs[i], msg:""}; render(); }
+function tabsHtml(cur){
+  const subs = mySubjects(); const a = attempts();
+  return `<div class="tabs">${subs.map((s,i) => { const mine = a.filter(x => x.s === s); const best = mine.length ? Math.max(...mine.map(x => Math.round(x.sc/x.t*100))) : null; return `<span class="tab ${s===cur?"on":""}" onclick="openSubject(${i})">${esc(s)}${best !== null ? ` ✓ ${best}%` : ""}</span>`; }).join("")}</div>`;
+}
+function doSearch(){
+  const el = document.getElementById("sq"); const q = (el ? el.value : "").trim();
+  S.q = q; S.res = null; S.total = 0;
+  if(q.length < 3){ S.msg = "Type at least 3 letters."; return render(); }
+  S.msg = "";
+  const t = q.toLowerCase(); const res = []; let total = 0;
+  const cap = isPaid() ? 40 : 10;
+  const add = (label, set, x) => { total++; if(res.length < cap) res.push({l:label, y:set, x:x}); };
+  for(const sub in BANK) for(const set in BANK[sub]) for(const x of BANK[sub][set]) if(x.q.toLowerCase().indexOf(t) >= 0) add(sub, set, x);
+  for(const nt in PRACTICE) for(const x of PRACTICE[nt]) if(x.q.toLowerCase().indexOf(t) >= 0) add("Novel: " + nt, "JAMB Novel Practice", x);
+  S.res = res; S.total = total; render();
+}
+
+const EXAMS = {WAEC:{name:"WAEC (WASSCE)", short:"WAEC", note:"WAEC-style practice questions arranged by year."}, NECO:{name:"NECO", short:"NECO", note:"NECO-style practice questions arranged by year."}, GCE:{name:"WAEC GCE", short:"WAEC GCE", note:"WAEC GCE (private candidates) style practice questions arranged by year."}};
+const EXAM_CACHE = {};
+function hashStr(t){ let h = 2166136261; for(let i = 0; i < t.length; i++){ h ^= t.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+function seededRng(seed){ let a = seed >>> 0; return function(){ a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a>>>15, 1 | a); t = t + Math.imul(t ^ t>>>7, 61 | t) ^ t; return ((t ^ t>>>14) >>> 0) / 4294967296; }; }
+function examPapers(ex, sub){
+  const key = ex + "|" + sub; if(EXAM_CACHE[key]) return EXAM_CACHE[key];
+  const out = {}; if(!BANK[sub]) return (EXAM_CACHE[key] = out);
+  const pool = []; years(sub).forEach(y => BANK[sub][y].forEach(q => { if(!q.p && !q.r) pool.push(q); }));
+  const r = seededRng(hashStr(ex + "|" + sub));
+  for(let i = pool.length-1; i > 0; i--){ const j = Math.floor(r()*(i+1)); const tmp = pool[i]; pool[i] = pool[j]; pool[j] = tmp; }
+  const take = pool.slice(0, 900), nP = Math.ceil(take.length/50);
+  const sizes = [take.length - 50*(nP-1)]; for(let i = 1; i < nP; i++) sizes.push(50);
+  let idx = 0; for(let i = 0; i < nP; i++){ out[String(2026 - nP + 1 + i)] = take.slice(idx, idx + sizes[i]); idx += sizes[i]; }
+  return (EXAM_CACHE[key] = out);
+}
+function openExam(ex){ menuOpen = false; S = {view:"exam", ex:ex, msg:""}; render(); }
+function fillExam(){
+  const ss = document.getElementById("exsub"), yy = document.getElementById("exyr"); if(!ss) return;
+  const papers = examPapers(S.ex, ss.value), ys = Object.keys(papers).sort();
+  const tot = ys.reduce((n,y) => n + papers[y].length, 0);
+  if(yy){ yy.innerHTML = ys.map(y => `<option value="${y}">${y} (${papers[y].length} questions)</option>`).join(""); if(ys.length) yy.value = ys[ys.length-1]; }
+  const note = document.getElementById("exnote"); if(note) note.textContent = ys.length + " paper" + (ys.length === 1 ? "" : "s") + ", " + tot + " questions in " + ss.value;
+}
+function launchExam(ex, sub, year, mode){
+  const papers = examPapers(ex, sub); let list;
+  if(isPaid()){ list = papers[year] || papers[Object.keys(papers).sort().pop()] || []; }
+  else { const ks = years(sub); list = BANK[sub] && ks.length ? BANK[sub][ks[0]].slice(0, FREE_LIMIT) : []; year = "Free sample"; }
+  if(!list.length){ S.msg = "No questions in " + sub + " yet."; return render(); }
+  launch({list:list.map(x => Object.assign({}, x, {sub:sub})), subject:EXAMS[ex].short + " " + sub, year:EXAMS[ex].short + " " + year, mode:mode, minutes: mode === "exam" ? Math.ceil(list.length*1.2) : list.length, again:"ex", exInfo:{ex:ex, sub:sub, year:year, mode:mode}});
+}
+function startExamFromUI(mode){ const ss = document.getElementById("exsub"), yy = document.getElementById("exyr"); launchExam(S.ex, ss.value, yy ? yy.value : "", mode); }
+let menuOpen = false;
+function toast(t){ S.toast = t; render(); setTimeout(() => { if(S.toast === t){ S.toast = null; render(); } }, 3000); }
+function copyText(t,msg){ const done = ok => toast(ok ? msg : "Could not copy. Copy it by hand: " + t); try { navigator.clipboard.writeText(t).then(() => done(true), () => done(false)); } catch(e){ done(false); } }
+function menuToggle(){ menuOpen = !menuOpen; render(); }
+function menuGo(v){ menuOpen = false; if(v === "edit") return editProfile(); go(v); }
+function showLink(title,text,url,label,copy){ menuOpen = false; S = {view:"linkpage", lp:{title:title, text:text, url:url, label:label, copy:copy || url}, msg:""}; render(); }
+function showShare(t){ showLink("🔗 Share","Choose where to send this message:","https://wa.me/?text=" + encodeURIComponent(t),"Share on WhatsApp",t); }
+function shareText(t){
+  menuOpen = false;
+  try { if(navigator.share){ navigator.share({text:t}).catch(e => { if(!e || e.name !== "AbortError") showShare(t); }); render(); return; } } catch(e){}
+  showShare(t);
+}
+function shareResult(){ const a = attempts()[0]; if(!a){ menuOpen = false; return toast("No result yet. Finish a practice first."); } shareText("My result on Exam Dealer JAMB CBT 2027: " + a.s + " (" + a.y + ") - " + a.sc + "/" + a.t + " (" + Math.round(a.sc/a.t*100) + "%)."); }
+function shareProgress(){ const a = attempts(); if(!a.length){ menuOpen = false; return toast("No practice saved yet."); } const avg = Math.round(a.reduce((n,x) => n + x.sc/x.t*100, 0)/a.length); const p = profile(); shareText("Progress report" + (p ? " for " + p.name : "") + " on Exam Dealer JAMB CBT 2027: " + a.length + " practices, average " + avg + "%. Latest: " + a[0].s + " " + Math.round(a[0].sc/a[0].t*100) + "%."); }
+function shareApp(){ const url = APP_URL || (typeof location !== "undefined" && location.protocol.indexOf("http") === 0 ? location.href : ""); shareText("Practise for JAMB with Exam Dealer JAMB CBT 2027" + (url ? ": " + url : "") + (CHANNEL_URL ? "\n\nFollow the Exam Dealer Jamb CBT 2027 channel on WhatsApp: " + CHANNEL_URL : "")); }
+function joinChannel(){
+  if(!CHANNEL_URL){ menuOpen = false; return toast("The channel link has not been set yet."); }
+  showLink("📣 Join our WhatsApp channel","Follow the Exam Dealer Jamb CBT 2027 channel on WhatsApp for updates and tips.",CHANNEL_URL,"Open the WhatsApp channel",CHANNEL_URL);
+}
+function rateApp(){
+  if(!RATE_URL){ menuOpen = false; return toast("Rating opens once the app is on Google Play."); }
+  showLink("⭐ Rate the app","Thank you for supporting Exam Dealer JAMB CBT 2027.",RATE_URL,"Open the Google Play page",RATE_URL);
+}
+function feedbackMail(){ menuOpen = false; openMail("Exam Dealer JAMB CBT 2027 feedback", "My feedback:\n"); }
+function drawerHtml(){
+  const p = profile() || {name:"Student", state:"", country:""};
+  const it = (ic,t,fn) => `<div class="ditem" onclick="${fn}"><span>${ic}</span><span>${t}</span></div>`;
+  return `<div class="drawerbg" onclick="menuToggle()"></div><div class="drawer">
+    <div class="dhead">${avatarHtml(p,64,true)}<div style="font-size:20px;font-weight:bold">${esc(p.name)} <span onclick="menuGo('edit')" style="cursor:pointer">✏️</span></div><small>${esc(p.state)}${p.state && p.country ? ", " : ""}${esc(p.country)}</small></div>
+    <div class="dsec">Account</div>${it("👤","My Profile (edit name, photo, subjects)","menuGo('edit')")}
+    <div class="dline"></div><div class="dsec">Product</div>${it("🔑","Product Key","menuGo('productkey')")}${it("🗝️","Activation Key","menuGo('pay')")}${it("©️","License Terms and Privacy","menuGo('terms')")}
+    <div class="dline"></div><div class="dsec">Exams</div>${it("📘","WAEC Questions","openExam('WAEC')")}${it("📗","NECO Questions","openExam('NECO')")}${it("📙","WAEC GCE Questions","openExam('GCE')")}
+    <div class="dline"></div><div class="dsec">Guardian</div>${it("📤","Share my result with a parent","shareResult()")}${it("📈","Share my progress report","shareProgress()")}
+    <div class="dline"></div><div class="dsec">Contact</div>${it("🎧","Live Support","menuGo('support')")}${it("📣","Join Channel","joinChannel()")}${it("⭐","Rate App","rateApp()")}${it("💬","Feedback","feedbackMail()")}${it("🔗","Share","shareApp()")}
+    <div class="dline"></div>${it("🚪","Log out","menuGo('logout')")}</div>`;
+}
+function doLogout(clear){
+  sset("chocos_profile","null");
+  if(clear){ sset("chocos_attempts","[]"); sset("chocos_bm","[]"); sset("chocos_game","0"); }
+  menuOpen = false;
+  S = {view:"register", msg:"You have been logged out.", reg:{name:"",country:"Nigeria",state:"",email:"",subjects:[]}};
+  render();
+}
+function avatarHtml(p,size,tap){
+  let inner;
+  if(p && p.photo) inner = `<img src="${esc(p.photo)}" alt="" style="width:${size}px;height:${size}px;border-radius:50%;object-fit:cover;border:2px solid #fff;flex:0 0 auto">`;
+  else inner = `<span style="width:${size}px;height:${size}px;border-radius:50%;background:rgba(255,255,255,.28);display:inline-flex;align-items:center;justify-content:center;font-size:${Math.round(size*0.55)}px;flex:0 0 auto">🎓</span>`;
+  if(!tap) return inner;
+  return `<label style="position:relative;display:inline-block;cursor:pointer;flex:0 0 auto">${inner}<span style="position:absolute;right:-2px;bottom:-2px;background:#0b6e4f;color:#fff;border-radius:50%;width:22px;height:22px;font-size:12px;display:flex;align-items:center;justify-content:center;border:2px solid #fff">📷</span><input type="file" accept="image/*" onchange="photoChosen(this)" style="position:absolute;left:0;top:0;width:100%;height:100%;opacity:0;cursor:pointer;font-size:0"></label>`;
+}
+/* One permanent file input, outside the screen that gets redrawn, so the gallery picker always works */
+function pickPhoto(){
+  let i = document.getElementById("quickPhoto");
+  if(!i){
+    i = document.createElement("input"); i.type = "file"; i.id = "quickPhoto"; i.accept = "image/*";
+    i.style.cssText = "position:fixed;left:0;top:0;width:1px;height:1px;opacity:0;pointer-events:none";
+    i.onchange = () => { photoChosen(i); i.value = ""; };
+    document.body.appendChild(i);
+  }
+  i.click();
+}
+function setPhoto(data){
+  if(S.view === "register"){ syncReg(); S.reg.photo = data; render(); return; }
+  const p = profile();
+  if(p){ p.photo = data; sset("chocos_profile", JSON.stringify(p)); try{ fbSaveProfile(p); }catch(e){} toast("Photo saved ✅"); }
+}
+const AVATARS = ["😀","😎","🎓","📚","🦁","🦅","⚽","🚀"], AV_COLORS = ["#0b6e4f","#1d4ed8","#b45309","#7c3aed","#be123c","#0f766e","#4338ca","#15803d"];
+function avatarPick(i){
+  const c = document.createElement("canvas"); c.width = 240; c.height = 240; const g = c.getContext("2d");
+  g.fillStyle = AV_COLORS[i]; g.fillRect(0,0,240,240); g.font = "130px sans-serif"; g.textAlign = "center"; g.textBaseline = "middle"; g.fillStyle = "#fff";
+  g.fillText(AVATARS[i], 120, 130); setPhoto(c.toDataURL("image/jpeg", 0.9));
+}
+function photoFail(m){ try{ toast(m); }catch(e){} try{ alert(m); }catch(e){} }
+function photoChosen(inp){
+  const f = inp.files && inp.files[0]; if(!f) return;
+  if(S.view === "register") syncReg();   // keep what the user already typed
+  const finish = (img) => {
+    try{
+      const c = document.createElement("canvas"); const n = 240; c.width = n; c.height = n; const g = c.getContext("2d");
+      const w = img.naturalWidth || img.width, h = img.naturalHeight || img.height; const m = Math.min(w, h);
+      g.drawImage(img, (w - m)/2, (h - m)/2, m, m, 0, 0, n, n);
+      setPhoto(c.toDataURL("image/jpeg", 0.85));
+    }catch(e){ photoFail("Could not use that picture. Please choose a JPG or PNG photo."); }
+  };
+  const viaReader = () => {
+    const rd = new FileReader();
+    rd.onload = () => { const im = new Image(); im.onload = () => finish(im); im.onerror = () => photoFail("Could not read that picture. Please choose a JPG or PNG photo."); im.src = rd.result; };
+    rd.onerror = () => photoFail("Could not read that picture.");
+    rd.readAsDataURL(f);
+  };
+  try{
+    const url = URL.createObjectURL(f); const im = new Image();   // light on memory, works for big phone photos
+    im.onload = () => { finish(im); try{ URL.revokeObjectURL(url); }catch(e){} };
+    im.onerror = () => { try{ URL.revokeObjectURL(url); }catch(e){} viaReader(); };
+    im.src = url;
+  }catch(e){ viaReader(); }
+}
+function removePhoto(){ syncReg(); S.reg.photo = ""; render(); }
+function deactivate(){ sset("chocos_paid","0"); S.msg = "Activation removed on this phone."; render(); }
+function chaptersHtml(t){
+  const c = CHAPTERS[t]; if(!c) return "";
+  return `<h3>${c.label === "Chapter" ? "Chapter by chapter" : "Story by stages"}</h3>${c.note ? `<p><small>${c.note}</small></p>` : ""}` + c.items.map(x => {
+    const i = x.indexOf(". "); const num = x.slice(0,i); let rest = x.slice(i+2); let title = ""; const d = rest.indexOf(" — ");
+    if(d > 0 && d < 40){ title = ": " + rest.slice(0,d); rest = rest.slice(d+3); }
+    return `<details style="margin-top:6px"><summary><b>${c.label} ${num}</b>${title}</summary><p>${rest}</p></details>`;
+  }).join("");
+}
+/* ---------- online features (Firebase) ---------- */
+let FB = {ready:false, uid:null, db:null};
+function loadScript(src){ return new Promise((res,rej) => { const el = document.createElement("script"); el.src = src; el.onload = res; el.onerror = rej; document.head.appendChild(el); }); }
+async function fbInit(){
+  if(!FIREBASE_CONFIG || FB.ready) return;
+  try {
+    if(typeof firebase === "undefined"){ const b = "https://www.gstatic.com/firebasejs/10.14.1/"; await loadScript(b + "firebase-app-compat.js"); await loadScript(b + "firebase-auth-compat.js"); await loadScript(b + "firebase-firestore-compat.js"); }
+    if(!firebase.apps.length) firebase.initializeApp(FIREBASE_CONFIG);
+    const cred = await firebase.auth().signInAnonymously();
+    FB.uid = cred.user.uid; FB.db = firebase.firestore(); FB.ready = true;
+    const p = profile(); if(p) fbSaveProfile(p);
+    if(S.view === "home" || S.view === "leaderboard") render();
+  } catch(e){ FB.ready = false; }
+}
+function fbSaveProfile(p){
+  if(!FB.ready || !p) return;
+  const FV = firebase.firestore.FieldValue; const parts = String(p.name).split(" ");
+  FB.db.collection("students").doc(FB.uid).set({name:p.name, country:p.country, state:p.state, email:p.email, subjects:p.subjects, deviceId:deviceId(), updated:FV.serverTimestamp()}, {merge:true}).catch(() => {});
+  FB.db.collection("leaderboard").doc(FB.uid).set({name: parts[0] + (parts[1] ? " " + parts[1][0] + "." : ""), state:p.state}, {merge:true}).catch(() => {});
+}
+function fbSaveScore(){
+  if(!FB.ready) return;
+  const FV = firebase.firestore.FieldValue;
+  FB.db.collection("leaderboard").doc(FB.uid).set({points:FV.increment(S.score), practices:FV.increment(1), updated:FV.serverTimestamp()}, {merge:true}).catch(() => {});
+  FB.db.collection("scores").add({uid:FB.uid, subject:S.subject, year:String(S.year), score:S.score, total:S.list.length, ts:FV.serverTimestamp()}).catch(() => {});
+}
+async function fbLeaderboard(){ if(!FB.ready) return null; const snap = await FB.db.collection("leaderboard").orderBy("points","desc").limit(20).get(); return snap.docs.map(d => Object.assign({id:d.id}, d.data())); }
+async function fbClaimCode(code){
+  if(!FIREBASE_CONFIG) return "off";            // online checking is not switched on
+  await fbInit();
+  if(!FB.ready) return "offline";
+  const ref = FB.db.collection("codes").doc(code);
+  try {
+    return await FB.db.runTransaction(async t => {
+      const d = await t.get(ref);
+      if(d.exists) return d.data().uid === FB.uid ? "ok" : "used";   // first phone wins
+      t.set(ref, {uid:FB.uid, ts:firebase.firestore.FieldValue.serverTimestamp()});
+      return "ok";
+    });
+  } catch(e){ return "error"; }
+}
+function openBoard(){ go("leaderboard"); if(FB.ready) fbLeaderboard().then(b => { S.board = b; if(S.view === "leaderboard") render(); }).catch(() => {}); }
+/* ---------- AI tutor ---------- */
+let AI_MODE = TUTOR_URL ? "url" : "none", AI_SAMPLE = null;
+function detectAI(){
+  try { if(!TUTOR_URL && typeof window !== "undefined" && window.claude && window.claude.use){ window.claude.use("sample").then(sm => { if(sm){ AI_SAMPLE = sm; AI_MODE = "sample"; } }).catch(() => {}); } } catch(e){}
+}
+async function askTutor(question, ctx){
+  const system = "You are a friendly, patient tutor for Nigerian secondary school students preparing for JAMB and WAEC. Explain step by step in simple English. Keep the answer under 150 words. If the question is not about school subjects, politely steer the student back to studying.";
+  if(AI_MODE === "url"){
+    let tok = null; try { if(FB.ready) tok = await firebase.auth().currentUser.getIdToken(); } catch(e){}
+    const r = await fetch(TUTOR_URL, {method:"POST", headers:Object.assign({"content-type":"application/json"}, tok ? {authorization:"Bearer " + tok} : {}), body:JSON.stringify({question:question, context:ctx || ""})});
+    const j = await r.json(); if(!r.ok) throw new Error(j.error || "error"); return j.answer;
+  }
+  if(AI_MODE === "sample"){ const r = await AI_SAMPLE(system + "\n\n" + (ctx ? "Question being studied:\n" + ctx + "\n\n" : "") + "Student asks: " + question); return r.text; }
+  throw new Error("none");
+}
+function tutorPanel(q){
+  const exam = S.mode === "exam";
+  let h = `<div class="sol"><b>🤖 Tutor:</b> ${exam ? "Explanations open after you submit." : q.s}`;
+  if(!exam){
+    if(AI_MODE !== "none") h += `<br><button class="alt" onclick="aiExplain()">✨ Explain step by step with AI</button>`;
+    if(S.ai && S.ai[S.i]) h += `<p>${esc(S.ai[S.i]).replace(/\n/g,"<br>")}</p>`;
+  }
+  return h + `</div>`;
+}
+async function aiExplain(){
+  const q = S.list[S.i]; S.ai = S.ai || {}; S.ai[S.i] = "Thinking…"; render();
+  const ctx = q.q + "\nOptions: " + q.o.map((o,n) => "ABCDE"[n] + ". " + o).join("  ") + "\nCorrect answer: " + "ABCDE"[q.a] + ". " + q.o[q.a];
+  try { S.ai[S.i] = await askTutor("Explain why this answer is correct, step by step.", ctx); } catch(e){ S.ai[S.i] = "The AI tutor could not answer now. Please try again later."; }
+  render();
+}
+const STOP = new Set("the and for are was were what which who whom how why when where that this with from have has had does did you your about into than then them they their will would can could should not but all any each one two three explain meaning mean give tell please help question answer solve find".split(" "));
+function offlineTutor(q){
+  const text = String(q).trim(); let calc = "";
+  const m = text.replace(/[x×]/gi,"*").replace(/÷/g,"/").match(/[0-9+\-*\/().%\s]{3,}/);
+  if(m && /[0-9]/.test(m[0]) && /[+\-*\/%]/.test(m[0])){ try { const v = calcEval(m[0].trim()); if(isFinite(v)) calc = "Calculation: " + m[0].trim() + " = " + +v.toFixed(6) + "\n\n"; } catch(e){} }
+  const words = text.toLowerCase().replace(/[^a-z0-9 ]/g," ").split(/\s+/).filter(w => w.length > 2 && !STOP.has(w));
+  const found = [];
+  if(words.length){
+    const need = Math.min(2, words.length);
+    const look = (x, label) => { const t = (x.q + " " + (x.p || "")).toLowerCase(); let sc = 0; for(const w of words) if(t.indexOf(w) >= 0) sc++; if(sc >= need) found.push({sc:sc, x:x, l:label}); };
+    for(const sub in BANK) for(const y in BANK[sub]) for(const x of BANK[sub][y]) look(x, sub);
+    for(const nt in PRACTICE) for(const x of PRACTICE[nt]) look(x, "Novel: " + nt);
+    found.sort((a,b) => b.sc - a.sc);
+  }
+  const top = []; const seenQ = {};
+  for(const f of found){ if(!seenQ[f.x.q]){ seenQ[f.x.q] = 1; top.push(f); } if(top.length >= 3) break; }
+  if(!top.length) return calc + "I could not find a solved question that matches. Try different key words, or use Question Search.";
+  return calc + "Here are solved questions that match yours:\n\n" + top.map((f,i) => (i+1) + ". (" + f.l + ") " + f.x.q + "\nAnswer: " + "ABCDE"[f.x.a] + ". " + f.x.o[f.x.a] + (f.x.s ? "\nWhy: " + f.x.s : "")).join("\n\n");
+}
+async function ensureAI(){
+  if(AI_MODE !== "none") return;
+  try { if(typeof window !== "undefined" && window.claude && window.claude.use){ const sm = await window.claude.use("sample"); if(sm){ AI_SAMPLE = sm; AI_MODE = "sample"; } } } catch(e){}
+}
+async function tutorAsk(){
+  const el = document.getElementById("tq"); const q = (el ? el.value : "").trim(); if(!q) return;
+  S.chat = S.chat || []; S.chat.push({q:q, a:"Thinking…"}); const i = S.chat.length - 1; render();
+  try { await ensureAI(); S.chat[i].a = await askTutor(q, ""); S.chat[i].ai = true; }
+  catch(e){ S.chat[i].a = (AI_MODE === "none" ? "" : "The AI tutor could not answer just now, so here is the offline tutor.\n\n") + offlineTutor(q); }
+  render();
+}
+const FOODS = {"Glucose solution":[0,1,0,0,0],"Cooked rice (starch)":[1,0,0,0,0],"Boiled yam":[1,0,0,0,0],"Egg white":[0,0,1,0,0],"Groundnut oil":[0,0,0,1,0],"Orange juice":[0,1,0,0,1],"Milk":[0,1,1,1,0],"Groundnut seeds (crushed)":[0,0,1,1,0],"Water":[0,0,0,0,0]};
+const FOODTESTS = [["Iodine test (starch)","blue-black colour","stays brown or yellow"],["Benedict’s test (reducing sugar, heated)","brick-red or orange precipitate","stays blue"],["Biuret test (protein)","purple or violet colour","stays blue"],["Ethanol emulsion test (fat or oil)","cloudy white emulsion","stays clear"],["DCPIP test (vitamin C)","blue colour disappears","stays blue"]];
+const LABS = [
+{s:"Physics",t:"Ohm’s Law",d:"V = I × R",c:[["V","Voltage","V",1,12,6,1],["R","Resistance","Ω",1,20,6,1]],f:x=>({I:x.V/x.R,P:x.V*x.V/x.R}),o:[["I","Current","A"],["P","Power","W"]],p:["V","I","Voltage (V)","Current (A)"],n:"Doubling the voltage doubles the current. Doubling the resistance halves it."},
+{s:"Physics",t:"Projectile motion",d:"Range = u² sin 2θ ÷ g (g = 10 m/s²)",c:[["a","Angle","°",10,80,45,1],["v","Launch speed","m/s",5,50,20,1]],f:x=>{const r=x.a*Math.PI/180;return {R:x.v*x.v*Math.sin(2*r)/10,H:Math.pow(x.v*Math.sin(r),2)/20,T:2*x.v*Math.sin(r)/10};},o:[["R","Range","m"],["H","Maximum height","m"],["T","Time of flight","s"]],cv:x=>{const r=x.a*Math.PI/180,T=2*x.v*Math.sin(r)/10,pts=[];for(let i=0;i<=30;i++){const t=T*i/30;pts.push([x.v*Math.cos(r)*t,Math.max(0,x.v*Math.sin(r)*t-5*t*t)]);}return {pts:pts,xl:"Distance (m)",yl:"Height (m)"};},n:"The longest range is at 45°. Angles that add up to 90° give the same range."},
+{s:"Physics",t:"Simple pendulum",d:"T = 2π √(L ÷ g), g = 10 m/s²",c:[["L","Length of string","m",0.1,5,1,0.1]],f:x=>{const T=2*Math.PI*Math.sqrt(x.L/10);return {T:T,fr:1/T};},o:[["T","Period","s"],["fr","Frequency","Hz"]],p:["L","T","Length (m)","Period (s)"],n:"A longer pendulum swings more slowly. The mass of the bob does not change the period."},
+{s:"Physics",t:"Hooke’s Law (spring)",d:"F = k × e and energy = ½ k e²",c:[["k","Spring constant","N/m",10,200,50,5],["e","Extension","m",0,0.5,0.2,0.01]],f:x=>({F:x.k*x.e,E:0.5*x.k*x.e*x.e}),o:[["F","Force","N"],["E","Energy stored","J"]],p:["e","F","Extension (m)","Force (N)"],n:"The force is directly proportional to the extension, until the elastic limit is reached."},
+{s:"Physics",t:"Free fall",d:"t = √(2h ÷ g), v = √(2gh), g = 10 m/s²",c:[["h","Height","m",1,100,20,1]],f:x=>({t:Math.sqrt(2*x.h/10),v:Math.sqrt(2*10*x.h)}),o:[["t","Time to fall","s"],["v","Final speed","m/s"]],p:["h","v","Height (m)","Final speed (m/s)"],n:"Mass does not affect free fall when air resistance is ignored."},
+{s:"Physics",t:"Refraction of light",d:"n₁ sin i = n₂ sin r",c:[["n1","Refractive index of medium 1","",1,2,1,0.01],["n2","Refractive index of medium 2","",1,2.5,1.5,0.01],["i","Angle of incidence","°",0,89,30,1]],f:x=>{const s=x.n1*Math.sin(x.i*Math.PI/180)/x.n2;if(s>1)return {r:NaN,note:"Total internal reflection"};const r=Math.asin(s)*180/Math.PI;return {r:r,note:r>x.i+0.01?"Light bends away from the normal":(r<x.i-0.01?"Light bends towards the normal":"No bending")};},o:[["r","Angle of refraction","°"],["note","Result",""]],p:["i","r","Angle of incidence (°)","Angle of refraction (°)"],n:"Light bends towards the normal when it enters a denser medium."},
+{s:"Physics",t:"Convex lens",d:"1/f = 1/u + 1/v",c:[["f","Focal length","cm",5,30,10,1],["u","Object distance","cm",6,60,25,1]],f:x=>{if(Math.abs(x.u-x.f)<1e-9)return {v:NaN,m:NaN,note:"Image at infinity"};const v=1/(1/x.f-1/x.u);return {v:v,m:-v/x.u,note:v>0?"Real, inverted image":"Virtual, upright image"};},o:[["v","Image distance","cm"],["m","Magnification",""],["note","Image",""]],p:["u","v","Object distance (cm)","Image distance (cm)"],clip:200,n:"When the object is inside the focal length, the image is virtual and magnified."},
+{s:"Physics",t:"Specific heat capacity",d:"Q = m × c × ΔT",c:[["m","Mass","kg",0.1,2,0.5,0.1],["c","Specific heat capacity","J/kg°C",400,4200,4200,100],["dT","Temperature rise","°C",1,80,20,1]],f:x=>{const Q=x.m*x.c*x.dT;return {Q:Q,t:Q/1000};},o:[["Q","Heat needed","J"],["t","Time with a 1 kW heater","s"]],p:["dT","Q","Temperature rise (°C)","Heat (J)"],n:"Water (4200 J/kg°C) needs far more heat than metals to warm up."},
+{s:"Physics",t:"Series and parallel resistors",d:"Series: R = R₁ + R₂. Parallel: 1/R = 1/R₁ + 1/R₂",c:[["R1","Resistor 1","Ω",1,20,6,1],["R2","Resistor 2","Ω",1,20,12,1]],f:x=>({S:x.R1+x.R2,P:x.R1*x.R2/(x.R1+x.R2)}),o:[["S","Series total","Ω"],["P","Parallel total","Ω"]],p:["R1","P","Resistor 1 (Ω)","Parallel resistance (Ω)"],n:"The parallel total is always smaller than the smallest resistor."},
+{s:"Physics",t:"Wave speed",d:"v = f × λ",c:[["f","Frequency","Hz",1,500,100,1],["w","Wavelength","m",0.1,10,3,0.1]],f:x=>({v:x.f*x.w,T:1/x.f}),o:[["v","Wave speed","m/s"],["T","Period","s"]],p:["f","v","Frequency (Hz)","Wave speed (m/s)"],n:"At a fixed wavelength, a higher frequency means a faster wave."},
+{s:"Chemistry",t:"pH of a strong acid",d:"pH = −log₁₀[H⁺]",c:[["p","Strength exponent p (C = 10⁻ᵖ mol/dm³)","",0,5,2,0.1]],f:x=>({C:Math.pow(10,-x.p),pH:x.p,pOH:14-x.p}),o:[["C","Concentration","mol/dm³"],["pH","pH",""],["pOH","pOH",""]],p:["p","pH","p","pH"],n:"A more dilute strong acid has a higher pH."},
+{s:"Chemistry",t:"Acid–base titration",d:"Vb = (Ca × Va) ÷ Cb for a 1 : 1 reaction",c:[["Ca","Acid concentration","mol/dm³",0.05,1,0.1,0.05],["Va","Acid volume","cm³",10,50,25,1],["Cb","Base concentration","mol/dm³",0.05,1,0.1,0.05]],f:x=>({Vb:x.Ca*x.Va/x.Cb,n:x.Ca*x.Va/1000}),o:[["Vb","Base volume needed","cm³"],["n","Moles of acid","mol"]],p:["Va","Vb","Acid volume (cm³)","Base volume needed (cm³)"],n:"At the end point the moles of acid equal the moles of base."},
+{s:"Chemistry",t:"Dilution",d:"C₁V₁ = C₂V₂",c:[["C1","Starting concentration","mol/dm³",0.5,10,4,0.5],["V1","Starting volume","cm³",10,100,50,5],["V2","Final volume","cm³",50,500,200,10]],f:x=>({C2:x.C1*x.V1/x.V2}),o:[["C2","Final concentration","mol/dm³"]],p:["V2","C2","Final volume (cm³)","Final concentration (mol/dm³)"],n:"Adding water lowers the concentration but not the amount of solute."},
+{s:"Chemistry",t:"Moles and mass",d:"n = m ÷ M",c:[["M","Molar mass","g/mol",10,200,40,1],["m","Mass","g",1,500,80,1]],f:x=>{const n=x.m/x.M;return {n:n,N:(n*6.02).toFixed(2)+" × 10²³"};},o:[["n","Amount","mol"],["N","Number of particles",""]],p:["m","n","Mass (g)","Moles"],n:"One mole of any substance contains 6.02 × 10²³ particles."},
+{s:"Chemistry",t:"Boyle’s Law",d:"P₁V₁ = P₂V₂ (constant temperature)",c:[["P1","Starting pressure","kPa",50,300,100,10],["V1","Starting volume","dm³",1,10,4,0.5],["P2","Final pressure","kPa",50,400,200,10]],f:x=>({V2:x.P1*x.V1/x.P2}),o:[["V2","Final volume","dm³"]],p:["P2","V2","Final pressure (kPa)","Final volume (dm³)"],n:"When pressure goes up, the volume of a gas goes down."},
+{s:"Chemistry",t:"Charles’ Law",d:"V₁ ÷ T₁ = V₂ ÷ T₂ (temperature in kelvin)",c:[["V1","Starting volume","dm³",1,10,4,0.5],["T1","Starting temperature","K",200,400,300,10],["T2","Final temperature","K",200,600,400,10]],f:x=>({V2:x.V1*x.T2/x.T1}),o:[["V2","Final volume","dm³"]],p:["T2","V2","Final temperature (K)","Final volume (dm³)"],n:"A gas expands when it is heated at constant pressure."},
+{s:"Chemistry",t:"Rate of reaction and temperature",d:"The rate roughly doubles for every 10°C rise",c:[["T","Temperature","°C",10,60,30,1]],f:x=>{const r=Math.pow(2,(x.T-20)/10);return {rate:r,time:100/r};},o:[["rate","Rate compared with 20°C",""],["time","Time (if it takes 100 s at 20°C)","s"]],p:["T","rate","Temperature (°C)","Relative rate"],n:"Particles move faster and collide more often at higher temperature."},
+{s:"Chemistry",t:"Electrolysis (Faraday’s Law)",d:"m = (M × I × t) ÷ (z × 96500)",c:[["I","Current","A",0.5,10,2,0.5],["t","Time","s",60,3600,1200,60],["M","Molar mass of the metal","g/mol",7,200,63.5,0.5],["z","Charge on the metal ion","",1,3,2,1]],f:x=>({m:x.M*x.I*x.t/(x.z*96500)}),o:[["m","Mass deposited","g"]],p:["t","m","Time (s)","Mass deposited (g)"],n:"Doubling the current or the time doubles the mass deposited."},
+{s:"Chemistry",t:"Percentage yield",d:"Percentage yield = actual ÷ theoretical × 100",c:[["th","Theoretical yield","g",10,200,100,5],["ac","Actual yield","g",5,200,70,5]],f:x=>({y:x.ac/x.th*100,note:x.ac>x.th?"Actual yield cannot be more than theoretical. Check for impurities.":"Possible result"}),o:[["y","Percentage yield","%"],["note","Comment",""]],p:["ac","y","Actual yield (g)","Percentage yield (%)"],n:"Losses during transfer and side reactions lower the actual yield."},
+{s:"Chemistry",t:"Solubility of potassium nitrate",d:"Approximate solubility curve for KNO₃",c:[["T","Temperature","°C",0,100,40,1],["w","Water","g",50,500,100,10],["m","KNO₃ added","g",10,400,100,10]],f:x=>{const S=13+0.5*x.T+0.0165*x.T*x.T,mx=S*x.w/100;return {S:S,mx:mx,dis:Math.min(x.m,mx),un:Math.max(0,x.m-mx),note:x.m>mx?"Saturated: some solid stays undissolved":"Unsaturated: all the solid dissolves"};},o:[["S","Solubility","g per 100 g water"],["mx","Most that can dissolve","g"],["dis","Dissolved","g"],["un","Undissolved","g"],["note","Result",""]],p:["T","S","Temperature (°C)","Solubility (g per 100 g water)"],n:"The values are approximate. Solubility of most solids rises with temperature."},
+{s:"Biology",t:"Osmosis in potato",d:"Water moves from dilute to concentrated solution",c:[["c","Sugar solution outside","mol/dm³",0,1,0.3,0.05]],f:x=>{const d=15*(0.3-x.c)/0.3;return {d:d,note:Math.abs(x.c-0.3)<0.025?"About isotonic: no change":(x.c<0.3?"Potato gains water and mass":"Potato loses water and mass")};},o:[["d","Change in mass","%"],["note","Result",""]],p:["c","d","Sugar solution (mol/dm³)","Change in potato mass (%)"],n:"Cell sap is about 0.3 mol/dm³ in this model."},
+{s:"Biology",t:"Photosynthesis, light and temperature",d:"Rate rises with light until another factor limits it",c:[["l","Light intensity","units",0,100,50,5],["T","Temperature","°C",10,45,25,1]],f:x=>({rate:100*(x.l/(x.l+30))*Math.exp(-Math.pow((x.T-30)/12,2))}),o:[["rate","Relative rate of photosynthesis",""]],p:["l","rate","Light intensity","Relative rate"],n:"The rate levels off at high light, and falls when it is too hot or too cold."},
+{s:"Biology",t:"Enzyme activity",d:"Temperature and pH change how well an enzyme works",c:[["T","Temperature","°C",0,70,37,1],["pH","pH","",1,13,7,0.5]],f:x=>{let a=100*Math.exp(-Math.pow((x.T-37)/12,2))*Math.exp(-Math.pow((x.pH-7)/2,2));if(x.T>55)a*=Math.exp(-(x.T-55)/2);return {act:a,note:x.T>55?"The enzyme is denatured":(a>80?"Close to the optimum":"Working below its best")};},o:[["act","Relative activity","%"],["note","Result",""]],p:["T","act","Temperature (°C)","Relative activity (%)"],n:"Most human enzymes work best near 37°C and neutral pH."},
+{s:"Biology",t:"Heart rate and exercise",d:"Heart rate rises as exercise gets harder",c:[["ex","Exercise intensity (0–10)","",0,10,0,1],["fit","Fitness level (1–5)","",1,5,3,1]],f:x=>{const hr=70+x.ex*(15-2*x.fit);return {hr:hr,co:hr*0.07};},o:[["hr","Heart rate","beats/min"],["co","Cardiac output (70 mL per beat)","L/min"]],p:["ex","hr","Exercise intensity","Heart rate (beats/min)"],n:"A fitter person has a lower heart rate for the same exercise."},
+{s:"Biology",t:"Punnett square (monohybrid cross)",d:"T = tall (dominant), t = short (recessive)",c:[{k:"p1",l:"Parent 1 genotype",u:"",sel:["TT","Tt","tt"],v:"Tt"},{k:"p2",l:"Parent 2 genotype",u:"",sel:["TT","Tt","tt"],v:"Tt"}],cu:x=>{const g1=[x.p1[0],x.p1[1]],g2=[x.p2[0],x.p2[1]],cell=(a,b)=>[a,b].sort().join(""),kids=[];g1.forEach(a=>g2.forEach(b=>kids.push(cell(a,b))));const n=g=>kids.filter(k=>k===g).length,tall=kids.filter(k=>k.indexOf("T")>=0).length;return `<table class="pt"><tr><th></th><th>${g2[0]}</th><th>${g2[1]}</th></tr><tr><th>${g1[0]}</th><td>${cell(g1[0],g2[0])}</td><td>${cell(g1[0],g2[1])}</td></tr><tr><th>${g1[1]}</th><td>${cell(g1[1],g2[0])}</td><td>${cell(g1[1],g2[1])}</td></tr></table><p>Genotype ratio TT : Tt : tt = <b>${n("TT")} : ${n("Tt")} : ${n("tt")}</b></p><p>Phenotype ratio tall : short = <b>${tall} : ${4-tall}</b></p>`;},n:"Tt × Tt gives a 3 : 1 ratio of tall to short."},
+{s:"Biology",t:"Population growth",d:"Exponential and logistic growth",c:[["N0","Starting population","",10,1000,100,10],["r","Growth rate per day","",0,0.5,0.2,0.01],["K","Carrying capacity","",1000,5000,3000,100],["t","Time","days",0,50,20,1]],f:x=>({ex:x.N0*Math.exp(x.r*x.t),lg:x.K/(1+((x.K-x.N0)/x.N0)*Math.exp(-x.r*x.t))}),o:[["ex","Exponential growth (no limits)",""],["lg","Logistic growth (with limits)",""]],p:["t","lg","Time (days)","Population (logistic)"],n:"Real populations level off near the carrying capacity."},
+{s:"Biology",t:"Food tests",d:"Choose a food and see the test results",c:[{k:"food",l:"Food sample",u:"",sel:Object.keys(FOODS),v:"Glucose solution"}],cu:x=>{const F=FOODS[x.food];return "<table class=\"pt\">"+FOODTESTS.map((t,i)=>`<tr><td>${t[0]}</td><td><b>${F[i]?"Positive":"Negative"}</b>: ${F[i]?t[1]:t[2]}</td></tr>`).join("")+"</table>";},n:"Always test a water sample as a control."},
+{s:"Biology",t:"Transpiration",d:"Water loss from the leaves",c:[["T","Temperature","°C",10,45,25,1],["hum","Humidity","%",10,100,60,5],["wind","Wind speed","units",0,10,2,1]],f:x=>({rate:2*(1+0.04*(x.T-20))*(1-x.hum/130)*(1+0.08*x.wind)}),o:[["rate","Water loss","mL/hour"]],p:["T","rate","Temperature (°C)","Water loss (mL/hour)"],n:"Heat, dry air and wind all increase transpiration."},
+{s:"Biology",t:"Yeast fermentation",d:"Yeast releases carbon dioxide from sugar",c:[["sugar","Sugar","%",0,20,5,1],["T","Temperature","°C",10,60,35,1]],f:x=>({b:2*x.sugar*Math.exp(-Math.pow((x.T-35)/12,2))}),o:[["b","CO₂ bubbles","per minute"]],p:["sugar","b","Sugar (%)","CO₂ bubbles per minute"],n:"Yeast is most active near 35°C. Very hot water kills it."},
+{s:"Biology",t:"Surface area to volume ratio",d:"SA = 6a², V = a³, ratio = 6 ÷ a",c:[["a","Side of a cube","cm",1,10,2,0.5]],f:x=>({SA:6*x.a*x.a,V:Math.pow(x.a,3),r:6/x.a}),o:[["SA","Surface area","cm²"],["V","Volume","cm³"],["r","Surface area : volume",""]],p:["a","r","Side length (cm)","Surface area : volume ratio"],n:"Small cells have a larger ratio, so diffusion is fast enough to supply them."}
+];
+LABS.forEach(L=>{L.c=L.c.map(c=>Array.isArray(c)?{k:c[0],l:c[1],u:c[2],min:c[3],max:c[4],v:c[5],st:c[6]}:c);});
+const COMPS2 = {"Water (H₂O)":{H:2,O:1},"Carbon dioxide (CO₂)":{C:1,O:2},"Ammonia (NH₃)":{N:1,H:3},"Calcium carbonate (CaCO₃)":{Ca:1,C:1,O:3},"Sodium chloride (NaCl)":{Na:1,Cl:1},"Sulphuric acid (H₂SO₄)":{H:2,S:1,O:4}};
+const AMASS = {H:1,C:12,N:14,O:16,Na:23,S:32,Cl:35.5,Ca:40};
+const ELEM20 = ["Hydrogen","Helium","Lithium","Beryllium","Boron","Carbon","Nitrogen","Oxygen","Fluorine","Neon","Sodium","Magnesium","Aluminium","Silicon","Phosphorus","Sulphur","Chlorine","Argon","Potassium","Calcium"];
+const OXI = {"KMnO₄":"K = +1, Mn = +7, O = −2","H₂SO₄":"H = +1, S = +6, O = −2","K₂Cr₂O₇":"K = +1, Cr = +6, O = −2","NH₃":"N = −3, H = +1","HNO₃":"H = +1, N = +5, O = −2","MnO₂":"Mn = +4, O = −2","CO₂":"C = +4, O = −2","H₂O₂":"H = +1, O = −1","Fe₂O₃":"Fe = +3, O = −2","NaH":"Na = +1, H = −1"};
+const ENZ = {"Pepsin (stomach)":2,"Salivary amylase (mouth)":6.8,"Trypsin (small intestine)":8,"Pancreatic lipase":8};
+const MATS = {"Copper":1.7e-8,"Aluminium":2.8e-8,"Iron":1.0e-7,"Nichrome":1.1e-6};
+const LABS2 = [
+/* ---------- Physics ---------- */
+{s:"Physics",t:"Newton’s Second Law",d:"F = m × a",c:[["m","Mass","kg",0.5,50,5,0.5],["F","Force","N",1,200,40,1]],f:x=>({a:x.F/x.m}),o:[["a","Acceleration","m/s²"]],p:["F","a","Force (N)","Acceleration (m/s²)"],n:"For the same force, a heavier object accelerates less."},
+{s:"Physics",t:"Impulse and momentum",d:"Impulse = F × t = change in momentum",c:[["m","Mass","kg",0.5,20,2,0.5],["F","Force","N",1,100,20,1],["t","Time","s",0.1,10,2,0.1]],f:x=>({J:x.F*x.t,dv:x.F*x.t/x.m}),o:[["J","Impulse","N s"],["dv","Change in speed","m/s"]],p:["t","dv","Time (s)","Change in speed (m/s)"],n:"A longer push gives a bigger change in speed."},
+{s:"Physics",t:"Work, energy and power",d:"W = F × d and P = W ÷ t",c:[["F","Force","N",1,500,100,1],["d","Distance","m",1,50,10,1],["t","Time","s",1,60,10,1]],f:x=>({W:x.F*x.d,P:x.F*x.d/x.t}),o:[["W","Work done","J"],["P","Power","W"]],p:["d","W","Distance (m)","Work done (J)"],n:"Doing the same work in less time needs more power."},
+{s:"Physics",t:"Potential and kinetic energy",d:"PE = mgh, speed at the bottom = √(2gh), g = 10 m/s²",c:[["m","Mass","kg",0.5,50,2,0.5],["h","Height","m",1,100,20,1]],f:x=>({PE:x.m*10*x.h,v:Math.sqrt(20*x.h)}),o:[["PE","Energy at the top","J"],["v","Speed at the bottom","m/s"]],p:["h","PE","Height (m)","Potential energy (J)"],n:"All the potential energy becomes kinetic energy when air resistance is ignored."},
+{s:"Physics",t:"Pressure in a liquid",d:"P = ρ × g × h, g = 10 m/s²",c:[["rho","Density of liquid","kg/m³",500,13600,1000,100],["h","Depth","m",0,20,5,0.5]],f:x=>({P:x.rho*10*x.h}),o:[["P","Pressure","Pa"]],p:["h","P","Depth (m)","Pressure (Pa)"],n:"Pressure increases steadily with depth."},
+{s:"Physics",t:"Archimedes’ principle",d:"Upthrust = ρ × g × V (g = 10 m/s²)",c:[["rho","Density of fluid","kg/m³",800,1300,1000,10],["V","Volume of object","cm³",50,1000,300,10],["m","Mass of object","g",10,2000,400,10]],f:x=>{const U=x.rho*10*x.V*1e-6,W=x.m/1000*10;return {U:U,W:W,note:U>=W?"Floats (upthrust can support the weight)":"Sinks (weight is greater than the full upthrust)"};},o:[["U","Upthrust when fully under","N"],["W","Weight","N"],["note","Result",""]],p:["V","U","Volume (cm³)","Upthrust (N)"],n:"An object floats when it can displace water that weighs as much as itself."},
+{s:"Physics",t:"Pressure law",d:"P₁ ÷ T₁ = P₂ ÷ T₂ (T in kelvin)",c:[["P1","Starting pressure","kPa",50,300,100,10],["T1","Starting temperature","K",200,400,300,10],["T2","Final temperature","K",200,600,400,10]],f:x=>({P2:x.P1*x.T2/x.T1}),o:[["P2","Final pressure","kPa"]],p:["T2","P2","Final temperature (K)","Final pressure (kPa)"],n:"At constant volume, the pressure of a gas rises with temperature."},
+{s:"Physics",t:"Linear expansion",d:"ΔL = L₀ × α × ΔT",c:[["L","Original length","m",1,10,5,0.5],["a","Expansion coefficient (×10⁻⁶ per °C)","",10,30,12,1],["dT","Temperature rise","°C",0,100,50,1]],f:x=>({dL:x.L*x.a*1e-6*x.dT*1000}),o:[["dL","Increase in length","mm"]],p:["dT","dL","Temperature rise (°C)","Increase in length (mm)"],n:"Steel has α about 12 × 10⁻⁶ per °C. Rails are laid with gaps for this reason."},
+{s:"Physics",t:"Latent heat",d:"Q = m × L",c:[["m","Mass","kg",0.1,2,0.5,0.1],["L","Specific latent heat","J/kg",100000,2500000,334000,10000]],f:x=>({Q:x.m*x.L}),o:[["Q","Heat needed","J"]],p:["m","Q","Mass (kg)","Heat (J)"],n:"Ice melting needs 334,000 J/kg. Water boiling needs about 2,260,000 J/kg."},
+{s:"Physics",t:"Mixing hot and cold water",d:"Final temperature = (m₁T₁ + m₂T₂) ÷ (m₁ + m₂)",c:[["m1","Mass of hot water","kg",0.1,5,1,0.1],["T1","Hot water temperature","°C",30,100,80,1],["m2","Mass of cold water","kg",0.1,5,2,0.1],["T2","Cold water temperature","°C",0,29,20,1]],f:x=>({Tf:(x.m1*x.T1+x.m2*x.T2)/(x.m1+x.m2)}),o:[["Tf","Final temperature","°C"]],p:["m1","Tf","Mass of hot water (kg)","Final temperature (°C)"],n:"Heat lost by the hot water equals heat gained by the cold water."},
+{s:"Physics",t:"Cost of electrical energy",d:"Energy (kWh) = power (kW) × time (h)",c:[["P","Power of appliance","W",10,3000,1000,10],["t","Time used","h",0.5,24,5,0.5],["r","Price per kWh","₦",20,100,60,1]],f:x=>({E:x.P/1000*x.t,cost:x.P/1000*x.t*x.r}),o:[["E","Energy used","kWh"],["cost","Cost","₦"]],p:["t","cost","Time used (h)","Cost (₦)"],n:"A 1000 W heater used for 1 hour uses 1 kWh."},
+{s:"Physics",t:"Cell with internal resistance",d:"I = E ÷ (R + r) and terminal voltage V = E − Ir",c:[["E","EMF of the cell","V",1.5,12,6,0.5],["r","Internal resistance","Ω",0.1,5,1,0.1],["R","External resistance","Ω",1,50,10,1]],f:x=>{const I=x.E/(x.R+x.r);return {I:I,V:I*x.R,lost:I*x.r};},o:[["I","Current","A"],["V","Terminal voltage","V"],["lost","Lost volts","V"]],p:["R","I","External resistance (Ω)","Current (A)"],n:"The terminal voltage is always less than the EMF when current flows."},
+{s:"Physics",t:"Force on a current in a magnetic field",d:"F = B × I × L",c:[["B","Magnetic field","T",0.1,2,0.5,0.1],["I","Current","A",0.5,10,4,0.5],["L","Length of wire in field","m",0.05,1,0.3,0.05]],f:x=>({F:x.B*x.I*x.L}),o:[["F","Force","N"]],p:["I","F","Current (A)","Force (N)"],n:"This force makes electric motors turn."},
+{s:"Physics",t:"Transformer",d:"Vs ÷ Vp = Ns ÷ Np",c:[["Vp","Primary voltage","V",50,500,240,10],["Np","Primary turns","",50,1000,500,10],["Ns","Secondary turns","",50,2000,100,10]],f:x=>({Vs:x.Vp*x.Ns/x.Np,note:x.Ns>x.Np?"Step-up transformer":(x.Ns<x.Np?"Step-down transformer":"Same voltage")}),o:[["Vs","Secondary voltage","V"],["note","Type",""]],p:["Ns","Vs","Secondary turns","Secondary voltage (V)"],n:"More turns on the secondary coil gives a higher voltage."},
+{s:"Physics",t:"Radioactive decay and half-life",d:"N = N₀ × (½)^(t ÷ half-life)",c:[["N0","Starting number of atoms","",100,10000,1000,100],["T","Half-life","days",1,100,10,1],["t","Time passed","days",0,500,30,1]],f:x=>({N:x.N0*Math.pow(0.5,x.t/x.T),frac:Math.pow(0.5,x.t/x.T)*100}),o:[["N","Atoms left",""],["frac","Percentage left","%"]],p:["t","N","Time (days)","Atoms left"],n:"After each half-life, half of the remaining atoms are left."},
+{s:"Physics",t:"Concave mirror",d:"1/f = 1/u + 1/v",c:[["f","Focal length","cm",5,30,10,1],["u","Object distance","cm",6,60,25,1]],f:x=>{if(Math.abs(x.u-x.f)<1e-9)return {v:NaN,m:NaN,note:"Image at infinity"};const v=1/(1/x.f-1/x.u);return {v:v,m:-v/x.u,note:v>0?"Real, inverted image in front of the mirror":"Virtual, upright image behind the mirror"};},o:[["v","Image distance","cm"],["m","Magnification",""],["note","Image",""]],p:["u","v","Object distance (cm)","Image distance (cm)"],clip:200,n:"A shaving mirror is concave. The object is inside the focal length, so the image is magnified."},
+{s:"Physics",t:"Doppler effect",d:"f′ = f × v ÷ (v ∓ vs), v = 340 m/s",c:[["f","Frequency of the source","Hz",100,2000,500,10],["vs","Speed of the source","m/s",0,100,30,1],{k:"dir",l:"Source is",sel:["approaching","moving away"],v:"approaching"}],f:x=>({f2:x.dir==="approaching"?x.f*340/(340-x.vs):x.f*340/(340+x.vs)}),o:[["f2","Frequency you hear","Hz"]],p:["vs","f2","Speed of the source (m/s)","Frequency heard (Hz)"],n:"The pitch is higher as an ambulance comes towards you and lower as it goes away."},
+{s:"Physics",t:"Echo",d:"Time = 2 × distance ÷ speed of sound (340 m/s)",c:[["d","Distance to the wall","m",10,500,170,10]],f:x=>({t:2*x.d/340}),o:[["t","Echo time","s"]],p:["d","t","Distance (m)","Echo time (s)"],n:"You can hear a separate echo when it comes back after about 0.1 s or more."},
+{s:"Physics",t:"Resistance of a wire",d:"R = ρ × L ÷ A",c:[{k:"mat",l:"Material",sel:Object.keys(MATS),v:"Copper"},["L","Length","m",1,100,10,1],["dia","Diameter","mm",0.1,2,0.5,0.1]],f:x=>{const A=Math.PI*Math.pow(x.dia/2000,2);return {R:MATS[x.mat]*x.L/A};},o:[["R","Resistance","Ω"]],p:["L","R","Length (m)","Resistance (Ω)"],n:"A longer or thinner wire has more resistance."},
+{s:"Physics",t:"Circular motion",d:"a = v² ÷ r and F = m v² ÷ r",c:[["m","Mass","kg",0.1,5,1,0.1],["v","Speed","m/s",1,30,10,1],["r","Radius","m",0.5,50,5,0.5]],f:x=>({a:x.v*x.v/x.r,F:x.m*x.v*x.v/x.r}),o:[["a","Centripetal acceleration","m/s²"],["F","Centripetal force","N"]],p:["v","F","Speed (m/s)","Force (N)"],n:"Doubling the speed makes the needed force four times bigger."},
+/* ---------- Chemistry ---------- */
+{s:"Chemistry",t:"Stoichiometry: 2H₂ + O₂ → 2H₂O",d:"Use the mole ratio from the equation",c:[["n","Moles of hydrogen","mol",1,20,4,1]],f:x=>({w:x.n,m:x.n*18,o2:x.n/2}),o:[["w","Moles of water formed","mol"],["m","Mass of water","g"],["o2","Moles of oxygen needed","mol"]],p:["n","m","Moles of hydrogen","Mass of water (g)"],n:"2 mol of hydrogen make 2 mol of water and need 1 mol of oxygen."},
+{s:"Chemistry",t:"Limiting reactant: A + 2B → C",d:"The reactant that runs out first limits the product",c:[["a","Moles of A","mol",1,10,3,1],["b","Moles of B","mol",1,10,4,1]],f:x=>{const p=Math.min(x.a,x.b/2);return {p:p,lim:x.a<=x.b/2?"A":"B",left:x.a<=x.b/2?(x.b-2*x.a)+" mol of B":(x.a-x.b/2)+" mol of A"};},o:[["p","Moles of C formed","mol"],["lim","Limiting reactant",""],["left","Left over",""]],p:["b","p","Moles of B","Moles of C formed"],n:"Product is made only until the limiting reactant is used up."},
+{s:"Chemistry",t:"Percentage composition",d:"% of element = (atoms × atomic mass ÷ molar mass) × 100",c:[{k:"cmp",l:"Compound",sel:Object.keys(COMPS2),v:"Water (H₂O)"}],cu:x=>{const c=COMPS2[x.cmp];let M=0;Object.keys(c).forEach(e=>M+=c[e]*AMASS[e]);return `<p>Molar mass = <b>${+M.toFixed(1)}</b> g/mol</p><table class="pt">${Object.keys(c).map(e=>`<tr><td>${e}</td><td>${c[e]} × ${AMASS[e]}</td><td><b>${+(c[e]*AMASS[e]/M*100).toFixed(1)}%</b></td></tr>`).join("")}</table>`;},n:"The percentages add up to 100%."},
+{s:"Chemistry",t:"Molar volume of a gas",d:"V = n × 22.4 dm³ at s.t.p.",c:[["n","Amount of gas","mol",0.1,10,2,0.1]],f:x=>({V:x.n*22.4}),o:[["V","Volume at s.t.p.","dm³"]],p:["n","V","Moles","Volume (dm³)"],n:"One mole of any gas occupies 22.4 dm³ at s.t.p."},
+{s:"Chemistry",t:"Mass of solute in a solution",d:"mass = concentration × volume (dm³) × molar mass",c:[["M","Concentration","mol/dm³",0.1,5,0.5,0.1],["V","Volume","cm³",10,1000,250,10],["Mr","Molar mass","g/mol",10,200,40,1]],f:x=>({m:x.M*x.V/1000*x.Mr,n:x.M*x.V/1000}),o:[["m","Mass of solute needed","g"],["n","Moles of solute","mol"]],p:["V","m","Volume (cm³)","Mass needed (g)"],n:"This is how you prepare a standard solution."},
+{s:"Chemistry",t:"Ideal gas equation",d:"PV = nRT with R = 8.314 kPa dm³ per mol K",c:[["n","Amount of gas","mol",0.1,5,1,0.1],["T","Temperature","K",200,500,300,10],["V","Volume","dm³",1,50,24,1]],f:x=>({P:x.n*8.314*x.T/x.V}),o:[["P","Pressure","kPa"]],p:["T","P","Temperature (K)","Pressure (kPa)"],n:"At fixed volume, pressure rises with temperature."},
+{s:"Chemistry",t:"Gas density and molar mass",d:"Density at s.t.p. = molar mass ÷ 22.4",c:[["Mr","Molar mass of the gas","g/mol",2,100,44,1]],f:x=>({d:x.Mr/22.4}),o:[["d","Density at s.t.p.","g/dm³"]],p:["Mr","d","Molar mass (g/mol)","Density (g/dm³)"],n:"Heavier gas molecules give a denser gas."},
+{s:"Chemistry",t:"Graham’s law of diffusion",d:"Rate₁ ÷ Rate₂ = √(M₂ ÷ M₁)",c:[["M1","Molar mass of gas 1","g/mol",2,100,2,1],["M2","Molar mass of gas 2","g/mol",2,100,32,1]],f:x=>({r:Math.sqrt(x.M2/x.M1)}),o:[["r","Gas 1 diffuses this many times faster",""]],p:["M2","r","Molar mass of gas 2","Rate ratio"],n:"Lighter gases diffuse faster than heavier gases."},
+{s:"Chemistry",t:"Heat of reaction (calorimetry)",d:"q = m × c × ΔT, with c = 4.2 J/g°C",c:[["m","Mass of water","g",50,500,100,10],["dT","Temperature rise","°C",1,30,8,1],["n","Moles that reacted","mol",0.01,0.5,0.05,0.01]],f:x=>{const q=x.m*4.2*x.dT/1000;return {q:q,H:-q/x.n};},o:[["q","Heat gained by water","kJ"],["H","Enthalpy change ΔH","kJ/mol"]],p:["dT","q","Temperature rise (°C)","Heat (kJ)"],n:"A temperature rise means the reaction gave out heat (ΔH is negative)."},
+{s:"Chemistry",t:"Bond energies and ΔH",d:"ΔH = energy to break bonds − energy released making bonds",c:[["br","Energy to break bonds","kJ/mol",500,3000,1650,10],["fo","Energy released making bonds","kJ/mol",500,3000,1900,10]],f:x=>({H:x.br-x.fo,note:x.br-x.fo<0?"Exothermic (gives out heat)":(x.br-x.fo>0?"Endothermic (takes in heat)":"No net heat change")}),o:[["H","ΔH","kJ/mol"],["note","Type",""]],p:["fo","H","Energy released (kJ/mol)","ΔH (kJ/mol)"],n:"If more energy is released than is used, the reaction is exothermic."},
+{s:"Chemistry",t:"Equilibrium constant Kc",d:"For A + B ⇌ C + D: Kc = [C][D] ÷ ([A][B])",c:[["A","[A]","mol/dm³",0.1,5,1,0.1],["B","[B]","mol/dm³",0.1,5,1,0.1],["C","[C]","mol/dm³",0.1,5,2,0.1],["D","[D]","mol/dm³",0.1,5,2,0.1]],f:x=>{const K=x.C*x.D/(x.A*x.B);return {K:K,note:K>1?"Products are favoured":(K<1?"Reactants are favoured":"Neither side is favoured")};},o:[["K","Kc",""],["note","Meaning",""]],p:["C","K","[C] (mol/dm³)","Kc"],n:"A large Kc means the reaction goes mostly to products."},
+{s:"Chemistry",t:"Le Chatelier: making ammonia",d:"N₂ + 3H₂ ⇌ 2NH₃ (exothermic). This is a simple illustrative model.",c:[["T","Temperature","K",300,800,500,10],["P","Pressure","atm",1,300,200,5]],f:x=>({y:100/(1+Math.exp((x.T-450)/60))*(1-Math.exp(-x.P/120))}),o:[["y","Relative yield of ammonia","%"]],p:["T","y","Temperature (K)","Relative yield (%)"],n:"High pressure raises the yield. High temperature lowers it, but a low temperature is too slow."},
+{s:"Chemistry",t:"Titration curve: HCl and NaOH",d:"pH while adding base to acid",c:[["Ca","Acid concentration","mol/dm³",0.05,0.5,0.1,0.05],["Va","Acid volume","cm³",10,50,25,1],["Cb","Base concentration","mol/dm³",0.05,0.5,0.1,0.05],["Vb","Base added","cm³",0,60,10,1]],f:x=>{const na=x.Ca*x.Va/1000,nb=x.Cb*x.Vb/1000,V=(x.Va+x.Vb)/1000;let pH;if(Math.abs(na-nb)<1e-9)pH=7;else if(na>nb)pH=-Math.log10((na-nb)/V);else pH=14+Math.log10((nb-na)/V);return {pH:pH,note:Math.abs(na-nb)<1e-9?"End point":(na>nb?"Still acidic":"Alkaline: base in excess")};},o:[["pH","pH of the mixture",""],["note","Stage",""]],p:["Vb","pH","Base added (cm³)","pH"],n:"The pH changes sharply near the end point."},
+{s:"Chemistry",t:"pH of a weak acid",d:"pH = ½ (pKa − log C)",c:[["pKa","pKa of the acid","",3,6,4.75,0.05],["C","Concentration","mol/dm³",0.01,1,0.1,0.01]],f:x=>({pH:0.5*(x.pKa-Math.log10(x.C))}),o:[["pH","pH",""]],p:["C","pH","Concentration (mol/dm³)","pH"],n:"A weak acid only partly ionises, so its pH is higher than a strong acid of the same concentration."},
+{s:"Chemistry",t:"Electrolysis of water",d:"Moles of electrons = I × t ÷ 96500. 2 mol of electrons make 1 mol of H₂.",c:[["I","Current","A",0.5,10,2,0.5],["t","Time","s",60,3600,600,60]],f:x=>{const e=x.I*x.t/96500;return {e:e,vh:e/2*22.4,vo:e/4*22.4};},o:[["e","Moles of electrons","mol"],["vh","Hydrogen at s.t.p.","dm³"],["vo","Oxygen at s.t.p.","dm³"]],p:["t","vh","Time (s)","Hydrogen volume (dm³)"],n:"Hydrogen is collected at the cathode, and twice as much hydrogen as oxygen forms."},
+{s:"Chemistry",t:"Atomic structure (first 20 elements)",d:"Protons, neutrons and electrons",c:[["p","Protons","",1,20,11,1],["nn","Neutrons","",0,30,12,1],["e","Electrons","",0,22,11,1]],cu:x=>{const sh=[2,8,8,2];let r=x.e,cfg=[];for(const cap of [2,8,8,2]){const t=Math.min(r,cap);if(t>0)cfg.push(t);r-=t;if(r<=0)break;}const ch=x.p-x.e;return `<p>Element: <b>${ELEM20[x.p-1]}</b></p><p>Mass number: <b>${x.p+x.nn}</b></p><p>Charge: <b>${ch===0?"none (an atom)":(ch>0?"+"+ch:ch)}</b></p><p>Electron arrangement: <b>${cfg.join(", ")||"none"}</b></p>`;},n:"An atom has equal protons and electrons. Different numbers of neutrons give isotopes."},
+{s:"Chemistry",t:"Relative atomic mass from isotopes",d:"Ar = (m₁ × %₁ + m₂ × %₂) ÷ 100",c:[["m1","Mass of isotope 1","",1,100,35,1],["m2","Mass of isotope 2","",1,100,37,1],["a","Abundance of isotope 1","%",0,100,75,1]],f:x=>({Ar:(x.m1*x.a+x.m2*(100-x.a))/100}),o:[["Ar","Relative atomic mass",""]],p:["a","Ar","Abundance of isotope 1 (%)","Relative atomic mass"],n:"Chlorine is about 75% chlorine-35 and 25% chlorine-37, so its Ar is about 35.5."},
+{s:"Chemistry",t:"Rate and concentration",d:"rate = k × [A]ⁿ",c:[["k","Rate constant k","",0.01,1,0.1,0.01],["A","Concentration [A]","mol/dm³",0.1,5,1,0.1],{k:"ord",l:"Order of reaction",sel:["0","1","2"],v:"1"}],f:x=>({r:x.k*Math.pow(x.A,+x.ord)}),o:[["r","Rate","mol/dm³/s"]],p:["A","r","Concentration (mol/dm³)","Rate"],n:"For a first-order reaction, doubling the concentration doubles the rate."},
+{s:"Chemistry",t:"Boiling and freezing point changes",d:"ΔTb = 0.512 × i × m and ΔTf = 1.86 × i × m",c:[["m","Molality of solute","mol/kg",0,5,1,0.1],["i","Particles per formula unit (i)","",1,3,2,1]],f:x=>({b:100+0.512*x.i*x.m,f:-1.86*x.i*x.m}),o:[["b","Boiling point of the solution","°C"],["f","Freezing point of the solution","°C"]],p:["m","b","Molality (mol/kg)","Boiling point (°C)"],n:"Salt in water raises the boiling point and lowers the freezing point."},
+{s:"Chemistry",t:"Oxidation numbers",d:"Choose a compound to see the oxidation numbers",c:[{k:"cp",l:"Compound",sel:Object.keys(OXI),v:"KMnO₄"}],cu:x=>`<p><b>${x.cp}</b></p><p>${OXI[x.cp]}</p><p><small>The oxidation numbers of all atoms add up to the charge on the compound (zero here).</small></p>`,n:"Oxygen is usually −2, and hydrogen is usually +1. Exceptions: peroxides and metal hydrides."},
+/* ---------- Biology ---------- */
+{s:"Biology",t:"Diffusion rate",d:"Rate is proportional to the concentration gradient ÷ distance",c:[["g","Concentration difference","units",1,100,50,1],["d","Distance","µm",1,50,10,1]],f:x=>({r:x.g/x.d}),o:[["r","Relative rate of diffusion",""]],p:["d","r","Distance (µm)","Relative rate"],n:"Diffusion is fastest over short distances, which is why cells are small."},
+{s:"Biology",t:"Red blood cells in salt solution",d:"0.9% salt solution is isotonic to red blood cells",c:[["c","Salt solution","%",0,2,0.9,0.05]],f:x=>{const v=Math.max(-60,40*(0.9-x.c)/0.9);return {v:v,note:x.c<0.45?"Cells swell and burst":(Math.abs(x.c-0.9)<0.05?"Cells stay the same":(x.c<0.9?"Cells swell":"Cells shrink"))};},o:[["v","Change in cell volume","%"],["note","Result",""]],p:["c","v","Salt solution (%)","Change in cell volume (%)"],n:"Animal cells have no cell wall, so they can burst in very dilute solutions."},
+{s:"Biology",t:"Photosynthesis and carbon dioxide",d:"More carbon dioxide raises the rate until another factor limits it",c:[["co","Carbon dioxide level","%",0,0.1,0.03,0.005],["l","Light intensity","units",0,100,60,5]],f:x=>({r:100*(x.co/(x.co+0.03))*(x.l/(x.l+30))}),o:[["r","Relative rate",""]],p:["co","r","Carbon dioxide (%)","Relative rate"],n:"The rate levels off when light or temperature becomes the limiting factor."},
+{s:"Biology",t:"Enzyme and substrate concentration",d:"v = Vmax × S ÷ (Km + S)",c:[["S","Substrate concentration","units",0,100,20,1],["Vm","Maximum rate","units",10,100,80,1],["Km","Km","units",1,50,10,1]],f:x=>({v:x.Vm*x.S/(x.Km+x.S)}),o:[["v","Reaction rate",""]],p:["S","v","Substrate concentration","Rate"],n:"The rate rises, then levels off when all the enzyme molecules are busy."},
+{s:"Biology",t:"Breathing and exercise",d:"Breathing rate and the volume of air rise with exercise",c:[["ex","Exercise intensity (0–10)","",0,10,0,1]],f:x=>{const br=14+3.5*x.ex,tv=500+80*x.ex;return {br:br,tv:tv,mv:br*tv/1000};},o:[["br","Breathing rate","breaths/min"],["tv","Air per breath","mL"],["mv","Air per minute","L/min"]],p:["ex","br","Exercise intensity","Breaths per minute"],n:"Muscles need more oxygen during exercise, so you breathe faster and deeper."},
+{s:"Biology",t:"Cardiac output",d:"Cardiac output = heart rate × stroke volume",c:[["hr","Heart rate","beats/min",40,200,72,1],["sv","Stroke volume","mL",50,120,70,1]],f:x=>({co:x.hr*x.sv/1000}),o:[["co","Cardiac output","L/min"]],p:["hr","co","Heart rate (beats/min)","Cardiac output (L/min)"],n:"At rest, the heart pumps about 5 litres of blood each minute."},
+{s:"Biology",t:"Energy in food (calorimeter)",d:"Energy = mass of water × 4.2 × temperature rise",c:[["w","Mass of water","g",20,200,50,5],["dT","Temperature rise","°C",1,60,20,1],["f","Mass of food burned","g",0.1,5,1,0.1]],f:x=>{const E=x.w*4.2*x.dT;return {E:E,e:E/x.f/1000};},o:[["E","Energy given to the water","J"],["e","Energy value of the food","kJ/g"]],p:["dT","E","Temperature rise (°C)","Energy (J)"],n:"Some heat is lost to the air, so the measured value is lower than the true value."},
+{s:"Biology",t:"Dihybrid cross",d:"Two genes, A and B, each with a dominant and a recessive allele",c:[{k:"a1",l:"Parent 1, gene A",sel:["AA","Aa","aa"],v:"Aa"},{k:"b1",l:"Parent 1, gene B",sel:["BB","Bb","bb"],v:"Bb"},{k:"a2",l:"Parent 2, gene A",sel:["AA","Aa","aa"],v:"Aa"},{k:"b2",l:"Parent 2, gene B",sel:["BB","Bb","bb"],v:"Bb"}],cu:x=>{const g=(a,b)=>{const r=[];for(const i of a)for(const j of b)r.push(i+j);return r;};const g1=g([x.a1[0],x.a1[1]],[x.b1[0],x.b1[1]]),g2=g([x.a2[0],x.a2[1]],[x.b2[0],x.b2[1]]);let c={AB:0,Ab:0,aB:0,ab:0};g1.forEach(p=>g2.forEach(q=>{const A=(p[0]==="A"||q[0]==="A"),B=(p[1]==="B"||q[1]==="B");c[(A?"A":"a")+(B?"B":"b")]++;}));return `<p>Gametes from parent 1: <b>${[...new Set(g1)].join(", ")}</b></p><p>Gametes from parent 2: <b>${[...new Set(g2)].join(", ")}</b></p><p>Phenotype ratio (both dominant : A dominant only : B dominant only : both recessive) = <b>${c.AB} : ${c.Ab} : ${c.aB} : ${c.ab}</b> out of 16</p>`;},n:"AaBb × AaBb gives the famous 9 : 3 : 3 : 1 ratio."},
+{s:"Biology",t:"Blood group inheritance",d:"A and B are codominant. O is recessive.",c:[{k:"g1",l:"Parent 1 blood group",sel:["A","B","AB","O"],v:"A"},{k:"g2",l:"Parent 2 blood group",sel:["A","B","AB","O"],v:"B"}],cu:x=>{const gen={A:["AA","AO"],B:["BB","BO"],AB:["AB"],O:["OO"]};const ph=g=>(g.indexOf("A")>=0&&g.indexOf("B")>=0)?"AB":(g.indexOf("A")>=0?"A":(g.indexOf("B")>=0?"B":"O"));const set=new Set();gen[x.g1].forEach(a=>gen[x.g2].forEach(b=>{for(const i of a)for(const j of b)set.add(ph(i+j));}));return `<p>Possible blood groups of children: <b>${["A","B","AB","O"].filter(z=>set.has(z)).join(", ")}</b></p><p><small>The parents might be heterozygous (for example AO), so more than one group can be possible.</small></p>`;},n:"Two parents with group A can have a child with group O if both carry the O allele."},
+{s:"Biology",t:"Hardy–Weinberg equilibrium",d:"p + q = 1 and p² + 2pq + q² = 1",c:[["q","Frequency of the recessive allele (q)","",0,1,0.3,0.01]],f:x=>{const p=1-x.q;return {p:p,AA:p*p,Aa:2*p*x.q,aa:x.q*x.q};},o:[["p","Frequency of the dominant allele (p)",""],["AA","Homozygous dominant (p²)",""],["Aa","Heterozygous (2pq)",""],["aa","Homozygous recessive (q²)",""]],p:["q","Aa","q","Heterozygotes (2pq)"],n:"Heterozygotes are most common when p and q are both 0.5."},
+{s:"Biology",t:"Natural selection",d:"A harmful recessive allele is slowly removed. q′ = q(1 − sq) ÷ (1 − sq²)",c:[["q0","Starting frequency of the allele","",0.05,0.95,0.5,0.01],["s","Selection against it","",0,1,0.3,0.05],["gen","Generations","",0,100,30,1]],f:x=>{let q=x.q0;for(let i=0;i<x.gen;i++)q=q*(1-x.s*q)/(1-x.s*q*q);return {q:q};},o:[["q","Allele frequency after selection",""]],p:["gen","q","Generations","Allele frequency"],n:"The allele becomes rarer, but it disappears slowly because it hides in heterozygotes."},
+{s:"Biology",t:"Predator and prey",d:"A simple Lotka–Volterra model",c:[["N0","Starting prey","",20,200,100,5],["P0","Starting predators","",2,50,10,1],["t","Time","units",0,60,20,1]],f:x=>{let N=x.N0,P=x.P0;const dt=0.05,steps=Math.round(x.t/dt);for(let i=0;i<steps;i++){const dN=(0.5*N-0.02*N*P)*dt,dP=(0.01*N*P-0.4*P)*dt;N=Math.max(0,N+dN);P=Math.max(0,P+dP);}return {N:N,P:P};},o:[["N","Prey",""],["P","Predators",""]],p:["t","N","Time","Prey population"],n:"Predator numbers rise and fall a little after prey numbers."},
+{s:"Biology",t:"Energy in a food chain",d:"About 10% of the energy passes to the next level",c:[["E","Energy in producers","kJ",1000,100000,10000,1000],["eff","Energy passed on","%",5,20,10,1]],f:x=>({l2:x.E*x.eff/100,l3:x.E*Math.pow(x.eff/100,2),l4:x.E*Math.pow(x.eff/100,3)}),o:[["l2","Primary consumers","kJ"],["l3","Secondary consumers","kJ"],["l4","Tertiary consumers","kJ"]],cv:x=>{const pts=[];for(let i=0;i<5;i++)pts.push([i+1,x.E*Math.pow(x.eff/100,i)]);return {pts:pts,xl:"Trophic level",yl:"Energy (kJ)"};},n:"Most energy is lost as heat, so food chains are short."},
+{s:"Biology",t:"Mark and recapture",d:"Population = (marked first × second catch) ÷ marked in second catch",c:[["M","Marked in first catch","",10,200,50,5],["C","Second catch","",10,200,60,5],["R","Marked in second catch","",1,100,12,1]],f:x=>({N:x.M*x.C/x.R}),o:[["N","Estimated population",""]],p:["R","N","Marked animals recaptured","Estimated population"],n:"Fewer recaptured marked animals means a bigger population."},
+{s:"Biology",t:"Quadrat sampling",d:"Population = (mean per quadrat ÷ quadrat area) × total area",c:[["m","Mean number per quadrat","",0,50,6,1],["q","Quadrat area","m²",0.25,4,1,0.25],["A","Total area","m²",100,10000,2000,100]],f:x=>({N:x.m/x.q*x.A}),o:[["N","Estimated population",""]],p:["m","N","Mean per quadrat","Estimated population"],n:"Throw the quadrats at random so the sample is fair."},
+{s:"Biology",t:"Water potential of a plant cell",d:"ψ cell = ψ solute + ψ pressure",c:[["s","Solute potential","MPa",-2,-0.1,-0.8,0.1],["pp","Pressure potential","MPa",0,1.5,0.4,0.1],["o","Water potential outside","MPa",-2,0,-0.6,0.1]],f:x=>{const c=x.s+x.pp;return {c:c,note:Math.abs(c-x.o)<0.05?"No net movement of water":(x.o>c?"Water moves into the cell":"Water moves out of the cell")};},o:[["c","Water potential of the cell","MPa"],["note","Result",""]],p:["pp","c","Pressure potential (MPa)","Cell water potential (MPa)"],n:"Water moves from a higher (less negative) to a lower (more negative) water potential."},
+{s:"Biology",t:"Germination and temperature",d:"Seeds germinate best near their optimum temperature",c:[["T","Temperature","°C",0,45,28,1]],f:x=>({g:95*Math.exp(-Math.pow((x.T-28)/8,2))}),o:[["g","Seeds germinating","%"]],p:["T","g","Temperature (°C)","Germination (%)"],n:"Seeds also need water and oxygen to germinate."},
+{s:"Biology",t:"Growth of bacteria",d:"N = N₀ × 2^(time ÷ generation time)",c:[["N0","Starting bacteria","",1,1000,10,1],["g","Generation time","min",20,120,30,5],["t","Time","min",0,600,180,10]],f:x=>({N:x.N0*Math.pow(2,x.t/x.g),n:x.t/x.g}),o:[["N","Bacteria",""],["n","Generations",""]],p:["t","N","Time (min)","Number of bacteria"],n:"Bacteria divide by binary fission, so numbers double every generation."},
+{s:"Biology",t:"Reaction time (ruler drop)",d:"t = √(2d ÷ g), with g = 980 cm/s²",c:[["d","Distance the ruler falls","cm",1,40,15,1]],f:x=>({t:Math.sqrt(2*x.d/980)}),o:[["t","Reaction time","s"]],p:["d","t","Distance (cm)","Reaction time (s)"],n:"A shorter distance means a faster reflex."},
+{s:"Biology",t:"Digestive enzymes and pH",d:"Each enzyme works best at its own pH",c:[{k:"en",l:"Enzyme",sel:Object.keys(ENZ),v:"Pepsin (stomach)"},["pH","pH","",1,13,2,0.5]],f:x=>({a:100*Math.exp(-Math.pow((x.pH-ENZ[x.en])/1.5,2))}),o:[["a","Relative activity","%"]],p:["pH","a","pH","Relative activity (%)"],n:"Pepsin works in the acid of the stomach. Trypsin works in the alkaline small intestine."}
+];
+LABS2.forEach(L=>{L.c=L.c.map(c=>Array.isArray(c)?{k:c[0],l:c[1],u:c[2],min:c[3],max:c[4],v:c[5],st:c[6]}:c);});
+LABS2.forEach(L=>LABS.push(L));
+
+
+const labFmt = v => typeof v === "string" ? v : (v == null || !isFinite(v) ? "—" : String(+Number(v).toFixed(3)));
+function labPlot(pts,xl,yl,cur){
+  if(!pts.length) return "";
+  const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]);
+  let x0 = Math.min.apply(null,xs), x1 = Math.max.apply(null,xs), y0 = Math.min.apply(null,ys), y1 = Math.max.apply(null,ys);
+  if(x1 === x0) x1 = x0 + 1; if(y1 === y0) y1 = y0 + 1;
+  const X = x => 44 + (x-x0)/(x1-x0)*240, Y = y => 140 - (y-y0)/(y1-y0)*120;
+  const d = pts.map((p,i) => (i ? "L" : "M") + X(p[0]).toFixed(1) + " " + Y(p[1]).toFixed(1)).join("");
+  return `<line x1="44" y1="140" x2="288" y2="140" stroke="#888" stroke-width="1.5"/><line x1="44" y1="20" x2="44" y2="140" stroke="#888" stroke-width="1.5"/>
+    <path d="${d}" fill="none" stroke="#e67e22" stroke-width="3"/>
+    ${cur ? `<circle cx="${X(cur[0]).toFixed(1)}" cy="${Y(cur[1]).toFixed(1)}" r="5" fill="#0b6e4f"/>` : ""}
+    <text x="44" y="154" font-size="9" fill="currentColor">${labFmt(x0)}</text><text x="288" y="154" font-size="9" text-anchor="end" fill="currentColor">${labFmt(x1)}</text>
+    <text x="40" y="140" font-size="9" text-anchor="end" fill="currentColor">${labFmt(y0)}</text><text x="40" y="24" font-size="9" text-anchor="end" fill="currentColor">${labFmt(y1)}</text>
+    <text x="166" y="166" font-size="10" text-anchor="middle" fill="currentColor">${xl}</text><text x="8" y="80" font-size="10" fill="currentColor" transform="rotate(-90 8 80)" text-anchor="middle">${yl}</text>`;
+}
+function labOpen(i){ const L = LABS[i]; const vals = {}; L.c.forEach(c => { vals[c.k] = c.v; }); S = {view:"lab", lab:i, vals:vals, msg:""}; render(); }
+function labSub(name){ S = {view:"labs", ls:name, msg:""}; render(); }
+function labSet(k,v){
+  const L = LABS[S.lab], c = L.c.find(z => z.k === k);
+  S.vals[k] = c.sel ? v : +v;
+  const e = document.getElementById("lv_" + k); if(e) e.textContent = S.vals[k];
+  labUpdate();
+}
+function labUpdate(){
+  const L = LABS[S.lab], out = document.getElementById("labout"); if(!out) return;
+  const r = L.f ? L.f(S.vals) : {};
+  out.innerHTML = L.cu ? L.cu(S.vals) : L.o.map(o => `<p>${o[1]}: <b>${labFmt(r[o[0]])}</b> ${o[2] || ""}</p>`).join("");
+  const svg = document.getElementById("labplot"); if(!svg || !(L.p || L.cv)) return;
+  let pts, xl, yl, cur = null;
+  if(L.cv){ const c = L.cv(S.vals); pts = c.pts; xl = c.xl; yl = c.yl; }
+  else {
+    const cx = L.c.find(c => c.k === L.p[0]); pts = [];
+    for(let i = 0; i <= 40; i++){ const xv = cx.min + (cx.max-cx.min)*i/40; const y = L.f(Object.assign({}, S.vals, {[cx.k]:xv}))[L.p[1]]; if(isFinite(y) && Math.abs(y) < (L.clip || 1e9)) pts.push([xv,y]); }
+    xl = L.p[2]; yl = L.p[3]; const yc = r[L.p[1]]; cur = isFinite(yc) ? [S.vals[cx.k], yc] : null;
+  }
+  svg.innerHTML = labPlot(pts,xl,yl,cur);
+}
+
+function render(){
+  let h = "";
+  if(S.view === "splash"){
+    h += `<div class="splash" onclick="enterApp()"><svg viewBox="0 0 200 130" width="270" aria-hidden="true">
+      <ellipse cx="100" cy="116" rx="86" ry="8" fill="#000" opacity=".25"/>
+      <g class="pg"><path d="M100 28 Q60 12 14 28 V104 Q60 88 100 104 Z" fill="#fff"/><g class="ln" stroke="#0b6e4f" stroke-width="2.5" stroke-linecap="round" opacity=".55"><path d="M28 44 Q60 36 90 46"/><path d="M28 58 Q60 50 90 60"/><path d="M28 72 Q60 64 90 74"/></g></g>
+      <g class="pg"><path d="M100 28 Q140 12 186 28 V104 Q140 88 100 104 Z" fill="#fff"/><g class="ln" stroke="#0b6e4f" stroke-width="2.5" stroke-linecap="round" opacity=".55"><path d="M110 46 Q140 36 172 44"/><path d="M110 60 Q140 50 172 58"/><path d="M110 74 Q140 64 172 72"/></g></g>
+      <path d="M100 28 V104" stroke="#0b6e4f" stroke-width="3"/>
+    </svg><h1>Exam Dealer JAMB CBT 2027</h1><p>Practice. Learn. Pass.</p><small>Tap to continue</small></div>`;
+    if(typeof setTimeout === "function" && !globalThis._sp){ globalThis._sp = 1; setTimeout(enterApp, 3400); }
+  }
+  if(S.view === "register"){
+    const r = S.reg || {name:"",country:"Nigeria",state:"",email:"",subjects:[]};
+    h += `<div class="card"><h2>${S.editing ? "Edit your profile" : "Create your student profile"}</h2>
+      <p><small>Fill this once. Your details and photo stay on this phone.</small></p>
+      <div style="display:flex;gap:14px;align-items:center;margin:8px 0">${avatarHtml(r,72)}<div style="flex:1"><label style="position:relative;display:block;background:var(--alt);color:var(--fg);padding:13px;margin-top:8px;border-radius:10px;font-size:16px;cursor:pointer">📷 ${r.photo ? "Change photo" : "Add a photo"}<input type="file" accept="image/*" onchange="photoChosen(this)" style="position:absolute;left:0;top:0;width:100%;height:100%;opacity:0;cursor:pointer;font-size:0"></label>${r.photo ? `<button class="alt" onclick="removePhoto()">Remove photo</button>` : ""}<p style="margin:10px 0 4px"><small>Photo not opening? Use this button instead:</small></p><input type="file" accept="image/*" onchange="photoChosen(this)" style="width:100%;font-size:14px"><p style="margin:10px 0 4px"><small>Or pick an avatar:</small></p><div style="display:flex;gap:6px;flex-wrap:wrap">${AVATARS.map((e,k) => `<span onclick="avatarPick(${k})" style="width:40px;height:40px;border-radius:50%;background:${AV_COLORS[k]};display:inline-flex;align-items:center;justify-content:center;font-size:22px;cursor:pointer">${e}</span>`).join("")}</div></div></div>
+      <label>Full name</label><input id="r-name" value="${esc(r.name)}" placeholder="Your full name" autocomplete="name">
+      <label>Country</label><select id="r-country" onchange="regCountry()">${COUNTRIES.map(c => `<option ${c===r.country?"selected":""}>${c}</option>`).join("")}</select>
+      <label>${r.country === "Nigeria" ? "State" : "State or region"}</label>
+      ${r.country === "Nigeria" ? `<select id="r-state"><option value="">Select your state</option>${STATES.map(x => `<option ${x===r.state?"selected":""}>${x}</option>`).join("")}</select>` : `<input id="r-state" value="${esc(r.state)}" placeholder="Your state or region">`}
+      <label>Email address</label><input id="r-email" type="email" value="${esc(r.email)}" placeholder="you@example.com" autocomplete="email">
+      <label>Subject combination (choose up to ${MAX_SUBJECTS})</label>
+      <div class="chips">${SUBJECTS.map((x,i) => `<span class="chip ${r.subjects.indexOf(x)>=0?"on":""}" onclick="toggleSub(${i})">${r.subjects.indexOf(x)>=0 ? "✓ " : ""}${x}</span>`).join("")}</div>
+      <p><small>Selected ${r.subjects.length} of ${MAX_SUBJECTS}</small></p>
+      ${S.msg ? `<p style="color:var(--warn)">${S.msg}</p>` : ""}
+      <button onclick="saveProfile()">${S.editing ? "Save changes" : "Continue"}</button>
+      ${S.editing ? `<button class="alt" onclick="go('home')">Cancel</button>` : ""}</div>`;
+  }
+  if(S.view === "home"){
+    const p = profile() || {name:"Student",country:"",state:"",subjects:[]};
+    h += tabsHtml("");
+    h += `<div class="card"><div style="display:flex;gap:12px;align-items:center">${avatarHtml(p,56,true)}<div><b>👋 Hi, ${esc(String(p.name).split(" ")[0])}</b><br><small>${esc(p.state)}${p.state && p.country ? ", " : ""}${esc(p.country)}</small> <span class="tag">${isPaid() ? "Full access" : "Free plan"}</span></div></div>
+      ${S.msg ? `<p style="color:var(--warn)">${S.msg}</p>` : ""}
+      <div class="btnrow" style="margin-top:12px">${isPaid() ? `<button class="pill green" onclick="go('pay')">✅ Activated</button>` : `<button class="pill orange" onclick="go('pay')">🔑 Activate</button>`}<button class="pill green" onclick="go('support')">💬 Support</button></div></div>`;
+    const slides = TOP_SCORERS.map(t => `<div class="slide s4"><div class="scorer">${t.photo ? `<img src="${esc(t.photo)}" alt="">` : ""}<div><small>🏆 ${esc(t.year || "")} TOP SCORER</small><b>${esc(t.name)}</b><span>Score: ${esc(t.score)}${t.prize ? " • Prize: " + esc(t.prize) : ""}</span></div></div></div>`);
+    if(!slides.length) slides.push(`<div class="slide s4"><b>🏆 Be our next top scorer</b><span>Practise every day, take the mock exam and check your corrections.</span></div>`);
+    slides.push(`<div class="slide s1"><b>📖 Practice anytime</b><span>${totalQuestions().toLocaleString("en-US")} questions inside the app, with a solution after every answer.</span></div>`);
+    slides.push(`<div class="slide s2"><b>⭐ Novel library</b><span>The Lekki Headmaster and ${NOVELS.length-1} more novels, each with JAMB Novel Practice.</span></div>`);
+    slides.push(`<div class="slide s3"><b>🎓 UTME mock exam</b><span>Pick 4 subjects and sit a timed 2-hour exam like the real CBT.</span></div>`);
+    h += `<div class="banner">${slides.join("")}</div>`;
+    h += `<div class="tiles">
+      <div class="tile t1" onclick="go('practice')"><div class="ti">🚀</div><b>Practice</b><small>With exactly ${totalQuestions().toLocaleString("en-US")} questions offline</small></div>
+      <div class="tile t2" onclick="startMock()"><div class="ti">🎓</div><b>UTME Mock Exam</b><small>Timed CBT with your subjects</small></div>
+      <div class="tile t3" onclick="go('history')"><div class="ti">📊</div><b>Result History</b><small>Track your performance (${attempts().length})</small></div>
+      <div class="tile t4" onclick="go('analysis')"><div class="ti">📈</div><b>Performance Analysis</b><small>Insight on your results</small></div>
+      <div class="tile t5" onclick="go('games')"><div class="ti">🎮</div><b>Educational Games</b><small>Have fun while learning</small></div>
+      <div class="tile t6" onclick="startDaily()"><div class="ti">🏆</div><b>UTME Challenge</b><small>Today’s 10-question challenge</small></div>
+      <div class="tile t7" onclick="openBoard()"><div class="ti">🥇</div><b>Leaderboard</b><small>Your best scores</small></div>
+      <div class="tile t8" onclick="go('career')"><div class="ti">🧭</div><b>Career Guide</b><small>Subjects for popular courses</small></div>
+      <div class="tile t9" onclick="go('bookmarks')"><div class="ti">🔖</div><b>Bookmark</b><small>View bookmarked questions (${bms().length})</small></div>
+      <div class="tile t10" onclick="go('labs')"><div class="ti">🧪</div><b>Virtual Labs<span class="badge">New</span></b><small>Simulate science experiments</small></div>
+      <div class="tile t11" onclick="go('novels')"><div class="ti">📚</div><b>Novel Library</b><small>${NOVELS.length} novels and JAMB Novel Practice</small></div>
+      <div class="tile t12" onclick="go('search')"><div class="ti">🔍</div><b>Question Search</b><small>Search any question quickly</small></div>
+      <div class="tile t9" onclick="go('tutor')"><div class="ti">🤖</div><b>${AI_MODE !== "none" ? "AI Tutor" : "Study Helper"}</b><small>${AI_MODE !== "none" ? "Get step-by-step help" : "Find solved questions"}</small></div>
+      <div class="tile t3" onclick="openExam('WAEC')"><div class="ti">📘</div><b>WAEC Questions</b><small>Practice by subject and year</small></div>
+      <div class="tile t2" onclick="openExam('NECO')"><div class="ti">📗</div><b>NECO Questions</b><small>Practice by subject and year</small></div>
+      <div class="tile t5" onclick="openExam('GCE')"><div class="ti">📙</div><b>WAEC GCE Questions</b><small>Practice by subject and year</small></div></div>`;
+    if(typeof deferredPrompt !== "undefined" && deferredPrompt) h += `<button class="alt" onclick="installApp()">📲 Install the app</button>`;
+  }
+  if(S.view === "practice"){
+    const subs = mySubjects(); const cur = (S.cur && subs.indexOf(S.cur) >= 0) ? S.cur : subs[0];
+    h += tabsHtml(cur);
+    h += `<div class="card">
+      <span class="tag">${isPaid() ? "Full access" : "Free: " + FREE_LIMIT + " questions per subject"}</span>
+      <p>Choose a subject</p>
+      <select id="sub" onchange="fillYears()">${subs.map(x => `<option ${x===cur?"selected":""}>${esc(x)}</option>`).join("")}</select>
+      ${isPaid() ? `<p>Choose a year</p><select id="yr"></select><small id="setnote"></small>` : ""}
+      ${S.msg ? `<p style="color:var(--warn)">${S.msg}</p>` : ""}
+      <p><small>These are practice questions arranged by year. They are not the official JAMB past papers.</small></p>
+      <button onclick="start()">Start Practice</button>
+      ${isPaid() ? "" : `<button class="alt" onclick="go('pay')">🔓 Unlock all questions - ₦${CONFIG.price.toLocaleString()}</button>`}
+      <button class="alt" onclick="go('home')">Back to home</button>
+    </div>`;
+  }
+  if(S.view === "search"){
+    h += `<div class="card"><h2>🔍 Question search</h2><p><small>Type a word or phrase to find questions.</small></p>
+      <input id="sq" value="${esc(S.q || "")}" placeholder="e.g. photosynthesis" onkeydown="if(event.key==='Enter')doSearch()">
+      ${S.msg ? `<p style="color:var(--warn)">${S.msg}</p>` : ""}
+      <button onclick="doSearch()">Search</button>
+      <button class="alt" onclick="go('home')">Back to home</button></div>`;
+    if(S.res){
+      h += `<div class="card"><b>${S.total} match${S.total === 1 ? "" : "es"}</b>${S.total > S.res.length ? ` <small>(showing ${S.res.length})</small>` : ""}${isPaid() ? "" : `<p><small>🔒 Unlock the app to see answers and solutions in search.</small></p>`}</div>`;
+      S.res.forEach(r => {
+        h += `<div class="card"><small>${esc(r.l)} • ${esc(r.y)}</small><h3>${r.x.q}</h3>${isPaid() ? r.x.o.map((o,n) => `<div class="opt ${n===r.x.a?"right":""}">${"ABCDE"[n]}. ${o}${n===r.x.a?" ✔ correct":""}</div>`).join("") + `<div class="sol"><b>Solution:</b> ${r.x.s}</div>` : `<p><small>🔒 Unlock to see the answer and solution.</small></p>`}</div>`;
+      });
+    }
+  }
+  if(S.view === "quiz"){
+    const q = S.list[S.i], n = S.list.length;
+    const answered = S.answers.filter(x => x !== undefined).length;
+    const subs = []; S.list.forEach(x => { if(subs.indexOf(x.sub) < 0) subs.push(x.sub); });
+    const sel = S.answers[S.i];
+    const reveal = S.mode === "practice" && sel !== undefined;
+    const bm = isBookmarked(q);
+    h += `<div class="qbar"><button class="ib" onclick="askQuit()" aria-label="Back">←</button><button class="ib ${bm ? "on" : ""}" onclick="toggleBookmark()" aria-label="Bookmark">🔖</button><button class="ib ${S.tutor ? "on" : ""}" onclick="toggleTutor()" aria-label="Tutor">🤖</button><button class="ib" onclick="reportQ()" aria-label="Report">❗</button><button class="ib ${S.calc ? "on" : ""}" onclick="toggleCalc()" aria-label="Calculator">🧮</button><span class="timer" id="clock">${fmt(S.time)}</span></div>`;
+    h += `<div class="tabs">${subs.map((sb,k) => `<span class="tab ${sb === q.sub ? "on" : ""}" onclick="goSub(${k})">${esc(sb)}</span>`).join("")}</div>`;
+    h += `<div class="qrow"><button class="nx" onclick="prev()" aria-label="Previous">‹</button><span class="qpill">Question ${S.i+1}/${n} <button class="spk" onclick="speak()" aria-label="Read aloud">🔊</button></span><button class="nx" onclick="next()" aria-label="Next">›</button></div>`;
+    if(S.calc) h += calcHtml();
+    if(S.confirm === "submit") h += `<div class="card"><h3>Submit now?</h3><p>You have answered ${answered} of ${n} questions.${answered < n ? " Unanswered questions will count as wrong." : ""}</p><button onclick="finish()">Yes, submit</button><button class="alt" onclick="cancelConfirm()">Keep going</button></div>`;
+    if(S.confirm === "quit") h += `<div class="card"><h3>Leave this practice?</h3><p>Your answers will not be saved.</p><button onclick="doQuit()">Yes, go to main menu</button><button class="alt" onclick="cancelConfirm()">Stay here</button></div>`;
+    h += `<div class="card"><small>${esc(S.year)} • ${esc(q.sub)}${q.r ? " • JAMB past question" : ""}</small>${q.p ? `<div class="passage"><b>PASSAGE</b><p>${q.p}</p></div>` : ""}<h3>${q.q}</h3>
+      ${q.o.map((o,k) => { let c = "alt"; if(reveal){ if(k === q.a) c = "ok"; else if(k === sel) c = "bad"; } else if(sel === k) c = "sel"; return `<button class="${c}" onclick="pick(${k})">${"ABCDE"[k]}. ${o}</button>`; }).join("")}
+      ${reveal ? `<div class="sol"><b>Solution:</b> ${q.s}</div>` : ""}
+      ${S.tutor ? tutorPanel(q) : ""}
+      ${S.msg ? `<p><small>${S.msg}</small></p>` : ""}</div>`;
+    if(S.sheet){
+      h += `<div class="card"><b>Jump to a question</b><p><small>Green = answered. Orange outline = current.</small></p><div class="grid">${S.list.map((x,k) => `<button class="qn ${S.answers[k] !== undefined ? "a" : ""} ${k === S.i ? "c" : ""}" onclick="jump(${k})">${k+1}</button>`).join("")}</div></div>`;
+    }
+    h += `<div class="qnav3"><button class="alt" onclick="prev()">‹ Previous question</button><button class="alt" onclick="askQuit()">🏠 Main menu</button><button class="alt" onclick="next()">Next question ›</button></div>`;
+    h += `<div class="qfoot"><button class="qcount" onclick="toggleSheet()">⌃ ${answered}/${n}</button><button class="submit" onclick="askSubmit()">✔ Submit</button></div>`;
+  }
+  if(S.view === "result"){
+    const pct = Math.round(S.score / S.list.length * 100);
+    const subs = []; S.list.forEach(x => { if(subs.indexOf(x.sub) < 0) subs.push(x.sub); });
+    h += `<div class="card"><h2>Score: ${S.score} / ${S.list.length} (${pct}%)</h2>
+      ${subs.length > 1 ? subs.map(sb => { const idx = []; S.list.forEach((x,k) => { if(x.sub === sb) idx.push(k); }); const c = idx.filter(k => S.answers[k] === S.list[k].a).length; return `<p><b>${esc(sb)}</b>: ${c}/${idx.length}</p>`; }).join("") : ""}
+      ${(isPaid() || S.again) ? "" : `<p>You have used your free questions. You can repeat them as many times as you like, or unlock everything.</p><button onclick="go('pay')">Unlock all questions - ₦${CONFIG.price.toLocaleString()}</button>`}
+      <button onclick="openReview(${S.attemptId})">📝 Review my answers</button>
+      <button class="alt" onclick="start()">Repeat</button>
+      ${S.novel !== undefined ? `<button class="alt" onclick="openNovel(${S.novel})">📖 Back to the novel</button>` : ""}
+      <button class="alt" onclick="go('home')">Home</button></div>`;
+  }
+  if(S.view === "pay"){
+    h += `<div class="bankcard">
+      <svg class="bg" viewBox="0 0 400 260" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><g fill="#fff"><path d="M60 92 L200 28 L340 92 Z"/><rect x="60" y="92" width="280" height="14"/><rect x="76" y="108" width="26" height="96"/><rect x="118" y="108" width="26" height="96"/><rect x="160" y="108" width="26" height="96"/><rect x="214" y="108" width="26" height="96"/><rect x="256" y="108" width="26" height="96"/><rect x="298" y="108" width="26" height="96"/><rect x="48" y="204" width="304" height="12"/><rect x="28" y="216" width="344" height="12"/><rect x="8" y="228" width="384" height="32"/></g><circle cx="200" cy="66" r="15" fill="#0a3d62"/><text x="200" y="72" font-size="18" font-weight="bold" text-anchor="middle" fill="#fff">₦</text><g fill="#f1c40f"><circle cx="30" cy="40" r="16"/><circle cx="372" cy="60" r="12"/><circle cx="350" cy="20" r="9"/></g></svg>
+      <div class="in"><h2 style="margin:0">Activate Exam Dealer JAMB CBT 2027</h2><p style="margin:6px 0 0">Pay <b>₦${CONFIG.price.toLocaleString()}</b> once to unlock every question.</p>
+        <div class="brow"><small>Bank name</small><b>${CONFIG.bank}</b></div>
+        <div class="brow"><small>Account number</small><b>${CONFIG.acctNo}</b><br><button onclick="copyText('${CONFIG.acctNo}','Account number copied.')">📋 Copy account number</button></div>
+        <div class="brow"><small>Account name</small><b>${CONFIG.acctName}</b></div>
+        <div class="brow"><small>Amount</small><b>₦${CONFIG.price.toLocaleString()}</b></div></div></div>
+      <div class="card"><h3>How to activate</h3>
+        <p>1. Pay the amount to the account above.</p>
+        <p>2. Send your payment receipt and your Product Key (Device ID) to <b>${CONFIG.email}</b>.</p>
+        <p>3. You will get an activation code. Type it below.</p>
+        <p><b>Your Product Key:</b> <span style="font-size:20px;letter-spacing:2px">${deviceId()}</span></p>
+        <button class="alt" onclick="copyText('${deviceId()}','Product Key copied.')">📋 Copy my Product Key</button>
+        ${isPaid() ? `<p><b>✅ This phone is activated.</b></p>` : ""}
+        <label>Activation code</label><input id="code" placeholder="Enter activation code">
+        ${S.msg ? `<p style="color:var(--warn)">${S.msg}</p>` : ""}
+        <button onclick="unlock()">Unlock</button>
+        ${isPaid() ? `<button class="alt" onclick="deactivate()">Remove activation on this phone (for testing)</button>` : ""}
+        <button class="alt" onclick="go('home')">Back</button></div>`;
+  }
+  if(S.view === "logout"){
+    h += `<div class="card"><h2>🚪 Log out</h2><p>You will need to register again to use the app. Your activation stays on this phone.</p><button onclick="doLogout(false)">Log out and keep my results on this phone</button><button class="alt" onclick="doLogout(true)">Log out and delete my results and bookmarks</button><button class="alt" onclick="go('home')">Cancel</button></div>`;
+  }
+  if(S.view === "productkey"){
+    h += `<div class="card"><h2>🔑 Product Key</h2><p>This code identifies your phone. Send it with your payment receipt so you can get your activation code.</p><p style="font-size:26px;letter-spacing:3px"><b>${deviceId()}</b></p><button onclick="copyText('${deviceId()}','Product Key copied.')">📋 Copy Product Key</button><button class="alt" onclick="go('home')">Back</button></div>`;
+  }
+  if(S.view === "terms"){
+    h += `<div class="card"><h2>©️ License terms and privacy</h2><p><b>Licence.</b> Exam Dealer JAMB CBT 2027 is for your own study. Please do not copy, resell or share the app’s questions or activation codes.</p><p><b>Questions.</b> The questions are practice questions arranged by year. They are not the official JAMB past papers.</p><p><b>Your data.</b> Your name, country, state, email and subjects are saved on your phone. If the app owner has switched on online features, they are also sent to the owner’s online database, and your first name, state and points can appear on the leaderboard. Your email is never shown to other students.</p><p><b>Payments.</b> The app does not collect payment details. Pay only to the account shown on the Activation screen.</p><button class="alt" onclick="go('home')">Back</button></div>`;
+  }
+  if(S.view === "tutor"){
+    h += `<div class="card"><h2>🤖 ${AI_MODE !== "none" ? "AI Tutor" : "Study Helper"}</h2><p><small>${AI_MODE !== "none" ? "Ask a school question and get a step-by-step explanation." : "Type a question. The helper finds solved questions in the app that match it and can work out simple sums."}</small></p>
+      <textarea id="tq" rows="3" placeholder="Type your question, for example: Explain Ohm’s law with an example" style="width:100%;padding:12px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--fg);font-size:16px"></textarea>
+      <button onclick="tutorAsk()">Ask the tutor</button><button class="alt" onclick="go('home')">Back</button></div>`;
+    (S.chat || []).slice().reverse().forEach(c => { h += `<div class="card"><b>You:</b> ${esc(c.q)}<br><br><b>${c.ai ? "AI Tutor" : "Tutor"}:</b> ${esc(c.a).replace(/\n/g,"<br>")}</div>`; });
+  }
+  if(S.view === "history"){
+    const a = attempts();
+    const avg = a.length ? Math.round(a.reduce((n,x) => n + x.sc/x.t*100, 0)/a.length) : 0;
+    h += `<div class="card"><h2>📊 Score history</h2>
+      ${a.length ? `<p>${a.length} practice${a.length>1?"s":""} saved • Average ${avg}%</p>` : "<p>No practice saved yet. Finish a practice and it will appear here.</p>"}
+      ${a.map(x => { const p = Math.round(x.sc/x.t*100); return `<div class="item" onclick="openReview(${x.id})"><b>${x.s}</b> • ${x.y}<br><small>${x.d}</small><br>Score: <b class="${p>=50?"good":"badc"}">${x.sc}/${x.t} (${p}%)</b> <small>• tap to see corrections</small></div>`; }).join("")}
+      <button class="alt" onclick="go('home')">Back</button>${a.length ? `<button class="alt" onclick="clearHistory()">Clear history</button>` : ""}</div>`;
+  }
+  if(S.view === "review"){
+    const a = S.rv;
+    const wrong = a.qs.filter(q => q.p !== q.a).length;
+    h += `<div class="card"><h3>${a.s} • ${a.y}</h3><p>${a.d} • Score <b>${a.sc}/${a.t}</b> • ${wrong} to correct</p>
+      <button onclick="toggleWrong()">${S.onlyWrong ? "Show all questions" : "Show only wrong answers"}</button>
+      <button class="alt" onclick="go('history')">Back to history</button></div>`;
+    a.qs.forEach((q,i) => {
+      if(S.onlyWrong && q.p === q.a) return;
+      h += `<div class="card"><small>Question ${i+1}</small><h3>${q.q}</h3>${q.o.map((o,n) => `<div class="opt ${n===q.a?"right":(n===q.p?"wrong":"")}">${"ABCDE"[n]}. ${o}${n===q.a?" ✔ correct":""}${(n===q.p && n!==q.a)?" ✖ your answer":""}</div>`).join("")}${q.p===-1 ? `<p><small>You did not answer this question.</small></p>` : ""}<div class="sol"><b>Correction:</b> ${q.s}</div></div>`;
+    });
+  }
+  if(S.view === "novels"){
+    h += `<div class="card"><h2>📚 Novel library</h2><p><small>Short study summaries in my own words. Read the full novels from a book or library, and check your official JAMB or WAEC syllabus for the set texts.</small></p>
+      ${NOVELS.map((n,i) => `<button class="alt" onclick="openNovel(${i})">${n.tag ? "⭐ " : ""}${i+1}. ${n.t} — ${n.a}</button>`).join("")}
+      <button onclick="go('home')">Back</button></div>`;
+  }
+  if(S.view === "novel"){
+    const n = NOVELS[S.ni];
+    h += `<div class="card"><h2>${n.t}</h2>${n.tag ? `<p><span class="tag">⭐ ${n.tag}</span></p>` : ""}<p><b>Author:</b> ${n.a}${n.y ? `<br><b>Year:</b> ${n.y}` : ""}</p><p>${n.sum}</p><p><b>Themes:</b> ${n.th.join(", ")}</p><p><b>Main characters:</b> ${n.ch.join(", ")}</p>
+      ${chaptersHtml(n.t)}
+      <button onclick="startNovel(${S.ni})">📝 JAMB Novel Practice (${(PRACTICE[n.t] || []).length} questions)</button>
+      <p><small>You see the solution right after you answer each question.</small></p>
+      <div class="row"><button class="alt" onclick="openNovel(${(S.ni+NOVELS.length-1)%NOVELS.length})">◀ Previous</button><button class="alt" onclick="openNovel(${(S.ni+1)%NOVELS.length})">Next ▶</button></div>
+      <button onclick="go('novels')">All novels</button></div>`;
+  }
+  if(S.view === "support"){
+    const p = profile();
+    h += `<div class="card"><h2>💬 Support</h2><p>Need help with activation, payment or a question? Contact us:</p>
+      <p><b>${CONFIG.email}</b></p>
+      <button onclick="supportMail()">📧 Open my email app</button>
+      <button class="alt" onclick="copyEmail()">📋 Copy email address</button>
+      ${S.msg ? `<p><small>${S.msg}</small></p>` : ""}
+      <h3>Quick help</h3>
+      <p><b>How do I activate?</b><br>Tap Activate, pay as shown, then send your payment receipt and Device ID to the email above. You will receive your unlock code.</p>
+      <p><b>My Device ID</b><br>${deviceId()}</p>
+      <button class="alt" onclick="go('home')">Back</button></div>`;
+  }
+  if(S.view === "bookmarks"){
+    const b = bms();
+    h += `<div class="card"><h2>🔖 Bookmarked questions</h2>${b.length ? `<p>${b.length} saved</p><button onclick="practiceBm()">Practise these questions</button>` : "<p>No bookmarks yet. Tap the 🔖 button on any question to save it.</p>"}<button class="alt" onclick="go('home')">Back</button></div>`;
+    b.forEach((x,i) => {
+      h += `<div class="card"><small>${esc(x.sub || "")}</small>${x.p ? `<div class="passage"><b>PASSAGE</b><p>${x.p}</p></div>` : ""}<h3>${x.q}</h3>${x.o.map((o,k) => `<div class="opt ${k === x.a ? "right" : ""}">${"ABCDE"[k]}. ${o}${k === x.a ? " ✔ correct" : ""}</div>`).join("")}<div class="sol"><b>Solution:</b> ${x.s}</div><button class="alt" onclick="removeBm(${i})">Remove bookmark</button></div>`;
+    });
+  }
+  if(S.view === "analysis"){
+    const a = attempts();
+    h += `<div class="card"><h2>📈 Performance analysis</h2>`;
+    if(!a.length){ h += `<p>No practice saved yet. Finish a practice to see your analysis.</p>`; }
+    else {
+      const by = {};
+      a.forEach(x => { const k = x.s.indexOf("Novel: ") === 0 ? "Novel practice" : x.s; (by[k] = by[k] || []).push(Math.round(x.sc/x.t*100)); });
+      const rows = Object.keys(by).map(k => ({k:k, n:by[k].length, avg:Math.round(by[k].reduce((t,v) => t+v, 0)/by[k].length), best:Math.max.apply(null, by[k])}));
+      rows.sort((x,y) => x.avg - y.avg);
+      const overall = Math.round(a.reduce((n,x) => n + x.sc/x.t*100, 0)/a.length);
+      h += `<p>Overall average: <b>${overall}%</b> from ${a.length} practice${a.length > 1 ? "s" : ""}</p><p>Weakest: <b>${esc(rows[0].k)}</b> (${rows[0].avg}%)${rows.length > 1 ? `<br>Strongest: <b>${esc(rows[rows.length-1].k)}</b> (${rows[rows.length-1].avg}%)` : ""}</p>`;
+      rows.forEach(r => { h += `<div style="margin-top:10px"><small>${esc(r.k)} • ${r.n} practice${r.n > 1 ? "s" : ""} • best ${r.best}%</small><div class="bar"><div class="fill ${r.avg >= 50 ? "g" : "r"}" style="width:${r.avg}%"></div></div><small>Average ${r.avg}%</small></div>`; });
+      h += `<p><small>Latest scores (oldest to newest):</small><br>${a.slice(0,8).reverse().map(x => Math.round(x.sc/x.t*100) + "%").join(" → ")}</p>`;
+    }
+    h += `<button class="alt" onclick="go('home')">Back</button></div>`;
+  }
+  if(S.view === "games"){
+    h += `<div class="card"><h2>🎮 Educational games</h2><p><b>Speed Round</b><br>Answer as many questions as you can in 60 seconds from your subjects.</p><p>Best score: <b>${sget("chocos_game") || 0}</b></p><button onclick="startGame()">▶ Play Speed Round</button><button class="alt" onclick="go('home')">Back</button></div>`;
+  }
+  if(S.view === "game"){
+    const q = S.q;
+    h += `<div class="qbar"><button class="ib" onclick="goBack()" aria-label="Back">←</button><span class="qpill" style="flex:1">Score ${S.score} • Answered ${S.done}</span><span class="timer" id="clock">${fmt(S.time)}</span></div>`;
+    h += `<div class="card"><small>${esc(q.sub)}</small><h3>${q.q}</h3>${q.o.map((o,k) => { let c = "alt"; if(S.fb !== null){ if(k === q.a) c = "ok"; else if(k === S.fb) c = "bad"; } return `<button class="${c}" onclick="gameAnswer(${k})">${"ABCDE"[k]}. ${o}</button>`; }).join("")}</div>`;
+  }
+  if(S.view === "gameover"){
+    h += `<div class="card"><h2>⏱ Time up!</h2><p>You scored <b>${S.score}</b> from ${S.done} questions.</p><p>Best score: <b>${S.best}</b></p><button onclick="startGame()">Play again</button><button class="alt" onclick="go('games')">Back to games</button></div>`;
+  }
+  if(S.view === "leaderboard"){
+    const a = attempts(); const best = {};
+    a.forEach(x => { const k = x.s; const pc = Math.round(x.sc/x.t*100); if(!best[k] || pc > best[k]) best[k] = pc; });
+    const rows = Object.keys(best).map(k => ({k:k, p:best[k]})).sort((x,y) => y.p - x.p).slice(0,10);
+    h += `<div class="card"><h2>🥇 Leaderboard</h2>`;
+    if(FB.ready){
+      h += `<h3>🌍 Top students</h3>${S.board ? (S.board.length ? S.board.map((b,i) => `<p>${i+1}. <b>${esc(b.name || "Student")}</b>${b.state ? " (" + esc(b.state) + ")" : ""} — ${b.points || 0} points</p>`).join("") : "<p>No scores yet.</p>") : "<p>Loading…</p>"}`;
+    } else { h += `<p><small>The online leaderboard is not switched on in this version. Your own best scores are below.</small></p>`; }
+    h += `<h3>Your best scores</h3>${rows.length ? rows.map((r,i) => `<p>${i+1}. <b>${esc(r.k)}</b> — ${r.p}%</p>`).join("") : "<p>No scores yet. Finish a practice to see your best scores here.</p>"}<button class="alt" onclick="go('home')">Back</button></div>`;
+  }
+  if(S.view === "career"){
+    const C = [["Medicine and Surgery","English, Biology, Chemistry, Physics"],["Pharmacy","English, Biology, Chemistry, Physics"],["Nursing Science","English, Biology, Chemistry, Physics"],["Engineering (most types)","English, Mathematics, Physics, Chemistry"],["Computer Science","English, Mathematics, Physics, plus one of Chemistry, Biology, Economics, Geography or Agricultural Science"],["Accounting and Banking and Finance","English, Mathematics, Economics, plus one of Commerce, Financial Accounting, Government or Geography"],["Economics","English, Mathematics, Economics, plus one of Government, Geography or Commerce"],["Law","English, Literature in English, Government, plus CRS or IRS (some schools accept Economics or Commerce)"],["Mass Communication","English, Literature in English, Government, plus one of CRS, IRS, Economics or Commerce"],["Agriculture","English, Chemistry, Biology or Agricultural Science, plus Physics or Mathematics"]];
+    h += `<div class="card"><h2>🧭 Career guide</h2><p><small>A general guide only. Every university and course sets its own requirements. Always confirm in the current JAMB brochure for your school.</small></p>${C.map(c => `<p><b>${c[0]}</b><br>${c[1]}</p>`).join("")}<button class="alt" onclick="go('home')">Back</button></div>`;
+  }
+  if(S.view === "labs"){
+    const ls = S.ls || "Physics";
+    h += `<div class="card"><h2>🧪 Virtual labs</h2><p><small>30 experiments in each subject. Move the sliders and watch the results.</small></p><div class="chips" style="margin-bottom:8px">${["Physics","Chemistry","Biology"].map(n => `<span class="chip ${n === ls ? "on" : ""}" onclick="labSub('${n}')">${n}</span>`).join("")}</div>
+      ${LABS.map((L,i) => L.s === ls ? `<button class="alt" onclick="labOpen(${i})">${LABS.filter((x,j) => j <= i && x.s === ls).length}. ${L.t}</button>` : "").join("")}
+      <button class="alt" onclick="go('home')">Back</button></div>`;
+  }
+  if(S.view === "lab"){
+    const L = LABS[S.lab];
+    h += `<div class="card"><small>${L.s}</small><h2>${L.t}</h2><p><b>${L.d}</b></p>
+      ${L.c.map(c => c.sel ? `<label>${c.l}</label><select onchange="labSet('${c.k}',this.value)">${c.sel.map(o => `<option ${o === S.vals[c.k] ? "selected" : ""}>${o}</option>`).join("")}</select>` : `<label>${c.l}: <b id="lv_${c.k}">${S.vals[c.k]}</b> ${c.u || ""}</label><input type="range" min="${c.min}" max="${c.max}" step="${c.st}" value="${S.vals[c.k]}" oninput="labSet('${c.k}',this.value)">`).join("")}
+      <div id="labout" style="margin-top:12px"></div>
+      ${(L.p || L.cv) ? `<svg id="labplot" viewBox="0 0 300 172" width="100%" role="img" aria-label="Graph"></svg>` : ""}
+      ${L.n ? `<div class="sol"><b>Observe:</b> ${L.n}</div>` : ""}
+      <button class="alt" onclick="go('labs')">Back to labs</button></div>`;
+  }
+  if(S.view === "exam"){
+    const E = EXAMS[S.ex];
+    h += `<div class="card"><span class="tag">${isPaid() ? "Full access" : "Free: " + FREE_LIMIT + " questions per subject"}</span><h2>${E.name} questions</h2>
+      <p>Choose a subject</p><select id="exsub" onchange="fillExam()">${SUBJECTS.map(x => `<option ${x === (S.cur || SUBJECTS[0]) ? "selected" : ""}>${esc(x)}</option>`).join("")}</select>
+      ${isPaid() ? `<p>Choose a year</p><select id="exyr"></select><small id="exnote"></small>` : ""}
+      ${S.msg ? `<p style="color:var(--warn)">${S.msg}</p>` : ""}
+      <p><small>${E.note} They are not the official papers. Each paper has up to 50 questions.</small></p>
+      <button onclick="startExamFromUI('practice')">Start practice (solutions after each answer)</button>
+      <button class="alt" onclick="startExamFromUI('exam')">Start a timed exam</button>
+      ${isPaid() ? "" : `<button class="alt" onclick="go('pay')">🔓 Unlock all questions - ₦${CONFIG.price.toLocaleString()}</button>`}
+      <button class="alt" onclick="go('home')">Back to home</button></div>`;
+  }
+  if(S.view === "linkpage"){
+    const L = S.lp;
+    h += `<div class="card"><h2>${L.title}</h2><p>${esc(L.text)}</p>
+      <a class="pill green" href="${esc(L.url)}" target="_blank" rel="noopener" style="display:block;margin:12px 0;padding:14px;border-radius:30px;text-align:center;color:#fff;font-weight:bold;text-decoration:none">${L.label}</a>
+      <button class="alt" onclick="copyText(${JSON.stringify(L.copy).replace(/"/g,"&quot;")},'Copied.')">📋 Copy ${L.copy === L.url ? "the link" : "the message"}</button>
+      <p><small>If the button does not open, copy the link and paste it in your browser or WhatsApp.</small></p>
+      <button class="alt" onclick="go('home')">Back</button></div>`;
+  }
+  if(menuOpen) h += drawerHtml();
+  if(S.toast) h += `<div class="toast">${esc(S.toast)}</div>`;
+  const hd = document.querySelector ? document.querySelector("header") : null;
+  if(hd) hd.style.display = (S.view === "splash") ? "none" : "";
+  const bb = document.getElementById ? document.getElementById("backbtn") : null;
+  if(bb && bb.style) bb.style.display = (["splash","home","quiz"].indexOf(S.view) >= 0 || (S.view === "register" && !S.editing)) ? "none" : "flex";
+  const mb = document.getElementById ? document.getElementById("menubtn") : null;
+  if(mb && mb.style) mb.style.display = (["splash","quiz"].indexOf(S.view) >= 0 || (S.view === "register" && !S.editing)) ? "none" : "flex";
+  app.innerHTML = h;
+  if(S.view === "practice") fillYears();
+  if(S.view === "exam") fillExam();
+  if(S.view === "lab") labUpdate();
+}
+let deferredPrompt = null;
+window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); deferredPrompt = e; if(S.view==="home") render(); });
+window.addEventListener("appinstalled", () => { deferredPrompt = null; if(S.view==="home") render(); });
+function installApp(){ if(!deferredPrompt) return; deferredPrompt.prompt(); deferredPrompt = null; render(); }
+if("serviceWorker" in navigator && location.protocol.indexOf("http")===0){ navigator.serviceWorker.register("sw.js").catch(()=>{}); }
+
+render();
+</script>
+</body>
+</html>
